@@ -49,7 +49,10 @@ typedef enum
 	SHKPendingNone,
 	SHKPendingShare, //when ShareKit detects invalid credentials BEFORE user sends. User continues editing share content after login.
 	SHKPendingRefreshToken, //when OAuth token expires
-    SHKPendingSend, //when ShareKit detects invalid credentials AFTER user sends. Item is resent without showing edit dialogue (user edited already). 
+    SHKPendingSend, //when ShareKit detects invalid credentials AFTER user sends. Item is resent without showing edit dialogue (user edited already).
+    //CONDUIT **************start*
+    SHKPendingLogin
+    //**********************end***
 } SHKSharerPendingAction;
 
 @interface SHKSharer : UINavigationController

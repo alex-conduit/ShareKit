@@ -36,7 +36,17 @@ typedef enum
 	SHKShareTypeText,
 	SHKShareTypeImage,
 	SHKShareTypeFile,
-    SHKShareTypeUserInfo
+    SHKShareTypeUserInfo,
+
+    //CONDUIT **************start*
+    SHKFacebookLike,
+    SHKFacebookUnLike,
+    SHKFacebookComment,
+    SHKFacebookDialogWithHtml,
+    SHKFacebookLogin,
+    SHKShareTypeUserInfoForFacebookLogin
+    //**********************end***
+
 } SHKShareType;
 
 typedef enum 
@@ -46,11 +56,34 @@ typedef enum
     SHKURLContentTypeAudio,
     SHKURLContentTypeVideo,
     SHKURLContentTypeImage,
+    
+    //CONDUIT **************start*
+    SHKURLFacebookLike,
+    SHKURLFacebookUnLike,
+    SHKURLFacebookComment,
+    SHKURLFacebookDialogWithHtml,
+    SHKURLFacebookLogin
+    //**********************end***
+
 } SHKURLContentType;
+
+
+//CONDUIT **************start*
+@interface SHKItem_ShareInfo : NSObject <NSCoding> {
+    
+    NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
+}
+@property (nonatomic, copy) NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
+@end
+//**********************end***
 
 @interface SHKItem : NSObject
 
 @property (nonatomic) SHKShareType shareType;
+
+//CONDUIT **************start*
+@property (nonatomic, retain) SHKItem_ShareInfo *shareInfo;
+//**********************end***
 
 @property (nonatomic, retain)	NSURL *URL;
 @property (nonatomic) SHKURLContentType URLContentType;
@@ -76,6 +109,10 @@ typedef enum
 + (id)image:(UIImage *)image title:(NSString *)title;
 + (id)text:(NSString *)text;
 + (id)file:(NSData *)data filename:(NSString *)filename mimeType:(NSString *)mimeType title:(NSString *)title;
+
+//CONDUIT **************start*
++ (id)ShareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type;
+//**********************end***
 
 /*** custom value methods ***/
 

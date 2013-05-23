@@ -804,6 +804,9 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 - (void)tryPendingAction
 {
+    //CONDUIT ************start*
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //********************end***
 	switch (self.pendingAction)
 	{
 		case SHKPendingRefreshToken:
@@ -823,6 +826,27 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
             //to show alert if reshare finishes with error (see SHKSharerDelegate)
             self.pendingAction = SHKPendingNone;
 			break;
+            
+        //CONDUIT ************start*
+        case SHKPendingLogin:
+        {
+            if ([NSStringFromClass([self class]) isEqualToString:@"SHKLinkedIn"])
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@TRUE forKey:@"result"];
+                [dict setObject:self.item.tags forKey:@"notification"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title object: nil userInfo:dict];
+            }
+            else if ([NSStringFromClass([self class]) isEqualToString:@"SHKFacebook"])
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookAccessToken"] forKey:@"AccessToken"];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookExpiryDate"] forKey:@"ExpiryDate"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"FacebookConnectPlugin_fbDidLogin" object: nil userInfo:dict];
+            }
+        }
+        //********************end***
+
 		default:
 			break;
 	}

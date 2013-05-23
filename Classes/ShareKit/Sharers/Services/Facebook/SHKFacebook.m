@@ -264,9 +264,67 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 #pragma mark -
 #pragma mark Authentication
 
+//CONDUIT **************start*
+- (void) authorizeFBwithPermissions:(NSMutableArray*) permisions urlSchemeSuffix: (NSString*) urlSchemeSuffix completion: (void (^)(id objectResponse, BOOL success)) completionHandler {
+    _completionHandlerForAuthorize = completionHandler;
+    self.pendingAction = SHKPendingLogin;
+	if ([self isAuthorized])
+    {
+        if (_completionHandlerForAuthorize)
+        {
+            //send a response
+            BOOL bResult = [FBSession.activeSession isOpen];
+            _completionHandlerForAuthorize((bResult) ? FBSession.activeSession.accessTokenData.dictionary : nil, bResult);
+            _completionHandlerForAuthorize = nil;
+        }
+    }
+	else
+    {
+        
+		[self promptAuthorization:permisions urlSchemeSuffix: urlSchemeSuffix];
+	}
+}
+
+- (void)promptAuthorization: (NSMutableArray*) permisions urlSchemeSuffix: (NSString*) urlSchemeSuffix
+{
+    BOOL allowLoginUI = NO;
+    FBSession *session = [[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
+                                                permissions:permisions
+                                                urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
+                                                tokenCacheStrategy:nil] autorelease];
+    
+    if (allowLoginUI || (session.state == FBSessionStateCreatedTokenLoaded)) {
+        
+		if (allowLoginUI) [[SHKActivityIndicator currentIndicator] displayActivity:SHKLocalizedString(@"Logging In...")];
+        
+        [FBSession setActiveSession:session];
+        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
+				completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+					if (allowLoginUI)
+                        [[SHKActivityIndicator currentIndicator] hide];
+					[self sessionStateChanged:session state:state error:error];
+                    
+                    if (_completionHandlerForAuthorize)
+                    {
+                        //send a response
+                        BOOL bResult = (session.isOpen);
+                        _completionHandlerForAuthorize((bResult) ? FBSession.activeSession.accessTokenData.dictionary : nil, bResult);
+                        _completionHandlerForAuthorize = nil;
+                    }
+				}];
+    }
+}
+//**********************end***
+
+
 - (BOOL)isAuthorized
-{	  
-	return [self openSessionWithAllowLoginUI:NO];
+{
+    //CONDUIT **************start*
+//	return [self openSessionWithAllowLoginUI:YES];
+    //**********************end***
+
+    return [self openSessionWithAllowLoginUI:NO];
+
 }
 
 - (void)promptAuthorization

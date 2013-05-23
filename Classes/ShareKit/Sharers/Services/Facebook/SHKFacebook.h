@@ -32,6 +32,11 @@
 
 @interface SHKFacebook : SHKSharer <SHKFormControllerLargeTextFieldDelegate>{
 	NSMutableSet* pendingConnections;	// use a set so that connections can only be added once
+    
+    //CONDUIT **************start*
+    void (^_completionHandlerForAuthorize)(id objectResponse, BOOL success);
+    //**********************end***
+
 }
 @property (readonly,retain) NSMutableSet* pendingConnections; // sub classes can use the set
 
@@ -44,4 +49,9 @@
 // keep in mind of you add requests as a subclass, you need to cancel them yourself and remove
 // them from the pending set. The base version will cancel anything that responds to the cancel selector
 - (void)cancelPendingRequests;
+
+//CONDUIT **************start*
+- (void) authorizeFBwithPermissions:(NSMutableArray*) permisions urlSchemeSuffix: (NSString*) urlSchemeSuffix completion: (void (^)(id objectResponse, BOOL success)) completionHandler;
+//**********************end***
+
 @end
