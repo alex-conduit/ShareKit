@@ -79,10 +79,16 @@
     return @"651258972991.apps.googleusercontent.com";
 }
 
-// Read It Later - http://readitlaterlist.com/api/signup/ 
-- (NSString*)readItLaterKey {
-	return @"45aT6Vfvg66eWNebybd680gu13pdba3d";
+//Pocket v3 consumer key. http://getpocket.com/developer/apps/. If you have old read it later app, you should obtain new key.
+- (NSString *)pocketConsumerKey {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return @"14225-bdc4f6b29cd76ce0603638e8";
+    } else {
+        return @"14225-3e2ae99c6fc078de5496577c";
+    }
 }
+
 // Diigo - http://diigo.com/api_dev
 -(NSString*)diigoKey {
   return @"f401ddc3546cdf3c";
@@ -242,6 +248,52 @@
 - (NSString *)plurkCallbackURL {
   return @"https://github.com/ShareKit/ShareKit";
 }
+
+// Dropbox - https://www.dropbox.com/developers/apps
+- (NSString *) dropboxAppKey {
+    return @"n18olaziz6f8752";
+}
+- (NSString *) dropboxAppSecret {
+    return @"6cjsemxx6i2qdvc";
+}
+
+/*
+ This setting should correspond with permission type set during your app registration with Dropbox. You can choose from these two values:
+ @"sandbox" (set if you chose permission type "App folder" == kDBRootAppFolder. You will have access only to the app folder you set in  https://www.dropbox.com/developers/apps)
+ @"dropbox" (set if you chose permission type "Full dropbox" == kDBRootDropbox)
+ */
+- (NSString *) dropboxRootFolder {
+    return @"dropbox";
+}
+-(BOOL)dropboxShouldOverwriteExistedFile {
+    return NO;
+}
+-(NSString *)youTubeConsumerKey
+{
+    return @"210716542944.apps.googleusercontent.com";
+}
+
+-(NSString *)youTubeSecret
+{
+    return @"aaHCtV3LhzFE6XSFcKobb7HU";
+}
+
+// Buffer
+/*
+ 1 - Set up an app at https://bufferapp.com/developers/apps/create
+ 2 - Once the app is set up this requires a URL Scheme to be set up within your apps info.plist. bufferXXXX where XXXX is your client ID, this will enable Buffer authentication.
+ */
+
+- (NSString*)bufferClientID
+{
+	return @"518cdcb0872cad4744000038";
+}
+
+- (NSString*)bufferClientSecret
+{
+	return @"1bf70db9032207624e2ad58fb24b1593";
+}
+
 
 /*
  UI Configuration : Basic

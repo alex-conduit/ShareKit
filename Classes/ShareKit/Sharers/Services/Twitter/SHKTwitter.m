@@ -107,14 +107,6 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 }
 
 #pragma mark -
-#pragma mark Configuration : Dynamic Enable
-
-- (BOOL)shouldAutoShare
-{
-	return NO;
-}
-
-#pragma mark -
 #pragma mark Commit Share
 
 - (void)share {
@@ -130,6 +122,7 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 	}
 	else
 	{
+        [self prepareItem];
         [super share];
 	}
 }
@@ -178,19 +171,23 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 	{
 		status = self.item.shareType == SHKShareTypeText ? self.item.text : self.item.title;
 	}
-
-	NSString *hashtags = [self tagStringJoinedBy:@" " allowedCharacters:[NSCharacterSet alphanumericCharacterSet]
-	                                   tagPrefix:@"#" tagSuffix:nil];
-	if ([hashtags length] > 0)
-	{
-		status = [NSString stringWithFormat:@"%@ %@", status, hashtags];
-	}
+	
+	//Only add the additional tags / URL if user has authorized his account
+	if(self.isAuthorized) {
+		NSString *hashtags = [self tagStringJoinedBy:@" " allowedCharacters:[NSCharacterSet alphanumericCharacterSet]
+		                                   tagPrefix:@"#" tagSuffix:nil];
+		if ([hashtags length] > 0)
+		{
+			status = [NSString stringWithFormat:@"%@ %@", status, hashtags];
+		}
     
-    if (self.item.URL)
-    {
-        NSString *URLstring = [self.item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        status = [NSString stringWithFormat:@"%@ %@", status, URLstring];
-    }
+		if (self.item.URL)
+		{
+			NSString *URLstring = [self.item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			status = [NSString stringWithFormat:@"%@ %@", status, URLstring];
+		}	
+	}
+	
     
 	[self.item setCustomValue:status forKey:@"status"];
 }
@@ -268,7 +265,16 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 																							value:@"client_auth"] autorelease];
 		
 		[oRequest setParameters:[NSArray arrayWithObjects:username, password, mode, nil]];
-	}
+	} else {
+        if (self.pendingAction == SHKPendingRefreshToken)
+        {
+            if (accessToken.sessionHandle != nil)
+                [oRequest setOAuthParameterName:@"oauth_session_handle" withValue:accessToken.sessionHandle];
+        }
+		
+        else
+            [oRequest setOAuthParameterName:@"oauth_verifier" withValue:[authorizeResponseQueryVars objectForKey:@"oauth_verifier"]];
+    }
 }
 
 - (void)tokenAccessTicket:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data 
@@ -300,8 +306,6 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 
 - (void)show
 {
-	[self prepareItem];
-    
     if (self.item.shareType == SHKShareTypeUserInfo)
 	{
 		[self setQuiet:YES];
@@ -341,16 +345,16 @@ static NSString *const kSHKTwitterUserInfo=@"kSHKTwitterUserInfo";
 
 - (BOOL)validateItem {
 	
-	BOOL result = NO;
-	
+	if (self.item.shareType == SHKShareTypeUserInfo) return YES;
+    
 	BOOL isValid = [super validateItem];
 	NSString *status = [self.item customValueForKey:@"status"];
 	
-	if (isValid && status.length <= 140 && status.length > 0) {
-		result = YES;
-	}
-	
-	return result;
+	if (isValid && 0 < status.length && status.length <= 140) {
+		return YES;
+	} else {
+        return NO;
+    }
 }
 
 - (BOOL)send

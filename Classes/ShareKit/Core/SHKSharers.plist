@@ -25,7 +25,8 @@
 		<string>SHKGooglePlus</string>
 		<string>SHKFacebook</string>
 		<string>SHKVkontakte</string>
-		<string>SHKReadItLater</string>
+		<string>SHKBuffer</string>
+		<string>SHKPocket</string>
 		<string>SHKInstapaper</string>
 		<string>SHKTumblr</string>
 		<string>SHKFlickr</string>
@@ -35,6 +36,8 @@
 		<string>SHKSinaWeibo</string>
 		<string>SHKHatena</string>
 		<string>SHKPlurk</string>
+		<string>SHKDropbox</string>
+		<string>SHKYouTube</string>
 	</array>
 </dict>
 </plist>

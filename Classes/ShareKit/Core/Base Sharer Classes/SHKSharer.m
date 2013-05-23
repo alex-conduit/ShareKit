@@ -100,7 +100,7 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 	return NO;
 }
 
-+ (BOOL)canShareFileOfMimeType:(NSString *)mimeType size:(NSUInteger)size
++ (BOOL)canShareFile:(SHKFile *)file;
 {
 	return NO;
 }
@@ -139,7 +139,7 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 			return [self canShareText];
 			
 		case SHKShareTypeFile:
-			return [self canShareFileOfMimeType:item.mimeType size:[item.data length]];
+			return [self canShareFile:item.file];
             
         case SHKShareTypeUserInfo:
 			return [self canGetUserInfo];
@@ -172,7 +172,6 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 	return [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@_shouldAutoShare", [self sharerId]]];
 }
 
-
 #pragma mark -
 #pragma mark Initialization
 
@@ -181,7 +180,6 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 	if (self = [super initWithNibName:nil bundle:nil])
 	{
 		self.shareDelegate = [[[SHKSharerDelegate alloc] init] autorelease];
-		self.item = [[[SHKItem alloc] init] autorelease];
 				
 		if ([self respondsToSelector:@selector(modalPresentationStyle)])
 			self.modalPresentationStyle = [SHK modalPresentationStyleForController:self];
@@ -225,11 +223,11 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 + (id)shareURL:(NSURL *)url title:(NSString *)title
 {
-	// Create controller and set share options
+    SHKItem *item = [SHKItem URL:url title:title contentType:SHKURLContentTypeWebpage];
+    
+    // Create controller and set share options
 	SHKSharer *controller = [[self alloc] init];
-	controller.item.shareType = SHKShareTypeURL;
-	controller.item.URL = url;
-	controller.item.title = title;
+    [controller loadItem:item];
 
 	// share and/or show UI
 	[controller share];
@@ -239,11 +237,11 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 + (id)shareImage:(UIImage *)image title:(NSString *)title
 {
-	// Create controller and set share options
+    SHKItem *item = [SHKItem image:image title:title];
+	
+    // Create controller and set share options
 	SHKSharer *controller = [[self alloc] init];
-	controller.item.shareType = SHKShareTypeImage;
-	controller.item.image = image;
-	controller.item.title = title;
+    [controller loadItem:item];
 	
 	// share and/or show UI
 	[controller share];
@@ -253,10 +251,10 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 + (id)shareText:(NSString *)text
 {
-	// Create controller and set share options
+	SHKItem *item = [SHKItem text:text];
+    // Create controller and set share options
 	SHKSharer *controller = [[self alloc] init];
-	controller.item.shareType = SHKShareTypeText;
-	controller.item.text = text;
+    [controller loadItem:item];
 	
 	// share and/or show UI
 	[controller share];
@@ -266,13 +264,30 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 + (id)shareFile:(NSData *)file filename:(NSString *)filename mimeType:(NSString *)mimeType title:(NSString *)title
 {
-	// Create controller and set share options
+    return [[self class] shareFileData:file filename:filename title:title];
+}
+
++ (id)shareFileData:(NSData *)data filename:(NSString *)filename title:(NSString *)title
+{
+    SHKItem *item = [SHKItem fileData:data filename:filename title:title];
+    
+    // Create controller and set share options
 	SHKSharer *controller = [[self alloc] init];
-	controller.item.shareType = SHKShareTypeFile;
-	controller.item.data = file;
-	controller.item.filename = filename;
-	controller.item.mimeType = mimeType;
-	controller.item.title = title;
+    [controller loadItem:item];
+	
+	// share and/or show UI
+	[controller share];
+	
+	return [controller autorelease];
+}
+
++ (id)shareFilePath:(NSString *)path title:(NSString *)title
+{
+    SHKItem *item = [SHKItem filePath:path title:title];
+    
+    // Create controller and set share options
+	SHKSharer *controller = [[self alloc] init];
+    [controller loadItem:item];
 	
 	// share and/or show UI
 	[controller share];
@@ -282,9 +297,13 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 + (id)getUserInfo
 {
+    SHKItem *item = [[SHKItem alloc] init];
+    item.shareType = SHKShareTypeUserInfo;
+    
     // Create controller and set share options
 	SHKSharer *controller = [[self alloc] init];
-	controller.item.shareType = SHKShareTypeUserInfo;
+	controller.item = item;
+    [item release];
     
 	// share and/or show UI
 	[controller share];
@@ -301,7 +320,7 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
     
 	if (storedShareInfo)
 	{
-		self.item = [SHKItem itemFromDictionary:[storedShareInfo objectForKey:kSHKStoredItemKey]];
+        self.item = [NSKeyedUnarchiver unarchiveObjectWithData:[storedShareInfo objectForKey:kSHKStoredItemKey]];
 		self.pendingAction = [[storedShareInfo objectForKey:kSHKStoredActionKey] intValue];
         [[self class] clearSavedItem];
     }
@@ -317,8 +336,10 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 - (void)saveItemForLater:(SHKSharerPendingAction)inPendingAction {
     
-	NSDictionary *itemRep = [self.item dictionaryRepresentation];
-    NSDictionary *shareInfo = @{kSHKStoredItemKey: itemRep,
+    if (!self.item) return;
+    
+    NSData *itemData = [NSKeyedArchiver archivedDataWithRootObject:self.item];
+    NSDictionary *shareInfo = @{kSHKStoredItemKey: itemData,
                                kSHKStoredActionKey : [NSNumber numberWithInt:inPendingAction]};
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -372,7 +393,12 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
             self.item.URL = newURL;
         }
 	}
-    [self show];
+    
+    if ([self shouldShareSilently]) {
+        [self tryToSend];
+    } else {
+        [self show];
+    }
 }
 
 #pragma mark -
@@ -381,24 +407,29 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 - (void)share
 {
 	// isAuthorized - If service requires login and details have not been saved, present login dialog	
-	if (![self authorize])
-		self.pendingAction = SHKPendingShare;
-
-	// A. First check if auto share is set and isn't nobbled off	
-	// B. If it is, try to send
-	// If either A or B fail, display the UI
-    
-    //TODO make this more readable and fix tryToSend failback
-	else if ([SHKCONFIG(allowAutoShare) boolValue] == FALSE ||	// this calls show and would skip try to send... but for sharers with no UI, try to send gets called in show
-			 ![self shouldAutoShare] || 
-			 ![self tryToSend]) {
+	if (![self authorize]) {
         
-        if (self.item.URL && [self requiresShortenedURL]) {
-            [self shortenURL];
-        } else {
-            [self show];
-        }        
+		self.pendingAction = SHKPendingShare;
+        return;
     }
+    
+    BOOL shouldShortenURL = self.item.URL && [self requiresShortenedURL];
+    if (shouldShortenURL) {
+        [self shortenURL];
+        return;
+    }
+    
+    if ([self shouldShareSilently]) {
+        [self tryToSend];
+    } else {
+        [self show];
+    }
+}
+
+- (BOOL)shouldShareSilently {
+    
+    BOOL result = [SHKCONFIG(allowAutoShare) boolValue] == TRUE && [self shouldAutoShare];
+    return result;
 }
 
 #pragma mark -
@@ -617,12 +648,14 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 
 - (NSArray *)shareFormFieldsForType:(SHKShareType)type
 {
-	if (type == SHKShareTypeURL)
-		return [NSArray arrayWithObjects:
-				[SHKFormFieldSettings label:SHKLocalizedString(@"Title") key:@"title" type:SHKFormFieldTypeText start:self.item.title],
-				nil];
-	
-	return nil;
+	//this is abstract method. Services which do not present their own UI should override this to present SHKFormController e.g like this
+    
+    /*	if (type == SHKShareTypeURL)
+     return [NSArray arrayWithObjects:
+     [SHKFormFieldSettings label:SHKLocalizedString(@"Title") key:@"title" type:SHKFormFieldTypeText start:self.item.title],
+     nil];*/
+    
+    return nil;
 }
 
 - (void)shareFormValidate:(SHKFormController *)form
@@ -752,13 +785,10 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 			return (self.item.text != nil);
 			
 		case SHKShareTypeFile:
-			return (self.item.data != nil);
+			return (self.item.file != nil);
             
         case SHKShareTypeUserInfo:
-        {    
-            BOOL result = [[self class] canGetUserInfo];
-            return result; 
-        }   
+            return [[self class] canGetUserInfo];
 		default:
 			break;
 	}

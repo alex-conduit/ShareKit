@@ -30,7 +30,7 @@
  ------
  To show ShareKit specific debug output in the console, define _SHKDebugShowLogs (uncomment next line).
  */
-//#define _SHKDebugShowLogs
+#define _SHKDebugShowLogs
 
 #ifdef _SHKDebugShowLogs
 #define SHKDebugShowLogs			1
@@ -42,6 +42,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SHKFile;
+
 @interface DefaultSHKConfigurator : NSObject 
 
 - (NSString*)appName;
@@ -49,15 +51,16 @@
 - (NSArray*)defaultFavoriteURLSharers;
 - (NSArray*)defaultFavoriteImageSharers;
 - (NSArray*)defaultFavoriteTextSharers;
-- (NSArray*)defaultFavoriteFileSharers __attribute__((deprecated("use defaultFavoriteSharersForMimeType: instead")));
-- (NSArray*)defaultFavoriteSharersForMimeType:(NSString *)mimeType;
+- (NSArray*)defaultFavoriteFileSharers __attribute__((deprecated("use defaultFavoriteSharersForFile: instead")));
+- (NSArray*)defaultFavoriteSharersForMimeType:(NSString *)mimeType __attribute__((deprecated("use defaultFavoriteSharersForFile: instead")));
+- (NSArray*)defaultFavoriteSharersForFile:(SHKFile *)file;
 - (NSString*)vkontakteAppId;
 - (NSString*)facebookAppId;
 - (NSString*)facebookLocalAppId;
 - (NSArray*)facebookWritePermissions;
 - (NSArray*)facebookReadPermissions;
 - (NSNumber*)forcePreIOS6FacebookPosting;
-- (NSString*)readItLaterKey;
+- (NSString *)pocketConsumerKey;
 - (NSString*)diigoKey;
 - (NSNumber*)forcePreIOS5TwitterAccess;
 - (NSString*)googlePlusClientId;
@@ -91,6 +94,10 @@
 - (NSString *)plurkAppKey;
 - (NSString *)plurkAppSecret;
 - (NSString *)plurkCallbackURL;
+- (NSNumber*)instagramLetterBoxImages;
+- (UIColor*)instagramLetterBoxColor;
+- (NSString*)youTubeConsumerKey;
+- (NSString*)youTubeSecret;
 - (NSNumber*)shareMenuAlphabeticalOrder;
 - (NSString*)barStyle;
 - (UIColor*)barTintForView:(UIViewController*)vc;
@@ -126,4 +133,9 @@
 - (NSArray *)textMessageToRecipients;
 //SHKInstagram and future others
 -(NSString*) popOverSourceRect;
+//SHKDropbox
+-(NSString *)dropboxAppKey;
+-(NSString *)dropboxAppSecret;
+-(NSString *)dropboxRootFolder;
+-(BOOL)dropboxShouldOverwriteExistedFile;
 @end
