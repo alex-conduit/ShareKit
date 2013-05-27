@@ -29,6 +29,7 @@
 #import "SHKActivityIndicator.h"
 #import "SHKConfiguration.h"
 #import "SHKSharerDelegate.h"
+#import "NSData+md5.h"
 
 static NSString *const kSHKStoredItemKey=@"kSHKStoredItem";
 static NSString *const kSHKStoredActionKey=@"kSHKStoredAction";
@@ -789,6 +790,18 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
             
         case SHKShareTypeUserInfo:
             return [[self class] canGetUserInfo];
+            
+        //CONDUIT **************start*
+		case SHKFacebookComment:
+			return (self.item.text != nil);
+        case SHKFacebookLike:
+			return (self.item.title != nil);
+        case SHKFacebookUnLike:
+			return (self.item.title != nil);
+        case SHKFacebookGraphAPIRequest:
+			return (self.item.text != nil);
+        //**********************end***
+
 		default:
 			break;
 	}
@@ -904,6 +917,75 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 {	
 	[[NSNotificationCenter defaultCenter] postNotificationName:SHKSendDidFinishNotification object:self];
 
+    //CONDUIT
+    //*******************************************
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([NSStringFromClass([self class]) isEqualToString:@"SHKLinkedIn"] )
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:self.item.text forKey:@"result"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title object:nil userInfo:dict];
+    }
+    else if ([NSStringFromClass([self class]) isEqualToString:@"SHKFacebook"])
+    {
+        switch (self.item.shareType) {
+            case SHKFacebookLike:
+            case SHKFacebookUnLike:
+            case SHKFacebookComment:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@TRUE forKey:@"result"];
+                if (self.item.shareType == SHKFacebookComment && self.item.facebookURLShareDescription)
+                {
+                    NSMutableDictionary *dictRequest = [[NSUserDefaults standardUserDefaults] objectForKey:@"kSHKFacebookRequestData"];
+                    [dict setObject:self.item.facebookURLShareDescription forKey:@"comment"];
+                    if (dictRequest)
+                        [dict setObject:dictRequest forKey:@"request"];
+                }
+                [[NSNotificationCenter defaultCenter] postNotificationName:[self.item.title md5]  object:nil userInfo:dict];
+                break;
+            }
+            case SHKShareTypeUserInfo:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookUserInfo"] forKey:@"result"];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookAccessToken"] forKey:@"access_token"];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookExpiryDate"] forKey:@"expiry_date"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title object:nil userInfo:dict];
+                break;
+            }
+            case SHKFacebookGraphAPIRequest:
+            {
+                if ([self.item.tags count] > 0)
+                {
+                    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                    [dict setObject:[self.item.tags objectAtIndex:0] forKey:@"result"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title  object:nil userInfo:dict];
+                }
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    else
+    {
+        switch (self.item.shareType) {
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@(!self.quiet) forKey:@"result"];
+                [dict setObject:NSStringFromClass([self class]) forKey:@"sharer"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    //*******************************************
+    
     if ([self.shareDelegate respondsToSelector:@selector(sharerFinishedSending:)])
 		[self.shareDelegate performSelector:@selector(sharerFinishedSending:) withObject:self];
 	}
@@ -939,6 +1021,51 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
     
 	if ([self.shareDelegate respondsToSelector:@selector(sharer:failedWithError:shouldRelogin:)])
 		[self.shareDelegate sharer:self failedWithError:error shouldRelogin:shouldRelogin];
+    
+    //CONDUIT
+    //*******************************************
+    if ([NSStringFromClass([self class]) isEqualToString:@"SHKFacebook"])
+    {
+        switch (self.item.shareType) {
+            case SHKFacebookLike:
+            case SHKFacebookUnLike:
+            case SHKFacebookComment:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:@"sendDidFailWithError" forKey:@"function"];
+                [dict setObject:[self.request description] forKey:@"error"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[self.item.title md5] object:nil userInfo:dict];
+                break;
+            }
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:NSStringFromClass([self class]) forKey:@"sharer"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    else
+    {
+        switch (self.item.shareType) {
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:NSStringFromClass([self class]) forKey:@"sharer"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    //*******************************************
 }
 
 - (void)sendDidCancel
@@ -946,7 +1073,52 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 	[[NSNotificationCenter defaultCenter] postNotificationName:SHKSendDidCancelNotification object:self];
     
     if ([self.shareDelegate respondsToSelector:@selector(sharerCancelledSending:)])
-		[self.shareDelegate performSelector:@selector(sharerCancelledSending:) withObject:self];	
+		[self.shareDelegate performSelector:@selector(sharerCancelledSending:) withObject:self];
+    
+    //CONDUIT
+    //*******************************************
+    if ([NSStringFromClass([self class]) isEqualToString:@"SHKFacebook"])
+    {
+        switch (self.item.shareType) {
+            case SHKFacebookLike:
+            case SHKFacebookUnLike:
+            case SHKFacebookComment:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:@"sendDidCancel" forKey:@"function"];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:[self.item.title md5] object:nil userInfo:dict];
+                break;
+            }
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:NSStringFromClass([self class]) forKey:@"sharer"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    else
+    {
+        switch (self.item.shareType) {
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@FALSE forKey:@"result"];
+                [dict setObject:NSStringFromClass([self class]) forKey:@"sharer"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    //*******************************************
 }
 
 - (void)authDidFinish:(BOOL)success	
@@ -956,6 +1128,31 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
     if ([self.shareDelegate respondsToSelector:@selector(sharerAuthDidFinish:success:)]) {		
         [self.shareDelegate sharerAuthDidFinish:self success:success];
     }
+    
+    //CONDUIT
+    //*******************************************
+    if ([NSStringFromClass([self class]) isEqualToString:@"SHKLinkedIn"])
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:[NSString stringWithFormat:@"%d", success] forKey:@"result"];
+        [dict setObject:self.item.tags forKey:@"notification"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title object:nil userInfo:dict];
+    }
+    
+    if (!success && [NSStringFromClass([self class]) isEqualToString:@"SHKFacebook"])
+    {
+        if (self.item.shareType == SHKFacebookLike
+            || self.item.shareType == SHKFacebookUnLike
+            || self.item.shareType == SHKFacebookComment)
+        {
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setObject:@FALSE forKey:@"result"];
+            [dict setObject:@"sendDidCancel" forKey:@"function"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:[self.item.title md5] object:nil userInfo:dict];
+        }
+    }
+    //*******************************************
 }
 
 - (void)authShowBadCredentialsAlert {

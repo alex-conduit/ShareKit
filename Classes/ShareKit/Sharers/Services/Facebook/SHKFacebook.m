@@ -279,59 +279,6 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 #pragma mark -
 #pragma mark Authentication
 
-//CONDUIT **************start*
-- (void) authorizeFBwithPermissions:(NSMutableArray*) permisions urlSchemeSuffix: (NSString*) urlSchemeSuffix completion: (void (^)(id objectResponse, BOOL success)) completionHandler {
-    _completionHandlerForAuthorize = completionHandler;
-    self.pendingAction = SHKPendingLogin;
-	if ([self isAuthorized])
-    {
-        if (_completionHandlerForAuthorize)
-        {
-            //send a response
-            BOOL bResult = [FBSession.activeSession isOpen];
-            _completionHandlerForAuthorize((bResult) ? FBSession.activeSession.accessTokenData.dictionary : nil, bResult);
-            _completionHandlerForAuthorize = nil;
-        }
-    }
-	else
-    {
-        
-		[self promptAuthorization:permisions urlSchemeSuffix: urlSchemeSuffix];
-	}
-}
-
-- (void)promptAuthorization: (NSMutableArray*) permisions urlSchemeSuffix: (NSString*) urlSchemeSuffix
-{
-    BOOL allowLoginUI = NO;
-    FBSession *session = [[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
-                                                permissions:permisions
-                                                urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
-                                                tokenCacheStrategy:nil] autorelease];
-    
-    if (allowLoginUI || (session.state == FBSessionStateCreatedTokenLoaded)) {
-        
-		if (allowLoginUI) [[SHKActivityIndicator currentIndicator] displayActivity:SHKLocalizedString(@"Logging In...")];
-        
-        [FBSession setActiveSession:session];
-        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
-				completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
-					if (allowLoginUI)
-                        [[SHKActivityIndicator currentIndicator] hide];
-					[self sessionStateChanged:session state:state error:error];
-                    
-                    if (_completionHandlerForAuthorize)
-                    {
-                        //send a response
-                        BOOL bResult = (session.isOpen);
-                        _completionHandlerForAuthorize((bResult) ? FBSession.activeSession.accessTokenData.dictionary : nil, bResult);
-                        _completionHandlerForAuthorize = nil;
-                    }
-				}];
-    }
-}
-//**********************end***
-
-
 - (BOOL)isAuthorized
 {
     //CONDUIT **************start*
@@ -388,7 +335,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
         return NO;
     
 	if (NSClassFromString(@"SLComposeViewController"))
-		return YES;
+		return NO;
 	
 	return NO;
 }
@@ -468,10 +415,14 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 	// you properly deal with closing the session. For the moment we can close the session when these complete
 	// and get un-retained by the session state callback.
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
-	NSString *actions = [NSString stringWithFormat:@"{\"name\":\"%@ %@\",\"link\":\"%@\"}",
-						 SHKLocalizedString(@"Get"), SHKCONFIG(appName), SHKCONFIG(appURL)];
-	[params setObject:actions forKey:@"actions"];
-	
+
+    //CONDUIT
+    //*******************************************
+//	NSString *actions = [NSString stringWithFormat:@"{\"name\":\"%@ %@\",\"link\":\"%@\"}",
+//						 SHKLocalizedString(@"Get"), SHKCONFIG(appName), SHKCONFIG(appURL)];
+//	[params setObject:actions forKey:@"actions"];
+    //*******************************************
+
 	if (self.item.shareType == SHKShareTypeURL || self.item.shareType == SHKShareTypeText)
 	{
         if (self.item.URL) {
@@ -557,6 +508,57 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 		}];
 		[self.pendingConnections addObject:con];
 	}
+    //CONDUIT
+    //*******************************************
+    else if (self.item.shareType == SHKFacebookLike)
+    {
+        FBRequestConnection* con = [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/likes", self.item.title]
+                                                                parameters:params
+                                                                HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                                                    [self FBRequestHandlerCallback:connection result:result error:error];
+                                                                }];
+        [self.pendingConnections addObject:con];
+    }
+    else if (self.item.shareType == SHKFacebookUnLike)
+    {
+        FBRequestConnection* con = [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/likes", self.item.title]
+                                                                parameters:params
+                                                                HTTPMethod:@"DELETE" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                                                    [self FBRequestHandlerCallback:connection result:result error:error];
+                                                                }];
+        [self.pendingConnections addObject:con];
+    }
+    else if (self.item.shareType == SHKFacebookComment)
+    {
+        if (self.item.text)
+        {
+            [params setObject:self.item.text forKey:@"message"];
+            FBRequestConnection* con = [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/comments", self.item.title]
+                                                                    parameters:params
+                                                                    HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                                                        [self FBRequestHandlerCallback:connection result:result error:error];
+                                                                    }];
+            [self.pendingConnections addObject:con];
+        }
+    }
+    else if (self.item.shareType == SHKFacebookGraphAPIRequest)
+    {
+        if (self.item.text)
+        {
+            [self setQuiet:YES];
+            [params removeAllObjects];
+            FBRequestConnection* con = [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@", self.item.text]
+                                                                    parameters:params
+                                                                    HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                                                        [self FBRequestHandlerCallback:connection result:result error:error];
+                                                                    }];
+            [self.pendingConnections addObject:con];
+        }
+    }
+    
+    //*******************************************
+
+    
     [self sendDidStart];
 }
 
@@ -620,6 +622,27 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 	}else{
 		[result convertNSNullsToEmptyStrings];
 		[[NSUserDefaults standardUserDefaults] setObject:result forKey:kSHKFacebookUserInfo];
+        //CONDUIT
+        //*******************************************
+        if ([connection respondsToSelector:@selector(requests)])
+        {
+            NSMutableArray *arrRequests = [connection performSelector:@selector(requests)];
+            if ([arrRequests isKindOfClass:[NSArray class]])
+                if (arrRequests.count > 0)
+                {
+                    id requestMetadata = [arrRequests objectAtIndex:0];
+                    if ([requestMetadata respondsToSelector:@selector(request)])
+                    {
+                        FBRequest *request = [requestMetadata performSelector:@selector(request)];
+                        [[NSUserDefaults standardUserDefaults] setObject:[request.parameters objectForKey:@"access_token"] forKey:@"kSHKFacebookAccessToken"];
+                        [[NSUserDefaults standardUserDefaults] setObject:[NSDate dateWithTimeIntervalSinceNow:604800] forKey:@"kSHKFacebookExpiryDate"];
+
+                    }
+                }
+        }
+        
+        //*******************************************
+
 		[self sendDidFinish];
 	}
 	[FBSession.activeSession close];	// unhook us
@@ -649,6 +672,14 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 			[FBSession.activeSession close];	// unhook us
 		}
 	}else{
+        
+        //CONDUIT
+        //*******************************************
+        if (self.item.shareType == SHKFacebookGraphAPIRequest)
+        {
+            self.item.tags = [NSMutableArray arrayWithObject:result];
+        }
+        //*******************************************
 		[self sendDidFinish];
 		[FBSession.activeSession close];	// unhook us
 	}

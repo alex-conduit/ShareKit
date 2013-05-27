@@ -71,6 +71,15 @@ static SHKConfiguration *sharedInstance = nil;
             if ([delegate respondsToSelector:@selector(share_getFBAppSuffix)])
                 return [delegate performSelector:@selector(share_getFBAppSuffix)];
         }
+        
+        if ([selector isEqualToString:@"facebookReadPermissions"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getFBPermissions)])
+                return [delegate performSelector:@selector(share_getFBPermissions)];
+        }
+        
+        
         //**********************end***
 
         

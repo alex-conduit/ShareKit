@@ -44,20 +44,20 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 //CONDUIT **************start*
 @implementation SHKItem_ShareInfo
 
-@synthesize comment, emailBody, emailSubject, fbDesc, shortDesc, title, twitterFrom, twitterTitle, url, userImageUrl, picture;
-
 - (void) encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:comment forKey:@"comment"];
-    [encoder encodeObject:emailBody forKey:@"emailBody"];
-    [encoder encodeObject:emailSubject forKey:@"emailSubject"];
-    [encoder encodeObject:fbDesc forKey:@"fbDesc"];
-    [encoder encodeObject:shortDesc forKey:@"shortDesc"];
-    [encoder encodeObject:title forKey:@"title"];
-    [encoder encodeObject:twitterFrom forKey:@"twitterFrom"];
-    [encoder encodeObject:twitterTitle forKey:@"twitterTitle"];
-    [encoder encodeObject:url forKey:@"url"];
-    [encoder encodeObject:userImageUrl forKey:@"userImageUrl"];
-    [encoder encodeObject:picture forKey:@"picture"];
+    [encoder encodeObject:_comment forKey:@"comment"];
+    [encoder encodeObject:_emailBody forKey:@"emailBody"];
+    [encoder encodeObject:_emailSubject forKey:@"emailSubject"];
+    [encoder encodeObject:_fbDesc forKey:@"fbDesc"];
+    [encoder encodeObject:_shortDesc forKey:@"shortDesc"];
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_twitterFrom forKey:@"twitterFrom"];
+    [encoder encodeObject:_twitterTitle forKey:@"twitterTitle"];
+    [encoder encodeObject:_url forKey:@"url"];
+    [encoder encodeObject:_userImageUrl forKey:@"userImageUrl"];
+    [encoder encodeObject:_picture forKey:@"picture"];
+    [encoder encodeObject:_image forKey:@"image"];
+
 }
 
 - (id) initWithCoder: (NSCoder *) decoder {
@@ -73,6 +73,8 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
         self.url = [decoder decodeObjectForKey: @"url"];
         self.userImageUrl = [decoder decodeObjectForKey: @"userImageUrl"];
         self.picture = [decoder decodeObjectForKey: @"picture"];
+        self.image = [decoder decodeObjectForKey: @"image"];
+
     }
     return (self);
 }
@@ -133,7 +135,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 }
 
 //CONDUIT **************start*
-+ (id)ShareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type {
++ (id)shareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type {
     SHKItem *item = [[self alloc] init];
 	item.shareType = SHKShareTypeURL;
     if (type == SHKURLFacebookLike)
@@ -144,8 +146,12 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
         item.shareType = SHKFacebookComment;
     else if (type == SHKURLFacebookDialogWithHtml)
         item.shareType = SHKFacebookDialogWithHtml;
-    else if (type == SHKURLFacebookLogin)
-        item.shareType = SHKFacebookLogin;
+    else if (type == SHKURLContentTypeImage)
+    {
+        item.shareType = SHKShareTypeImage;
+        item.image = shareInfo.image;
+    }
+
     item.URLContentType = type;
 	item.shareInfo = shareInfo;
     item.title = shareInfo.title;

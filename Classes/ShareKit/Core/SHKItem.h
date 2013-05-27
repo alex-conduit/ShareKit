@@ -44,8 +44,7 @@ typedef enum
     SHKFacebookUnLike,
     SHKFacebookComment,
     SHKFacebookDialogWithHtml,
-    SHKFacebookLogin,
-    SHKShareTypeUserInfoForFacebookLogin
+    SHKFacebookGraphAPIRequest
     //**********************end***
     
 } SHKShareType;
@@ -78,9 +77,9 @@ typedef enum
 //CONDUIT **************start*
 @interface SHKItem_ShareInfo : NSObject <NSCoding> {
     
-    NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
 }
-@property (nonatomic, copy) NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
 @end
 //**********************end***
 
@@ -101,7 +100,8 @@ typedef enum
 /*** creation methods ***/
 
 //CONDUIT **************start*
-+ (id)ShareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type;
++ (id)shareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type;
+@property (nonatomic, retain) SHKItem_ShareInfo *shareInfo;
 //**********************end***
 
 /* always use these for SHKItem object creation, as they implicitly set appropriate SHKShareType. Items without SHKShareType will not be shared! */
