@@ -41,6 +41,47 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 
 @end
 
+//CONDUIT **************start*
+@implementation SHKItem_ShareInfo
+
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_comment forKey:@"comment"];
+    [encoder encodeObject:_emailBody forKey:@"emailBody"];
+    [encoder encodeObject:_emailSubject forKey:@"emailSubject"];
+    [encoder encodeObject:_fbDesc forKey:@"fbDesc"];
+    [encoder encodeObject:_shortDesc forKey:@"shortDesc"];
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_twitterFrom forKey:@"twitterFrom"];
+    [encoder encodeObject:_twitterTitle forKey:@"twitterTitle"];
+    [encoder encodeObject:_url forKey:@"url"];
+    [encoder encodeObject:_userImageUrl forKey:@"userImageUrl"];
+    [encoder encodeObject:_picture forKey:@"picture"];
+    [encoder encodeObject:_image forKey:@"image"];
+
+}
+
+- (id) initWithCoder: (NSCoder *) decoder {
+    if (self = [super init]) {
+        self.comment = [decoder decodeObjectForKey: @"comment"];
+        self.emailBody = [decoder decodeObjectForKey: @"emailBody"];
+        self.emailSubject = [decoder decodeObjectForKey: @"emailSubject"];
+        self.fbDesc = [decoder decodeObjectForKey: @"fbDesc"];
+        self.shortDesc = [decoder decodeObjectForKey: @"shortDesc"];
+        self.title = [decoder decodeObjectForKey: @"title"];
+        self.twitterFrom = [decoder decodeObjectForKey: @"twitterFrom"];
+        self.twitterTitle = [decoder decodeObjectForKey: @"twitterTitle"];
+        self.url = [decoder decodeObjectForKey: @"url"];
+        self.userImageUrl = [decoder decodeObjectForKey: @"userImageUrl"];
+        self.picture = [decoder decodeObjectForKey: @"picture"];
+        self.image = [decoder decodeObjectForKey: @"image"];
+
+    }
+    return (self);
+}
+
+@end
+//**********************end***
+
 @implementation SHKItem
 
 - (void)dealloc
@@ -92,6 +133,35 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     _textMessageToRecipients = [SHKCONFIG(textMessageToRecipients) retain];
 	_popOverSourceRect = CGRectFromString(SHKCONFIG(popOverSourceRect));
 }
+
+//CONDUIT **************start*
++ (id)shareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type {
+    SHKItem *item = [[self alloc] init];
+	item.shareType = SHKShareTypeURL;
+    if (type == SHKURLFacebookLike)
+        item.shareType = SHKFacebookLike;
+    else if (type == SHKURLFacebookUnLike)
+        item.shareType = SHKFacebookUnLike;
+    else if (type == SHKURLFacebookComment)
+        item.shareType = SHKFacebookComment;
+    else if (type == SHKURLFacebookDialogWithHtml)
+        item.shareType = SHKFacebookDialogWithHtml;
+    else if (type == SHKURLContentTypeImage)
+    {
+        item.shareType = SHKShareTypeImage;
+        item.image = shareInfo.image;
+    }
+
+    item.URLContentType = type;
+	item.shareInfo = shareInfo;
+    item.title = shareInfo.title;
+    item.URL = [NSURL URLWithString: shareInfo.url];
+    item.text = shareInfo.fbDesc;
+    item.facebookURLShareDescription = shareInfo.fbDesc;
+    //item.facebookURLSharePictureURI = shareInfo.picture;
+	return [item autorelease];
+}
+//**********************end***
 
 + (id)URL:(NSURL *)url
 {

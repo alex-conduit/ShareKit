@@ -44,4 +44,5 @@
 // keep in mind of you add requests as a subclass, you need to cancel them yourself and remove
 // them from the pending set. The base version will cancel anything that responds to the cancel selector
 - (void)cancelPendingRequests;
+
 @end
