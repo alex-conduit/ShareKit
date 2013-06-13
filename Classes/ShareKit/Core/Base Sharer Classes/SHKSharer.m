@@ -949,7 +949,7 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
             case SHKShareTypeUserInfo:
             {
                 NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                [dict setObject:[defaults objectForKey:@"kSHKFacebookUserInfo"] forKey:@"result"];
+                [dict setObject:[defaults objectForKey:@"kSHKFacebookUserInfo"] forKey:@"userInfo"];
                 [dict setObject:[defaults objectForKey:@"kSHKFacebookAccessToken"] forKey:@"access_token"];
                 [dict setObject:[defaults objectForKey:@"kSHKFacebookExpiryDate"] forKey:@"expiry_date"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:self.item.title object:nil userInfo:dict];

@@ -89,6 +89,109 @@
 		1D62B4071751E84600B78844 /* SHKOAuthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FA11DBE3B9004A1712 /* SHKOAuthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D62B4081751E84600B78844 /* SHKShareMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FC11DBE3B9004A1712 /* SHKShareMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D62B4091751E84600B78844 /* SHKReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536B311DBE3B9004A1712 /* SHKReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8591769F61300CE81EF /* DummyLibFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8DC7B165B549B004D99D2 /* DummyLibFile.m */; };
+		1DE0E85E1769F61300CE81EF /* libBuffer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 949BCB8C172A993000D706D4 /* libBuffer.a */; };
+		1DE0E85F1769F61300CE81EF /* libGTLTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AECF2EE171D4679000722FA /* libGTLTouchStaticLib.a */; };
+		1DE0E8621769F61300CE81EF /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6C09F316122ED90023EE48 /* libfacebook_ios_sdk.a */; };
+		1DE0E8691769F61300CE81EF /* libReadability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A49DBC316BC193E004B7E78 /* libReadability.a */; };
+		1DE0E86A1769F61300CE81EF /* libCopy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECD2162F0756009D46E4 /* libCopy.a */; };
+		1DE0E86D1769F61300CE81EF /* libEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECDB162F0779009D46E4 /* libEmail.a */; };
+		1DE0E8701769F61300CE81EF /* libFacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBED37162F0B65009D46E4 /* libFacebook.a */; };
+		1DE0E8751769F61300CE81EF /* libInstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A16F3C216134A890019645D /* libInstagram.a */; };
+		1DE0E8771769F61300CE81EF /* libLinkedIn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBED6B162F0C03009D46E4 /* libLinkedIn.a */; };
+		1DE0E8781769F61300CE81EF /* libLogout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECC9162F0719009D46E4 /* libLogout.a */; };
+		1DE0E8791769F61300CE81EF /* libOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A16F37E161340DD0019645D /* libOAuth.a */; };
+		1DE0E87A1769F61300CE81EF /* libOpen in Safari.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECE4162F07B4009D46E4 /* libOpen in Safari.a */; };
+		1DE0E87C1769F61300CE81EF /* libPrint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECBE162F063F009D46E4 /* libPrint.a */; };
+		1DE0E87D1769F61300CE81EF /* libReachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1AFCD1160E123C0086B98A /* libReachability.a */; };
+		1DE0E87E1769F61300CE81EF /* libSave to Album.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECED162F07DF009D46E4 /* libSave to Album.a */; };
+		1DE0E87F1769F61300CE81EF /* libShareKitCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0F9246156BA2A0009CB40A /* libShareKitCore.a */; };
+		1DE0E8811769F61300CE81EF /* libSSKeyChain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1AFCC0160E11F90086B98A /* libSSKeyChain.a */; };
+		1DE0E8821769F61300CE81EF /* libText Message.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECF6162F080F009D46E4 /* libText Message.a */; };
+		1DE0E8841769F61300CE81EF /* libTwitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1AFD3A160E14340086B98A /* libTwitter.a */; };
+		1DE0E8871769F61300CE81EF /* SHK.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A611DBE3B9004A1712 /* SHK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8881769F61300CE81EF /* SHKOfflineSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536AA11DBE3B9004A1712 /* SHKOfflineSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8891769F61300CE81EF /* SHKOAuthSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5367411DBE3B9004A1712 /* SHKOAuthSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88A1769F61300CE81EF /* SHKSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5367611DBE3B9004A1712 /* SHKSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88B1769F61300CE81EF /* SHKSharerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A36F42514B2021100372747 /* SHKSharerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88C1769F61300CE81EF /* SHKiOSSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A56BFBF1659173D00134F04 /* SHKiOSSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88D1769F61300CE81EF /* SHKiOSSharer_Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A56BFD716591D5500134F04 /* SHKiOSSharer_Protected.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88E1769F61300CE81EF /* GTMNSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 427FBAED15934A0D0024F825 /* GTMNSString+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E88F1769F61300CE81EF /* NSData+md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 4379F2E81291AE5700D2A41E /* NSData+md5.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8901769F61300CE81EF /* NSHTTPCookieStorage+DeleteForURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A333EE314CC5B9D0060900C /* NSHTTPCookieStorage+DeleteForURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8911769F61300CE81EF /* NSMutableDictionary+NSNullsToEmptyStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A25903514CD4E8000FBA124 /* NSMutableDictionary+NSNullsToEmptyStrings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8921769F61300CE81EF /* UIWebView+SHK.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5367911DBE3B9004A1712 /* UIWebView+SHK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8931769F61300CE81EF /* NSData+SaveItemAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD9861B16E78D730052A5B8 /* NSData+SaveItemAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8941769F61300CE81EF /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = A57772B214BA0748003FC744 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8951769F61300CE81EF /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A26E5B4156CD8A70011E15F /* Base64Transcoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8961769F61300CE81EF /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A26E5B6156CD8A70011E15F /* hmac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8971769F61300CE81EF /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A26E5B8156CD8A70011E15F /* sha1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8981769F61300CE81EF /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368111DBE3B9004A1712 /* NSMutableURLRequest+Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8991769F61300CE81EF /* NSString+URLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368311DBE3B9004A1712 /* NSString+URLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89A1769F61300CE81EF /* NSURL+Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368511DBE3B9004A1712 /* NSURL+Base.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89B1769F61300CE81EF /* OAAsynchronousDataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368E11DBE3B9004A1712 /* OAAsynchronousDataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89C1769F61300CE81EF /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369011DBE3B9004A1712 /* OAConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89D1769F61300CE81EF /* OADataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369211DBE3B9004A1712 /* OADataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89E1769F61300CE81EF /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E89F1769F61300CE81EF /* OAMutableURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369611DBE3B9004A1712 /* OAMutableURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A01769F61300CE81EF /* OAPlaintextSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369811DBE3B9004A1712 /* OAPlaintextSignatureProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A11769F61300CE81EF /* OARequestParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369C11DBE3B9004A1712 /* OARequestParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A21769F61300CE81EF /* OAServiceTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369E11DBE3B9004A1712 /* OAServiceTicket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A31769F61300CE81EF /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A011DBE3B9004A1712 /* OASignatureProviding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A41769F61300CE81EF /* OAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A111DBE3B9004A1712 /* OAToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A51769F61300CE81EF /* OAuthConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A311DBE3B9004A1712 /* OAuthConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A61769F61300CE81EF /* SHKItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A811DBE3B9004A1712 /* SHKItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A71769F61300CE81EF /* SHKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3A0D81170CBDD300A0B717 /* SHKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A81769F61300CE81EF /* SHKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A411DBE3B9004A1712 /* SHKRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8A91769F61300CE81EF /* SHKXMLResponseParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB5FAB314D30AC700795BA9 /* SHKXMLResponseParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AA1769F61300CE81EF /* Singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A74C18616E8A64400CFDFC3 /* Singleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AB1769F61300CE81EF /* SHKCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536B811DBE3B9004A1712 /* SHKCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AC1769F61300CE81EF /* SHKMail.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536BB11DBE3B9004A1712 /* SHKMail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AD1769F61300CE81EF /* SHKLogout.h in Headers */ = {isa = PBXBuildFile; fileRef = E68738BE1416795C00D8C3DD /* SHKLogout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AE1769F61300CE81EF /* SHKSafari.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536BE11DBE3B9004A1712 /* SHKSafari.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8AF1769F61300CE81EF /* SHKPrint.h in Headers */ = {isa = PBXBuildFile; fileRef = BA465F1D14CC3C5A00B52394 /* SHKPrint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B01769F61300CE81EF /* SHKTextMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4379F3B01291C45700D2A41E /* SHKTextMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B11769F61300CE81EF /* DefaultSHKConfigurator.h in Headers */ = {isa = PBXBuildFile; fileRef = AAACE01513CCB1F500A2118F /* DefaultSHKConfigurator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B21769F61300CE81EF /* SHKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = AAACE01913CCB1F500A2118F /* SHKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B31769F61300CE81EF /* SHKBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 949BCB95172A99AF00D706D4 /* SHKBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B41769F61300CE81EF /* BufferSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 94CC28FE1745399400C31CD8 /* BufferSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B51769F61300CE81EF /* SHKDelicious.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A0F91CD156B9FF2009CB40A /* SHKDelicious.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B61769F61300CE81EF /* SHKDiigo.h in Headers */ = {isa = PBXBuildFile; fileRef = B7EFCD8A14C6B966004910F1 /* SHKDiigo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B71769F61300CE81EF /* SHKDropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C0516F3319800FF692B /* SHKDropbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B81769F61300CE81EF /* SHKEvernote.h in Headers */ = {isa = PBXBuildFile; fileRef = 4379F2B01291AC9700D2A41E /* SHKEvernote.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8B91769F61300CE81EF /* SHKFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536DC11DBE3B9004A1712 /* SHKFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BA1769F61300CE81EF /* SHKiOSFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A56BFD816591FE000134F04 /* SHKiOSFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BB1769F61300CE81EF /* SHKFlickr.h in Headers */ = {isa = PBXBuildFile; fileRef = AAACE06013CCBED400A2118F /* SHKFlickr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BC1769F61300CE81EF /* SHKYouTube.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AECF318171D5165000722FA /* SHKYouTube.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BD1769F61300CE81EF /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BE1769F61300CE81EF /* SHKGoogleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536DF11DBE3B9004A1712 /* SHKGoogleReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8BF1769F61300CE81EF /* SHKHatena.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A203D0016EB776D00421995 /* SHKHatena.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C01769F61300CE81EF /* SHKInstapaper.h in Headers */ = {isa = PBXBuildFile; fileRef = 43150A8B11E78697008C6B68 /* SHKInstapaper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C11769F61300CE81EF /* SHKLinkedIn.h in Headers */ = {isa = PBXBuildFile; fileRef = C0AD00F2142B7B6D000862D9 /* SHKLinkedIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C21769F61300CE81EF /* SHKPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536E211DBE3B9004A1712 /* SHKPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C31769F61300CE81EF /* SHKPlurk.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AAE8C9B16EB950800429C51 /* SHKPlurk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C41769F61300CE81EF /* SHKPocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9E01743E44500B17434 /* SHKPocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C51769F61300CE81EF /* SHKReadability.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB495A21520349A00505A99 /* SHKReadability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C61769F61300CE81EF /* SHKSinaWeibo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AC2A38C16597CCC0089ABE8 /* SHKSinaWeibo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C71769F61300CE81EF /* SHKTumblr.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3082B116D9E255005AF769 /* SHKTumblr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C81769F61300CE81EF /* SHKVkontakteOAuthView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5AA3B7149625460064DB24 /* SHKVkontakteOAuthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8C91769F61300CE81EF /* SHKVkontakte.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5AA3BB149625460064DB24 /* SHKVkontakte.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CA1769F61300CE81EF /* SHKVKontakteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE857E3716771D78005003DA /* SHKVKontakteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CB1769F61300CE81EF /* SHKActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536EE11DBE3B9004A1712 /* SHKActionSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CC1769F61300CE81EF /* SHKActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536F011DBE3B9004A1712 /* SHKActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CD1769F61300CE81EF /* SHKFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536F211DBE3B9004A1712 /* SHKFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CE1769F61300CE81EF /* SHKFormControllerLargeTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF78BB114B71FD8008ACA5D /* SHKFormControllerLargeTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8CF1769F61300CE81EF /* SHKFormFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536F411DBE3B9004A1712 /* SHKFormFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D01769F61300CE81EF /* SHKFormFieldCell_PrivateProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4CAA161577BEF90010E6B3 /* SHKFormFieldCell_PrivateProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D11769F61300CE81EF /* SHKFormFieldCellText.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A164DC0157662ED00D55DB4 /* SHKFormFieldCellText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D21769F61300CE81EF /* SHKFormFieldCellSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCDBA71577528B003BBFFD /* SHKFormFieldCellSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D31769F61300CE81EF /* SHKFormFieldCellOptionPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCDBAE157757D1003BBFFD /* SHKFormFieldCellOptionPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D41769F61300CE81EF /* SHKFormFieldSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536F611DBE3B9004A1712 /* SHKFormFieldSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D51769F61300CE81EF /* SHKFormOptionController.h in Headers */ = {isa = PBXBuildFile; fileRef = AA511B7E14C893A10022332B /* SHKFormOptionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D61769F61300CE81EF /* SHKOAuthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FA11DBE3B9004A1712 /* SHKOAuthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D71769F61300CE81EF /* SHKShareMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FC11DBE3B9004A1712 /* SHKShareMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D81769F61300CE81EF /* SHKReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536B311DBE3B9004A1712 /* SHKReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DE0E8D91769F61300CE81EF /* DummyLibFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE8DC7A165B549B004D99D2 /* DummyLibFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456BADAB169107D1005B3077 /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; };
 		456BADAC169107D1005B3077 /* SHKGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BADAA169107D1005B3077 /* SHKGooglePlus.m */; };
 		456BADAD1691095B005B3077 /* libGoogle Plus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4503EBC0169104470057294C /* libGoogle Plus.a */; };
@@ -398,6 +501,139 @@
 			proxyType = 2;
 			remoteGlobalIDString = 85A44B9F16A8CE05007BE80E;
 			remoteInfo = FacebookSDKIntegrationTests;
+		};
+		1DE0E8091769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 949BCB84172A993000D706D4;
+			remoteInfo = Buffer;
+		};
+		1DE0E80B1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AECF2E4171D4679000722FA /* GTL.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
+			remoteInfo = GTLTouchStaticLib;
+		};
+		1DE0E8191769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A49DBBB16BC193E004B7E78;
+			remoteInfo = Readability;
+		};
+		1DE0E81B1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A0F91D1156BA2A0009CB40A;
+			remoteInfo = "Static Library Core";
+		};
+		1DE0E81D1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A1AFCB1160E11F90086B98A;
+			remoteInfo = SSKeyChain;
+		};
+		1DE0E81F1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A16F36F161340DD0019645D;
+			remoteInfo = OAuth;
+		};
+		1DE0E8211769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A1AFCC2160E123C0086B98A;
+			remoteInfo = Reachability;
+		};
+		1DE0E8231769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECB6162F063F009D46E4;
+			remoteInfo = Print;
+		};
+		1DE0E8251769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECC1162F0719009D46E4;
+			remoteInfo = Logout;
+		};
+		1DE0E8271769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECCA162F0756009D46E4;
+			remoteInfo = Copy;
+		};
+		1DE0E8291769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECD3162F0779009D46E4;
+			remoteInfo = Email;
+		};
+		1DE0E82B1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECDC162F07B4009D46E4;
+			remoteInfo = "Open in Safari";
+		};
+		1DE0E82D1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECE5162F07DF009D46E4;
+			remoteInfo = "Save to Album";
+		};
+		1DE0E82F1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECEE162F080F009D46E4;
+			remoteInfo = "Text Message";
+		};
+		1DE0E83B1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBED25162F0B65009D46E4;
+			remoteInfo = Facebook;
+		};
+		1DE0E83D1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "facebook-ios-sdk";
+		};
+		1DE0E84B1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A16F3B316134A890019645D;
+			remoteInfo = Instagram;
+		};
+		1DE0E84F1769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBED63162F0C03009D46E4;
+			remoteInfo = LinkedIn;
+		};
+		1DE0E8551769F61300CE81EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A1AFD2B160E14340086B98A;
+			remoteInfo = Twitter;
 		};
 		456BADAE16910966005B3077 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -776,6 +1012,7 @@
 		1A52EDF415CB032B00A737D8 /* SHKKippt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKKippt.h; sourceTree = "<group>"; };
 		1A52EDF515CB032B00A737D8 /* SHKKippt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKKippt.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DE0E8DD1769F61300CE81EF /* libShareKitLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShareKitLite.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* ShareKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareKit_Prefix.pch; sourceTree = "<group>"; };
@@ -1321,6 +1558,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1DE0E85A1769F61300CE81EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DE0E85E1769F61300CE81EF /* libBuffer.a in Frameworks */,
+				1DE0E85F1769F61300CE81EF /* libGTLTouchStaticLib.a in Frameworks */,
+				1DE0E8621769F61300CE81EF /* libfacebook_ios_sdk.a in Frameworks */,
+				1DE0E8691769F61300CE81EF /* libReadability.a in Frameworks */,
+				1DE0E86A1769F61300CE81EF /* libCopy.a in Frameworks */,
+				1DE0E86D1769F61300CE81EF /* libEmail.a in Frameworks */,
+				1DE0E8701769F61300CE81EF /* libFacebook.a in Frameworks */,
+				1DE0E8751769F61300CE81EF /* libInstagram.a in Frameworks */,
+				1DE0E8771769F61300CE81EF /* libLinkedIn.a in Frameworks */,
+				1DE0E8781769F61300CE81EF /* libLogout.a in Frameworks */,
+				1DE0E8791769F61300CE81EF /* libOAuth.a in Frameworks */,
+				1DE0E87A1769F61300CE81EF /* libOpen in Safari.a in Frameworks */,
+				1DE0E87C1769F61300CE81EF /* libPrint.a in Frameworks */,
+				1DE0E87D1769F61300CE81EF /* libReachability.a in Frameworks */,
+				1DE0E87E1769F61300CE81EF /* libSave to Album.a in Frameworks */,
+				1DE0E87F1769F61300CE81EF /* libShareKitCore.a in Frameworks */,
+				1DE0E8811769F61300CE81EF /* libSSKeyChain.a in Frameworks */,
+				1DE0E8821769F61300CE81EF /* libText Message.a in Frameworks */,
+				1DE0E8841769F61300CE81EF /* libTwitter.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4503EBBB169104470057294C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1726,6 +1989,7 @@
 				949BCB8C172A993000D706D4 /* libBuffer.a */,
 				7A4E465A173E2B2900CCEE80 /* libPocket.a */,
 				7A4E4663173E2C2500CCEE80 /* libPocket SDK.a */,
+				1DE0E8DD1769F61300CE81EF /* libShareKitLite.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2884,6 +3148,96 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1DE0E8861769F61300CE81EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DE0E8871769F61300CE81EF /* SHK.h in Headers */,
+				1DE0E8881769F61300CE81EF /* SHKOfflineSharer.h in Headers */,
+				1DE0E8891769F61300CE81EF /* SHKOAuthSharer.h in Headers */,
+				1DE0E88A1769F61300CE81EF /* SHKSharer.h in Headers */,
+				1DE0E88B1769F61300CE81EF /* SHKSharerDelegate.h in Headers */,
+				1DE0E88C1769F61300CE81EF /* SHKiOSSharer.h in Headers */,
+				1DE0E88D1769F61300CE81EF /* SHKiOSSharer_Protected.h in Headers */,
+				1DE0E88E1769F61300CE81EF /* GTMNSString+HTML.h in Headers */,
+				1DE0E88F1769F61300CE81EF /* NSData+md5.h in Headers */,
+				1DE0E8901769F61300CE81EF /* NSHTTPCookieStorage+DeleteForURL.h in Headers */,
+				1DE0E8911769F61300CE81EF /* NSMutableDictionary+NSNullsToEmptyStrings.h in Headers */,
+				1DE0E8921769F61300CE81EF /* UIWebView+SHK.h in Headers */,
+				1DE0E8931769F61300CE81EF /* NSData+SaveItemAttachment.h in Headers */,
+				1DE0E8941769F61300CE81EF /* SSKeychain.h in Headers */,
+				1DE0E8951769F61300CE81EF /* Base64Transcoder.h in Headers */,
+				1DE0E8961769F61300CE81EF /* hmac.h in Headers */,
+				1DE0E8971769F61300CE81EF /* sha1.h in Headers */,
+				1DE0E8981769F61300CE81EF /* NSMutableURLRequest+Parameters.h in Headers */,
+				1DE0E8991769F61300CE81EF /* NSString+URLEncoding.h in Headers */,
+				1DE0E89A1769F61300CE81EF /* NSURL+Base.h in Headers */,
+				1DE0E89B1769F61300CE81EF /* OAAsynchronousDataFetcher.h in Headers */,
+				1DE0E89C1769F61300CE81EF /* OAConsumer.h in Headers */,
+				1DE0E89D1769F61300CE81EF /* OADataFetcher.h in Headers */,
+				1DE0E89E1769F61300CE81EF /* OAHMAC_SHA1SignatureProvider.h in Headers */,
+				1DE0E89F1769F61300CE81EF /* OAMutableURLRequest.h in Headers */,
+				1DE0E8A01769F61300CE81EF /* OAPlaintextSignatureProvider.h in Headers */,
+				1DE0E8A11769F61300CE81EF /* OARequestParameter.h in Headers */,
+				1DE0E8A21769F61300CE81EF /* OAServiceTicket.h in Headers */,
+				1DE0E8A31769F61300CE81EF /* OASignatureProviding.h in Headers */,
+				1DE0E8A41769F61300CE81EF /* OAToken.h in Headers */,
+				1DE0E8A51769F61300CE81EF /* OAuthConsumer.h in Headers */,
+				1DE0E8A61769F61300CE81EF /* SHKItem.h in Headers */,
+				1DE0E8A71769F61300CE81EF /* SHKFile.h in Headers */,
+				1DE0E8A81769F61300CE81EF /* SHKRequest.h in Headers */,
+				1DE0E8A91769F61300CE81EF /* SHKXMLResponseParser.h in Headers */,
+				1DE0E8AA1769F61300CE81EF /* Singleton.h in Headers */,
+				1DE0E8AB1769F61300CE81EF /* SHKCopy.h in Headers */,
+				1DE0E8AC1769F61300CE81EF /* SHKMail.h in Headers */,
+				1DE0E8AD1769F61300CE81EF /* SHKLogout.h in Headers */,
+				1DE0E8AE1769F61300CE81EF /* SHKSafari.h in Headers */,
+				1DE0E8AF1769F61300CE81EF /* SHKPrint.h in Headers */,
+				1DE0E8B01769F61300CE81EF /* SHKTextMessage.h in Headers */,
+				1DE0E8B11769F61300CE81EF /* DefaultSHKConfigurator.h in Headers */,
+				1DE0E8B21769F61300CE81EF /* SHKConfiguration.h in Headers */,
+				1DE0E8B31769F61300CE81EF /* SHKBuffer.h in Headers */,
+				1DE0E8B41769F61300CE81EF /* BufferSDK.h in Headers */,
+				1DE0E8B51769F61300CE81EF /* SHKDelicious.h in Headers */,
+				1DE0E8B61769F61300CE81EF /* SHKDiigo.h in Headers */,
+				1DE0E8B71769F61300CE81EF /* SHKDropbox.h in Headers */,
+				1DE0E8B81769F61300CE81EF /* SHKEvernote.h in Headers */,
+				1DE0E8B91769F61300CE81EF /* SHKFacebook.h in Headers */,
+				1DE0E8BA1769F61300CE81EF /* SHKiOSFacebook.h in Headers */,
+				1DE0E8BB1769F61300CE81EF /* SHKFlickr.h in Headers */,
+				1DE0E8BC1769F61300CE81EF /* SHKYouTube.h in Headers */,
+				1DE0E8BD1769F61300CE81EF /* SHKGooglePlus.h in Headers */,
+				1DE0E8BE1769F61300CE81EF /* SHKGoogleReader.h in Headers */,
+				1DE0E8BF1769F61300CE81EF /* SHKHatena.h in Headers */,
+				1DE0E8C01769F61300CE81EF /* SHKInstapaper.h in Headers */,
+				1DE0E8C11769F61300CE81EF /* SHKLinkedIn.h in Headers */,
+				1DE0E8C21769F61300CE81EF /* SHKPinboard.h in Headers */,
+				1DE0E8C31769F61300CE81EF /* SHKPlurk.h in Headers */,
+				1DE0E8C41769F61300CE81EF /* SHKPocket.h in Headers */,
+				1DE0E8C51769F61300CE81EF /* SHKReadability.h in Headers */,
+				1DE0E8C61769F61300CE81EF /* SHKSinaWeibo.h in Headers */,
+				1DE0E8C71769F61300CE81EF /* SHKTumblr.h in Headers */,
+				1DE0E8C81769F61300CE81EF /* SHKVkontakteOAuthView.h in Headers */,
+				1DE0E8C91769F61300CE81EF /* SHKVkontakte.h in Headers */,
+				1DE0E8CA1769F61300CE81EF /* SHKVKontakteRequest.h in Headers */,
+				1DE0E8CB1769F61300CE81EF /* SHKActionSheet.h in Headers */,
+				1DE0E8CC1769F61300CE81EF /* SHKActivityIndicator.h in Headers */,
+				1DE0E8CD1769F61300CE81EF /* SHKFormController.h in Headers */,
+				1DE0E8CE1769F61300CE81EF /* SHKFormControllerLargeTextField.h in Headers */,
+				1DE0E8CF1769F61300CE81EF /* SHKFormFieldCell.h in Headers */,
+				1DE0E8D01769F61300CE81EF /* SHKFormFieldCell_PrivateProperties.h in Headers */,
+				1DE0E8D11769F61300CE81EF /* SHKFormFieldCellText.h in Headers */,
+				1DE0E8D21769F61300CE81EF /* SHKFormFieldCellSwitch.h in Headers */,
+				1DE0E8D31769F61300CE81EF /* SHKFormFieldCellOptionPicker.h in Headers */,
+				1DE0E8D41769F61300CE81EF /* SHKFormFieldSettings.h in Headers */,
+				1DE0E8D51769F61300CE81EF /* SHKFormOptionController.h in Headers */,
+				1DE0E8D61769F61300CE81EF /* SHKOAuthView.h in Headers */,
+				1DE0E8D71769F61300CE81EF /* SHKShareMenu.h in Headers */,
+				1DE0E8D81769F61300CE81EF /* SHKReachability.h in Headers */,
+				1DE0E8D91769F61300CE81EF /* DummyLibFile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4503EBBC169104470057294C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -3331,6 +3685,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1DE0E8011769F61300CE81EF /* Static Library Lite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DE0E8DA1769F61300CE81EF /* Build configuration list for PBXNativeTarget "Static Library Lite" */;
+			buildPhases = (
+				1DE0E8581769F61300CE81EF /* Sources */,
+				1DE0E85A1769F61300CE81EF /* Frameworks */,
+				1DE0E8861769F61300CE81EF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DE0E8081769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E80A1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8181769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E81A1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E81C1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E81E1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8201769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8221769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8241769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8261769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8281769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E82A1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E82C1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E82E1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E83A1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E83C1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E84A1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E84E1769F61300CE81EF /* PBXTargetDependency */,
+				1DE0E8541769F61300CE81EF /* PBXTargetDependency */,
+			);
+			name = "Static Library Lite";
+			productName = ShareKitLibrary;
+			productReference = 1DE0E8DD1769F61300CE81EF /* libShareKitLite.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		4503EBB8169104470057294C /* Google Plus */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4503EBBD169104470057294C /* Build configuration list for PBXNativeTarget "Google Plus" */;
@@ -4191,6 +4581,7 @@
 				7AECF324171D51C3000722FA /* YouTube SDK */,
 				7A4E4652173E2B2900CCEE80 /* Pocket */,
 				7A4E465B173E2C2500CCEE80 /* Pocket SDK */,
+				1DE0E8011769F61300CE81EF /* Static Library Lite */,
 			);
 		};
 /* End PBXProject section */
@@ -4261,6 +4652,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1DE0E8581769F61300CE81EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DE0E8591769F61300CE81EF /* DummyLibFile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4503EBB9169104470057294C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4733,6 +5132,101 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1DE0E8081769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 949BCB84172A993000D706D4 /* Buffer */;
+			targetProxy = 1DE0E8091769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E80A1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTLTouchStaticLib;
+			targetProxy = 1DE0E80B1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8181769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A49DBBB16BC193E004B7E78 /* Readability */;
+			targetProxy = 1DE0E8191769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E81A1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A0F91D1156BA2A0009CB40A /* Static Library Core */;
+			targetProxy = 1DE0E81B1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E81C1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A1AFCB1160E11F90086B98A /* SSKeyChain */;
+			targetProxy = 1DE0E81D1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E81E1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A16F36F161340DD0019645D /* OAuth */;
+			targetProxy = 1DE0E81F1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8201769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A1AFCC2160E123C0086B98A /* Reachability */;
+			targetProxy = 1DE0E8211769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8221769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECB6162F063F009D46E4 /* Print */;
+			targetProxy = 1DE0E8231769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8241769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECC1162F0719009D46E4 /* Logout */;
+			targetProxy = 1DE0E8251769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8261769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECCA162F0756009D46E4 /* Copy */;
+			targetProxy = 1DE0E8271769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8281769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECD3162F0779009D46E4 /* Email */;
+			targetProxy = 1DE0E8291769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E82A1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECDC162F07B4009D46E4 /* Open in Safari */;
+			targetProxy = 1DE0E82B1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E82C1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECE5162F07DF009D46E4 /* Save to Album */;
+			targetProxy = 1DE0E82D1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E82E1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECEE162F080F009D46E4 /* Text Message */;
+			targetProxy = 1DE0E82F1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E83A1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBED25162F0B65009D46E4 /* Facebook */;
+			targetProxy = 1DE0E83B1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E83C1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "facebook-ios-sdk";
+			targetProxy = 1DE0E83D1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E84A1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A16F3B316134A890019645D /* Instagram */;
+			targetProxy = 1DE0E84B1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E84E1769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBED63162F0C03009D46E4 /* LinkedIn */;
+			targetProxy = 1DE0E84F1769F61300CE81EF /* PBXContainerItemProxy */;
+		};
+		1DE0E8541769F61300CE81EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A1AFD2B160E14340086B98A /* Twitter */;
+			targetProxy = 1DE0E8551769F61300CE81EF /* PBXContainerItemProxy */;
+		};
 		456BADAF16910966005B3077 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4503EBB8169104470057294C /* Google Plus */;
@@ -4956,6 +5450,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1DE0E8DB1769F61300CE81EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ShareKitLibrary.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShareKitLibrary/ShareKitLibrary-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = ShareKitLite;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DE0E8DC1769F61300CE81EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ShareKitLibrary.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShareKitLibrary/ShareKitLibrary-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = ShareKitLite;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		4503EBBE169104470057294C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -7082,6 +7630,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1DE0E8DA1769F61300CE81EF /* Build configuration list for PBXNativeTarget "Static Library Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DE0E8DB1769F61300CE81EF /* Debug */,
+				1DE0E8DC1769F61300CE81EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4503EBBD169104470057294C /* Build configuration list for PBXNativeTarget "Google Plus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
