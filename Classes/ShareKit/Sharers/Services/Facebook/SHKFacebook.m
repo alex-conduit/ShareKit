@@ -32,6 +32,7 @@
 #import "SHKConfiguration.h"
 #import "NSMutableDictionary+NSNullsToEmptyStrings.h"
 #import <Social/Social.h>
+#import "DEFacebookComposeViewController.h"
 
 static NSString *const kSHKFacebookUserInfo =@"kSHKFacebookUserInfo";
 static NSString *const kSHKFacebookVideoUploadLimits =@"kSHKFacebookVideoUploadLimits";
@@ -725,7 +726,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 
 - (void) doSHKShow
 {
-    if (self.item.shareType == SHKShareTypeText || self.item.shareType == SHKShareTypeImage || self.item.shareType == SHKShareTypeURL || self.item.shareType == SHKShareTypeFile)
+    if (self.item.shareType == SHKShareTypeText || self.item.shareType == SHKShareTypeImage || self.item.shareType == SHKShareTypeURL || self.item.shareType == SHKShareTypeFile  || self.item.shareType == SHKFacebookComment)
     {
         [self showFacebookForm];
     }
@@ -782,52 +783,71 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 
 - (void)showFacebookForm
 {
- 	SHKCustomFormControllerLargeTextField *rootView = [[SHKCustomFormControllerLargeTextField alloc] initWithNibName:nil bundle:nil delegate:self];  
- 	
+    DEFacebookComposeViewControllerCompletionHandler completionHandler = ^(DEFacebookComposeViewControllerResult result , NSMutableDictionary *dictResult) {
+        switch (result) {
+            case DEFacebookComposeViewControllerResultCancelled:
+                [[SHK currentHelper].rootViewForUIDisplay dismissViewControllerAnimated:YES completion:^{ }];
+                NSLog(@"Facebook Result: Cancelled");
+                break;
+            case DEFacebookComposeViewControllerResultDone:
+                [[SHK currentHelper].rootViewForUIDisplay dismissViewControllerAnimated:YES completion:^{ }];
+                if (dictResult)
+                {
+                    switch (self.item.shareType) {
+                        case SHKShareTypeText:
+                            self.item.text = [dictResult objectForKey:@"textView.text"];
+                            break;
+                        case SHKShareTypeFile:
+                        case SHKShareTypeImage:
+                        case SHKShareTypeURL:
+                            self.item.text = [dictResult objectForKey:@"textView.text"];
+                            
+                            break;
+                        case SHKFacebookComment:
+                            self.item.title = [dictResult objectForKey:@"sCustomParam1"];
+                            self.item.text = [dictResult objectForKey:@"textView.text"];
+                        default:
+                            break;
+                    }
+                    
+                    [self tryToSend];
+                }
+                break;
+        }
+        
+        [self dismissModalViewControllerAnimated:YES];
+    };
+
+    DEFacebookComposeViewController *facebookViewComposer = [[DEFacebookComposeViewController alloc] init];
+
+    [facebookViewComposer setSCancelButtonText: [self.item customValueForKey:@"string_Cancel"]];
+    [facebookViewComposer setSSendButtonText: [self.item customValueForKey:@"string_Send"]];
+    [facebookViewComposer setSCustomParam1: [self.item customValueForKey:@"string_CustomParam1"]];
+    [facebookViewComposer setSTitle: [self.item customValueForKey:@"string_Title"]];
+    
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
     switch (self.item.shareType) {
         case SHKShareTypeText:
-            rootView.text = self.item.text;
+            [facebookViewComposer setInitialText:self.item.text];
             break;
         case SHKShareTypeImage:
-            rootView.image = self.item.image;
-            rootView.text = self.item.title;
+            [facebookViewComposer addImage:self.item.image];
+            [facebookViewComposer setInitialText:self.item.title];
+
             break;
         case SHKShareTypeURL:
-            rootView.text = self.item.text;
-            
-            rootView.allowSendingEmptyMessage = YES;
+            [facebookViewComposer setInitialText:self.item.text];
+            [facebookViewComposer addURL:self.item.URL];
             break;
         case SHKShareTypeFile:
-            rootView.text = self.item.title;
+            [facebookViewComposer setInitialText:self.item.title];
         default:
             break;
     }
-    if ( self.item.URL != nil){
-        rootView.hasLink = YES;
-    }
-    self.navigationBar.tintColor = SHKCONFIG_WITH_ARGUMENT(barTintForView:,self);
- 	[self pushViewController:rootView animated:NO];
-    [rootView release];
+    facebookViewComposer.completionHandler = completionHandler;
     
-    [[SHK currentHelper] showViewController:self];  
+    [[SHK currentHelper].rootViewForUIDisplay presentViewController:facebookViewComposer animated:YES completion:^{ }];
 }
 
-- (void)sendForm:(SHKCustomFormControllerLargeTextField *)form
-{  
- 	switch (self.item.shareType) {
-        case SHKShareTypeText:
-            self.item.text = form.textView.text;
-            break;
-        case SHKShareTypeFile:
-        case SHKShareTypeImage:
-        case SHKShareTypeURL:
-            self.item.text = form.textView.text;
-            break;
-        default:
-            break;
-    }    
-    
- 	[self tryToSend];
-}  
 
 @end
