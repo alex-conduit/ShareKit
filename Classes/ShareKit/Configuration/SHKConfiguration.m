@@ -79,6 +79,12 @@ static SHKConfiguration *sharedInstance = nil;
                 return [delegate performSelector:@selector(share_getFBPermissions)];
         }
         
+        if ([selector isEqualToString:@"barTintForView:"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getBarTintForView:)])
+                return [delegate performSelector:@selector(share_getBarTintForView:) withObject:object];
+        }
         
         //**********************end***
 
