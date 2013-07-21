@@ -129,7 +129,6 @@
 		1D9C7B611782EDF500F18521 /* NavBarLandscape@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B271782B62800F18521 /* NavBarLandscape@2x1.png */; };
 		1DE0E8591769F61300CE81EF /* DummyLibFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8DC7B165B549B004D99D2 /* DummyLibFile.m */; };
 		1DE0E85E1769F61300CE81EF /* libBuffer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 949BCB8C172A993000D706D4 /* libBuffer.a */; };
-		1DE0E85F1769F61300CE81EF /* libGTLTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AECF2EE171D4679000722FA /* libGTLTouchStaticLib.a */; };
 		1DE0E8621769F61300CE81EF /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6C09F316122ED90023EE48 /* libfacebook_ios_sdk.a */; };
 		1DE0E8691769F61300CE81EF /* libReadability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A49DBC316BC193E004B7E78 /* libReadability.a */; };
 		1DE0E86A1769F61300CE81EF /* libCopy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECD2162F0756009D46E4 /* libCopy.a */; };
@@ -232,88 +231,7 @@
 		1DE0E8D91769F61300CE81EF /* DummyLibFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE8DC7A165B549B004D99D2 /* DummyLibFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066701769F93A006589D6 /* SHKCustomFormFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536B011DBE3B9004A1712 /* SHKCustomFormFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066711769F93A006589D6 /* SHKCustomFormControllerLargeTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD2BD52153431390042EB86 /* SHKCustomFormControllerLargeTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066721769F93A006589D6 /* DropboxSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C8816F335EB00FF692B /* DropboxSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066731769F93A006589D6 /* MPDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CBF16F338A900FF692B /* MPDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066741769F93A006589D6 /* DBAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C8916F3360800FF692B /* DBAccountInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066751769F93A006589D6 /* DBConnectController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CCA16F33B7B00FF692B /* DBConnectController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066761769F93A006589D6 /* DBKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CC416F33B3300FF692B /* DBKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066771769F93A006589D6 /* DBLog.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CC516F33B5000FF692B /* DBLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066781769F93A006589D6 /* DBSession.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C8C16F3363900FF692B /* DBSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066791769F93A006589D6 /* DBSession+iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C8D16F3363900FF692B /* DBSession+iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667A1769F93A006589D6 /* DBDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C9216F3367700FF692B /* DBDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667B1769F93A006589D6 /* DBDeltaEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C9516F3368E00FF692B /* DBDeltaEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667C1769F93A006589D6 /* DBRestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C9616F336A200FF692B /* DBRestClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667D1769F93A006589D6 /* DBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C9E16F336D500FF692B /* DBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667E1769F93A006589D6 /* DBError.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334C9F16F336DF00FF692B /* DBError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0667F1769F93A006589D6 /* DBMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CA416F3370100FF692B /* DBMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066801769F93A006589D6 /* DBQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CA516F3370D00FF692B /* DBQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066811769F93A006589D6 /* NSDictionary+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CAC16F3373800FF692B /* NSDictionary+Dropbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066821769F93A006589D6 /* NSString+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CAD16F3373800FF692B /* NSString+Dropbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066831769F93A006589D6 /* MPOAuthAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CAE16F3377E00FF692B /* MPOAuthAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066841769F93A006589D6 /* MPOAuthAPIRequestLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CAF16F3378A00FF692B /* MPOAuthAPIRequestLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066851769F93A006589D6 /* MPOAuthAuthenticationMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB016F3379700FF692B /* MPOAuthAuthenticationMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066861769F93A006589D6 /* MPOAuthAuthenticationMethodOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB116F3379F00FF692B /* MPOAuthAuthenticationMethodOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066871769F93A006589D6 /* MPOAuthConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB216F337A700FF692B /* MPOAuthConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066881769F93A006589D6 /* MPOAuthSignatureParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = DE4D0CAB16F34FA30056AAE7 /* MPOAuthSignatureParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066891769F93A006589D6 /* MPOAuthCredentialStore.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CBD16F3386A00FF692B /* MPOAuthCredentialStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668A1769F93A006589D6 /* MPOAuthParameterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CBE16F3389100FF692B /* MPOAuthParameterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668B1769F93A006589D6 /* MPOAuthCredentialConcreteStore+KeychainAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB416F337C400FF692B /* MPOAuthCredentialConcreteStore+KeychainAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668C1769F93A006589D6 /* MPOAuthCredentialConcreteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB316F337BA00FF692B /* MPOAuthCredentialConcreteStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668D1769F93A006589D6 /* MPOAuthURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB616F337F200FF692B /* MPOAuthURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668E1769F93A006589D6 /* MPOAuthURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB716F337FB00FF692B /* MPOAuthURLResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0668F1769F93A006589D6 /* MPURLRequestParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB816F3380600FF692B /* MPURLRequestParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066901769F93A006589D6 /* NSString+URLEscapingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CB916F3381000FF692B /* NSString+URLEscapingAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066911769F93A006589D6 /* NSURL+MPURLParameterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CBA16F3381700FF692B /* NSURL+MPURLParameterAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066921769F93A006589D6 /* NSURLResponse+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = DE334CBB16F3381D00FF692B /* NSURLResponse+Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066931769F93A006589D6 /* ENAFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C40170637CC009C483A /* ENAFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066941769F93A006589D6 /* ENGCOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C4417063828009C483A /* ENGCOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066951769F93A006589D6 /* NSData+ENBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C4617063828009C483A /* NSData+ENBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066961769F93A006589D6 /* TObjective-C.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C3D17063786009C483A /* TObjective-C.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066971769F93A006589D6 /* TBinaryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC76D156CFBF400E3303E /* TBinaryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066981769F93A006589D6 /* TProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC76F156CFBF400E3303E /* TProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066991769F93A006589D6 /* TProtocolException.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC770156CFBF400E3303E /* TProtocolException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669A1769F93A006589D6 /* TProtocolFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC772156CFBF400E3303E /* TProtocolFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669B1769F93A006589D6 /* TProtocolUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC773156CFBF400E3303E /* TProtocolUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669C1769F93A006589D6 /* TApplicationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC778156CFBF400E3303E /* TApplicationException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669D1769F93A006589D6 /* TException.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC77A156CFBF400E3303E /* TException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669E1769F93A006589D6 /* Thrift.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC77C156CFBF400E3303E /* Thrift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF0669F1769F93A006589D6 /* TProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC77D156CFBF400E3303E /* TProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A01769F93A006589D6 /* TProcessorFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC77E156CFBF400E3303E /* TProcessorFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A11769F93A006589D6 /* THTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC780156CFBF400E3303E /* THTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A21769F93A006589D6 /* TMemoryBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC782156CFBF400E3303E /* TMemoryBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A31769F93A006589D6 /* TTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC78A156CFBF400E3303E /* TTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A41769F93A006589D6 /* TTransportException.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC78B156CFBF400E3303E /* TTransportException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A51769F93A006589D6 /* EDAM.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC790156CFBF400E3303E /* EDAM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A61769F93A006589D6 /* EDAMErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC791156CFBF400E3303E /* EDAMErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A71769F93A006589D6 /* EDAMLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC793156CFBF400E3303E /* EDAMLimits.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A81769F93A006589D6 /* EDAMNoteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC795156CFBF400E3303E /* EDAMNoteStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066A91769F93A006589D6 /* EDAMTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC797156CFBF400E3303E /* EDAMTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AA1769F93A006589D6 /* EDAMUserStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC799156CFBF400E3303E /* EDAMUserStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AB1769F93A006589D6 /* EvernoteNoteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC79C156CFBF400E3303E /* EvernoteNoteStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AC1769F93A006589D6 /* EvernoteSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC79E156CFBF400E3303E /* EvernoteSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AD1769F93A006589D6 /* ENConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C4C1706386D009C483A /* ENConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AE1769F93A006589D6 /* EvernoteSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC7A0156CFBF400E3303E /* EvernoteSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066AF1769F93A006589D6 /* EvernoteUserStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC7A2156CFBF400E3303E /* EvernoteUserStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B01769F93A006589D6 /* ENAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC7A5156CFBF400E3303E /* ENAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B11769F93A006589D6 /* ENCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC7A7156CFBF400E3303E /* ENCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B21769F93A006589D6 /* ENCredentialStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDC7A9156CFBF400E3303E /* ENCredentialStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B31769F93A006589D6 /* ENOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 427FBAB11592F7C90024F825 /* ENOAuthViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B41769F93A006589D6 /* NSDate+EDAMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C5517063926009C483A /* NSDate+EDAMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B51769F93A006589D6 /* EDAMNoteStoreClient+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA83C51170638EF009C483A /* EDAMNoteStoreClient+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B61769F93A006589D6 /* NSError+SHKFoursquareV2.h in Headers */ = {isa = PBXBuildFile; fileRef = C0276D7414336ACC00C93FAA /* NSError+SHKFoursquareV2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B71769F93A006589D6 /* SHKFoursquareV2CheckInForm.h in Headers */ = {isa = PBXBuildFile; fileRef = C0276D7614336ACD00C93FAA /* SHKFoursquareV2CheckInForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B81769F93A006589D6 /* SHKFoursquareV2Venue.h in Headers */ = {isa = PBXBuildFile; fileRef = C0276D7814336ACD00C93FAA /* SHKFoursquareV2Venue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066B91769F93A006589D6 /* SHKFoursquareV2VenuesForm.h in Headers */ = {isa = PBXBuildFile; fileRef = C0276D7A14336ACD00C93FAA /* SHKFoursquareV2VenuesForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066BA1769F93A006589D6 /* SHKFoursquareV2.h in Headers */ = {isa = PBXBuildFile; fileRef = C042A61F1430AB7800DF9AF6 /* SHKFoursquareV2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066BB1769F93A006589D6 /* SHKFoursquareV2OAuthView.h in Headers */ = {isa = PBXBuildFile; fileRef = C042A6221430B35300DF9AF6 /* SHKFoursquareV2OAuthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066BC1769F93A006589D6 /* SHKFoursquareV2Request.h in Headers */ = {isa = PBXBuildFile; fileRef = C05E48071430D9BC008F2366 /* SHKFoursquareV2Request.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066BD1769F93A006589D6 /* SHKInstagram.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A16F3AE16134A790019645D /* SHKInstagram.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066BE1769F93A006589D6 /* PocketAPI+NSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9E51743E51C00B17434 /* PocketAPI+NSOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066BF1769F93A006589D6 /* PocketAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9E61743E51C00B17434 /* PocketAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066C01769F93A006589D6 /* PocketAPILogin.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9E81743E51C00B17434 /* PocketAPILogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066C11769F93A006589D6 /* PocketAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9EA1743E51C00B17434 /* PocketAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066C21769F93A006589D6 /* PocketAPITypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9EC1743E51C00B17434 /* PocketAPITypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DF066C31769F93A006589D6 /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA2E9ED1743E51C00B17434 /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066C41769F93A006589D6 /* SHKiOSTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = F92EF487148E915E0070F913 /* SHKiOSTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066C51769F93A006589D6 /* SHKTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536E811DBE3B9004A1712 /* SHKTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF066C61769F93A006589D6 /* SHKiOS5Twitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A56BFDF1659278E00134F04 /* SHKiOS5Twitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -633,13 +551,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 949BCB84172A993000D706D4;
 			remoteInfo = Buffer;
-		};
-		1DE0E80B1769F61300CE81EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7AECF2E4171D4679000722FA /* GTL.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
-			remoteInfo = GTLTouchStaticLib;
 		};
 		1DE0E8191769F61300CE81EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1727,7 +1638,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE0E85E1769F61300CE81EF /* libBuffer.a in Frameworks */,
-				1DE0E85F1769F61300CE81EF /* libGTLTouchStaticLib.a in Frameworks */,
 				1DE0E8621769F61300CE81EF /* libfacebook_ios_sdk.a in Frameworks */,
 				1DE0E8691769F61300CE81EF /* libReadability.a in Frameworks */,
 				1DE0E86A1769F61300CE81EF /* libCopy.a in Frameworks */,
@@ -3456,88 +3366,7 @@
 				1DE0E8D91769F61300CE81EF /* DummyLibFile.h in Headers */,
 				1DF066701769F93A006589D6 /* SHKCustomFormFieldCell.h in Headers */,
 				1DF066711769F93A006589D6 /* SHKCustomFormControllerLargeTextField.h in Headers */,
-				1DF066721769F93A006589D6 /* DropboxSDK.h in Headers */,
-				1DF066731769F93A006589D6 /* MPDebug.h in Headers */,
-				1DF066741769F93A006589D6 /* DBAccountInfo.h in Headers */,
-				1DF066751769F93A006589D6 /* DBConnectController.h in Headers */,
-				1DF066761769F93A006589D6 /* DBKeychain.h in Headers */,
-				1DF066771769F93A006589D6 /* DBLog.h in Headers */,
-				1DF066781769F93A006589D6 /* DBSession.h in Headers */,
-				1DF066791769F93A006589D6 /* DBSession+iOS.h in Headers */,
-				1DF0667A1769F93A006589D6 /* DBDefines.h in Headers */,
-				1DF0667B1769F93A006589D6 /* DBDeltaEntry.h in Headers */,
-				1DF0667C1769F93A006589D6 /* DBRestClient.h in Headers */,
-				1DF0667D1769F93A006589D6 /* DBRequest.h in Headers */,
-				1DF0667E1769F93A006589D6 /* DBError.h in Headers */,
-				1DF0667F1769F93A006589D6 /* DBMetadata.h in Headers */,
-				1DF066801769F93A006589D6 /* DBQuota.h in Headers */,
-				1DF066811769F93A006589D6 /* NSDictionary+Dropbox.h in Headers */,
-				1DF066821769F93A006589D6 /* NSString+Dropbox.h in Headers */,
-				1DF066831769F93A006589D6 /* MPOAuthAPI.h in Headers */,
-				1DF066841769F93A006589D6 /* MPOAuthAPIRequestLoader.h in Headers */,
-				1DF066851769F93A006589D6 /* MPOAuthAuthenticationMethod.h in Headers */,
-				1DF066861769F93A006589D6 /* MPOAuthAuthenticationMethodOAuth.h in Headers */,
-				1DF066871769F93A006589D6 /* MPOAuthConnection.h in Headers */,
-				1DF066881769F93A006589D6 /* MPOAuthSignatureParameter.h in Headers */,
-				1DF066891769F93A006589D6 /* MPOAuthCredentialStore.h in Headers */,
-				1DF0668A1769F93A006589D6 /* MPOAuthParameterFactory.h in Headers */,
-				1DF0668B1769F93A006589D6 /* MPOAuthCredentialConcreteStore+KeychainAdditions.h in Headers */,
-				1DF0668C1769F93A006589D6 /* MPOAuthCredentialConcreteStore.h in Headers */,
-				1DF0668D1769F93A006589D6 /* MPOAuthURLRequest.h in Headers */,
-				1DF0668E1769F93A006589D6 /* MPOAuthURLResponse.h in Headers */,
-				1DF0668F1769F93A006589D6 /* MPURLRequestParameter.h in Headers */,
-				1DF066901769F93A006589D6 /* NSString+URLEscapingAdditions.h in Headers */,
-				1DF066911769F93A006589D6 /* NSURL+MPURLParameterAdditions.h in Headers */,
-				1DF066921769F93A006589D6 /* NSURLResponse+Encoding.h in Headers */,
-				1DF066931769F93A006589D6 /* ENAFURLConnectionOperation.h in Headers */,
-				1DF066941769F93A006589D6 /* ENGCOAuth.h in Headers */,
-				1DF066951769F93A006589D6 /* NSData+ENBase64.h in Headers */,
-				1DF066961769F93A006589D6 /* TObjective-C.h in Headers */,
-				1DF066971769F93A006589D6 /* TBinaryProtocol.h in Headers */,
-				1DF066981769F93A006589D6 /* TProtocol.h in Headers */,
-				1DF066991769F93A006589D6 /* TProtocolException.h in Headers */,
-				1DF0669A1769F93A006589D6 /* TProtocolFactory.h in Headers */,
-				1DF0669B1769F93A006589D6 /* TProtocolUtil.h in Headers */,
-				1DF0669C1769F93A006589D6 /* TApplicationException.h in Headers */,
-				1DF0669D1769F93A006589D6 /* TException.h in Headers */,
-				1DF0669E1769F93A006589D6 /* Thrift.h in Headers */,
-				1DF0669F1769F93A006589D6 /* TProcessor.h in Headers */,
-				1DF066A01769F93A006589D6 /* TProcessorFactory.h in Headers */,
-				1DF066A11769F93A006589D6 /* THTTPClient.h in Headers */,
-				1DF066A21769F93A006589D6 /* TMemoryBuffer.h in Headers */,
-				1DF066A31769F93A006589D6 /* TTransport.h in Headers */,
-				1DF066A41769F93A006589D6 /* TTransportException.h in Headers */,
-				1DF066A51769F93A006589D6 /* EDAM.h in Headers */,
-				1DF066A61769F93A006589D6 /* EDAMErrors.h in Headers */,
-				1DF066A71769F93A006589D6 /* EDAMLimits.h in Headers */,
-				1DF066A81769F93A006589D6 /* EDAMNoteStore.h in Headers */,
-				1DF066A91769F93A006589D6 /* EDAMTypes.h in Headers */,
-				1DF066AA1769F93A006589D6 /* EDAMUserStore.h in Headers */,
-				1DF066AB1769F93A006589D6 /* EvernoteNoteStore.h in Headers */,
-				1DF066AC1769F93A006589D6 /* EvernoteSDK.h in Headers */,
-				1DF066AD1769F93A006589D6 /* ENConstants.h in Headers */,
-				1DF066AE1769F93A006589D6 /* EvernoteSession.h in Headers */,
-				1DF066AF1769F93A006589D6 /* EvernoteUserStore.h in Headers */,
-				1DF066B01769F93A006589D6 /* ENAPI.h in Headers */,
-				1DF066B11769F93A006589D6 /* ENCredentials.h in Headers */,
-				1DF066B21769F93A006589D6 /* ENCredentialStore.h in Headers */,
-				1DF066B31769F93A006589D6 /* ENOAuthViewController.h in Headers */,
-				1DF066B41769F93A006589D6 /* NSDate+EDAMAdditions.h in Headers */,
-				1DF066B51769F93A006589D6 /* EDAMNoteStoreClient+Utilities.h in Headers */,
-				1DF066B61769F93A006589D6 /* NSError+SHKFoursquareV2.h in Headers */,
-				1DF066B71769F93A006589D6 /* SHKFoursquareV2CheckInForm.h in Headers */,
-				1DF066B81769F93A006589D6 /* SHKFoursquareV2Venue.h in Headers */,
-				1DF066B91769F93A006589D6 /* SHKFoursquareV2VenuesForm.h in Headers */,
-				1DF066BA1769F93A006589D6 /* SHKFoursquareV2.h in Headers */,
-				1DF066BB1769F93A006589D6 /* SHKFoursquareV2OAuthView.h in Headers */,
-				1DF066BC1769F93A006589D6 /* SHKFoursquareV2Request.h in Headers */,
 				1DF066BD1769F93A006589D6 /* SHKInstagram.h in Headers */,
-				1DF066BE1769F93A006589D6 /* PocketAPI+NSOperation.h in Headers */,
-				1DF066BF1769F93A006589D6 /* PocketAPI.h in Headers */,
-				1DF066C01769F93A006589D6 /* PocketAPILogin.h in Headers */,
-				1DF066C11769F93A006589D6 /* PocketAPIOperation.h in Headers */,
-				1DF066C21769F93A006589D6 /* PocketAPITypes.h in Headers */,
-				1DF066C31769F93A006589D6 /* SFHFKeychainUtils.h in Headers */,
 				1DF066C41769F93A006589D6 /* SHKiOSTwitter.h in Headers */,
 				1DF066C51769F93A006589D6 /* SHKTwitter.h in Headers */,
 				1DF066C61769F93A006589D6 /* SHKiOS5Twitter.h in Headers */,
@@ -4010,7 +3839,6 @@
 			);
 			dependencies = (
 				1DE0E8081769F61300CE81EF /* PBXTargetDependency */,
-				1DE0E80A1769F61300CE81EF /* PBXTargetDependency */,
 				1DE0E8181769F61300CE81EF /* PBXTargetDependency */,
 				1DE0E81A1769F61300CE81EF /* PBXTargetDependency */,
 				1DE0E81C1769F61300CE81EF /* PBXTargetDependency */,
@@ -5480,11 +5308,6 @@
 			isa = PBXTargetDependency;
 			target = 949BCB84172A993000D706D4 /* Buffer */;
 			targetProxy = 1DE0E8091769F61300CE81EF /* PBXContainerItemProxy */;
-		};
-		1DE0E80A1769F61300CE81EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GTLTouchStaticLib;
-			targetProxy = 1DE0E80B1769F61300CE81EF /* PBXContainerItemProxy */;
 		};
 		1DE0E8181769F61300CE81EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
