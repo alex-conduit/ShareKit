@@ -93,7 +93,8 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 	[_title release];
 	[_text release];
 	[_tags release];
-	
+    [_emailBody release];
+
     [_file release];
 	
 	[_custom release];
@@ -157,6 +158,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     item.title = shareInfo.title;
     item.URL = [NSURL URLWithString: shareInfo.url];
     item.text = shareInfo.fbDesc;
+    item.emailBody = shareInfo.emailBody;
     item.facebookURLShareDescription = shareInfo.fbDesc;
     //item.facebookURLSharePictureURI = shareInfo.picture;
 	return [item autorelease];
@@ -312,6 +314,7 @@ static NSString *kSHKURLContentType = @"kSHKURLContentType";
 static NSString *kSHKURL = @"kSHKURL";
 static NSString *kSHKTitle = @"kSHKTitle";
 static NSString *kSHKText = @"kSHKText";
+static NSString *kSHKEmailBody = @"kSHKEmailBody";
 static NSString *kSHKTags = @"kSHKTags";
 static NSString *kSHKCustom = @"kSHKCustom";
 static NSString *kSHKFile = @"kSHKFile";
@@ -337,6 +340,8 @@ static NSString *kSHKPopOverSourceRect = @"kSHKPopOverSourceRect";
         _URL = [[decoder decodeObjectForKey:kSHKURL] retain];
         _title = [[decoder decodeObjectForKey:kSHKTitle] retain];
         _text = [[decoder decodeObjectForKey:kSHKText] retain];
+        _emailBody = [[decoder decodeObjectForKey:kSHKEmailBody] retain];
+
         _tags = [[decoder decodeObjectForKey:kSHKTags] retain];
         _custom = [[decoder decodeObjectForKey:kSHKCustom] retain];
         _file = [[decoder decodeObjectForKey:kSHKFile] retain];
@@ -361,6 +366,7 @@ static NSString *kSHKPopOverSourceRect = @"kSHKPopOverSourceRect";
     [encoder encodeObject:self.URL forKey:kSHKURL];
     [encoder encodeObject:self.title forKey:kSHKTitle];
     [encoder encodeObject:self.text forKey:kSHKText];
+    [encoder encodeObject:self.emailBody forKey:kSHKEmailBody];
     [encoder encodeObject:self.tags forKey:kSHKTags];
     [encoder encodeObject:self.custom forKey:kSHKCustom];
     [encoder encodeObject:self.file forKey:kSHKFile];
@@ -385,6 +391,7 @@ static NSString *kSHKPopOverSourceRect = @"kSHKPopOverSourceRect";
                                                     Image:%@\n\
                                                     Title: %@\n\
                                                     Text: %@\n\
+                                                    EmailBody: %@\n\
                                                     Tags:%@\n\
                                                     Custom fields:%@\n\n\
                                                     Sharer specific\n\n\
@@ -402,7 +409,7 @@ static NSString *kSHKPopOverSourceRect = @"kSHKPopOverSourceRect";
                                                     [self.URL absoluteString],
                                                     self.URLContentType,
                                                     [self.image description], 
-                                                    self.title, self.text, 
+                                                    self.title, self.text, self.emailBody,
                                                     self.tags, 
                                                     [self.custom description],
                                                     self.printOutputType,

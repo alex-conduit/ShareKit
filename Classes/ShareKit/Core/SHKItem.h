@@ -88,7 +88,7 @@ typedef enum
 @property (nonatomic) SHKShareType shareType;
 
 @property (nonatomic, retain)	NSString *title;
-@property (nonatomic, retain)	NSString *text;
+@property (nonatomic, retain)	NSString *text, *emailBody;
 @property (nonatomic, retain)	NSArray *tags;
 
 @property (nonatomic, retain)	NSURL *URL;
