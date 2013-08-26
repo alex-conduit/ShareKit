@@ -89,6 +89,31 @@
 		1D62B4071751E84600B78844 /* SHKOAuthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FA11DBE3B9004A1712 /* SHKOAuthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D62B4081751E84600B78844 /* SHKShareMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536FC11DBE3B9004A1712 /* SHKShareMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D62B4091751E84600B78844 /* SHKReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536B311DBE3B9004A1712 /* SHKReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D74696617C4F649008344EB /* DEFacebookComposeView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B041782B62800F18521 /* DEFacebookComposeView.xib */; };
+		1D74696717C4F650008344EB /* DEFacebookAttachmentFrame.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B101782B62800F18521 /* DEFacebookAttachmentFrame.png */; };
+		1D74696817C4F650008344EB /* DEFacebookAttachmentFrame@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B111782B62800F18521 /* DEFacebookAttachmentFrame@2x.png */; };
+		1D74696917C4F650008344EB /* DEFacebookCancelButtonLandscape.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B121782B62800F18521 /* DEFacebookCancelButtonLandscape.png */; };
+		1D74696A17C4F650008344EB /* DEFacebookCancelButtonLandscape@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B131782B62800F18521 /* DEFacebookCancelButtonLandscape@2x.png */; };
+		1D74696B17C4F650008344EB /* DEFacebookCancelButtonPortrait.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B141782B62800F18521 /* DEFacebookCancelButtonPortrait.png */; };
+		1D74696C17C4F650008344EB /* DEFacebookCancelButtonPortrait@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B151782B62800F18521 /* DEFacebookCancelButtonPortrait@2x.png */; };
+		1D74696D17C4F650008344EB /* DEFacebookCardAccountLine.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B161782B62800F18521 /* DEFacebookCardAccountLine.png */; };
+		1D74696E17C4F650008344EB /* DEFacebookCardAccountLine@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B171782B62800F18521 /* DEFacebookCardAccountLine@2x.png */; };
+		1D74696F17C4F650008344EB /* DEFacebookCardBackground.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B181782B62800F18521 /* DEFacebookCardBackground.png */; };
+		1D74697017C4F650008344EB /* DEFacebookCardBackground@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B191782B62800F18521 /* DEFacebookCardBackground@2x.png */; };
+		1D74697117C4F650008344EB /* DEFacebookCardHeaderLine.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1A1782B62800F18521 /* DEFacebookCardHeaderLine.png */; };
+		1D74697217C4F650008344EB /* DEFacebookCardHeaderLine@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1B1782B62800F18521 /* DEFacebookCardHeaderLine@2x.png */; };
+		1D74697317C4F650008344EB /* DEFacebookPaperClip.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1C1782B62800F18521 /* DEFacebookPaperClip.png */; };
+		1D74697417C4F650008344EB /* DEFacebookPaperClip@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1D1782B62800F18521 /* DEFacebookPaperClip@2x.png */; };
+		1D74697517C4F650008344EB /* DEFacebookSendButtonLandscape.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1E1782B62800F18521 /* DEFacebookSendButtonLandscape.png */; };
+		1D74697617C4F650008344EB /* DEFacebookSendButtonLandscape@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B1F1782B62800F18521 /* DEFacebookSendButtonLandscape@2x.png */; };
+		1D74697717C4F650008344EB /* DEFacebookSendButtonPortrait.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B201782B62800F18521 /* DEFacebookSendButtonPortrait.png */; };
+		1D74697817C4F650008344EB /* DEFacebookSendButtonPortrait@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B211782B62800F18521 /* DEFacebookSendButtonPortrait@2x.png */; };
+		1D74697917C4F650008344EB /* DEFacebookURLAttachment.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B221782B62800F18521 /* DEFacebookURLAttachment.png */; };
+		1D74697A17C4F650008344EB /* DEFacebookURLAttachment@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B231782B62800F18521 /* DEFacebookURLAttachment@2x.png */; };
+		1D74697B17C4F650008344EB /* NavBarLandscape.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B241782B62800F18521 /* NavBarLandscape.png */; };
+		1D74697C17C4F650008344EB /* NavBarLandscape1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B251782B62800F18521 /* NavBarLandscape1.png */; };
+		1D74697D17C4F650008344EB /* NavBarLandscape@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B261782B62800F18521 /* NavBarLandscape@2x.png */; };
+		1D74697E17C4F650008344EB /* NavBarLandscape@2x1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D9C7B271782B62800F18521 /* NavBarLandscape@2x1.png */; };
 		1D9C7B2C1782B62800F18521 /* DEFacebookComposeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D9C7B051782B62800F18521 /* DEFacebookComposeViewController.h */; };
 		1D9C7B2D1782B62800F18521 /* DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C7B061782B62800F18521 /* DEFacebookComposeViewController.m */; };
 		1D9C7B2E1782B62800F18521 /* DEFacebookGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D9C7B071782B62800F18521 /* DEFacebookGradientView.h */; };
@@ -103,30 +128,6 @@
 		1D9C7B371782B62800F18521 /* UIApplication+DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C7B291782B62800F18521 /* UIApplication+DEFacebookComposeViewController.m */; };
 		1D9C7B381782B62800F18521 /* UIDevice+DEFacebookComposeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D9C7B2A1782B62800F18521 /* UIDevice+DEFacebookComposeViewController.h */; };
 		1D9C7B391782B62800F18521 /* UIDevice+DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C7B2B1782B62800F18521 /* UIDevice+DEFacebookComposeViewController.m */; };
-		1D9C7B4A1782EDF400F18521 /* DEFacebookAttachmentFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B101782B62800F18521 /* DEFacebookAttachmentFrame.png */; };
-		1D9C7B4B1782EDF400F18521 /* DEFacebookAttachmentFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B111782B62800F18521 /* DEFacebookAttachmentFrame@2x.png */; };
-		1D9C7B4C1782EDF400F18521 /* DEFacebookCancelButtonLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B121782B62800F18521 /* DEFacebookCancelButtonLandscape.png */; };
-		1D9C7B4D1782EDF400F18521 /* DEFacebookCancelButtonLandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B131782B62800F18521 /* DEFacebookCancelButtonLandscape@2x.png */; };
-		1D9C7B4E1782EDF400F18521 /* DEFacebookCancelButtonPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B141782B62800F18521 /* DEFacebookCancelButtonPortrait.png */; };
-		1D9C7B4F1782EDF400F18521 /* DEFacebookCancelButtonPortrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B151782B62800F18521 /* DEFacebookCancelButtonPortrait@2x.png */; };
-		1D9C7B501782EDF400F18521 /* DEFacebookCardAccountLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B161782B62800F18521 /* DEFacebookCardAccountLine.png */; };
-		1D9C7B511782EDF400F18521 /* DEFacebookCardAccountLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B171782B62800F18521 /* DEFacebookCardAccountLine@2x.png */; };
-		1D9C7B521782EDF400F18521 /* DEFacebookCardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B181782B62800F18521 /* DEFacebookCardBackground.png */; };
-		1D9C7B531782EDF400F18521 /* DEFacebookCardBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B191782B62800F18521 /* DEFacebookCardBackground@2x.png */; };
-		1D9C7B541782EDF400F18521 /* DEFacebookCardHeaderLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1A1782B62800F18521 /* DEFacebookCardHeaderLine.png */; };
-		1D9C7B551782EDF400F18521 /* DEFacebookCardHeaderLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1B1782B62800F18521 /* DEFacebookCardHeaderLine@2x.png */; };
-		1D9C7B561782EDF400F18521 /* DEFacebookPaperClip.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1C1782B62800F18521 /* DEFacebookPaperClip.png */; };
-		1D9C7B571782EDF400F18521 /* DEFacebookPaperClip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1D1782B62800F18521 /* DEFacebookPaperClip@2x.png */; };
-		1D9C7B581782EDF500F18521 /* DEFacebookSendButtonLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1E1782B62800F18521 /* DEFacebookSendButtonLandscape.png */; };
-		1D9C7B591782EDF500F18521 /* DEFacebookSendButtonLandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B1F1782B62800F18521 /* DEFacebookSendButtonLandscape@2x.png */; };
-		1D9C7B5A1782EDF500F18521 /* DEFacebookSendButtonPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B201782B62800F18521 /* DEFacebookSendButtonPortrait.png */; };
-		1D9C7B5B1782EDF500F18521 /* DEFacebookSendButtonPortrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B211782B62800F18521 /* DEFacebookSendButtonPortrait@2x.png */; };
-		1D9C7B5C1782EDF500F18521 /* DEFacebookURLAttachment.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B221782B62800F18521 /* DEFacebookURLAttachment.png */; };
-		1D9C7B5D1782EDF500F18521 /* DEFacebookURLAttachment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B231782B62800F18521 /* DEFacebookURLAttachment@2x.png */; };
-		1D9C7B5E1782EDF500F18521 /* NavBarLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B241782B62800F18521 /* NavBarLandscape.png */; };
-		1D9C7B5F1782EDF500F18521 /* NavBarLandscape1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B251782B62800F18521 /* NavBarLandscape1.png */; };
-		1D9C7B601782EDF500F18521 /* NavBarLandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B261782B62800F18521 /* NavBarLandscape@2x.png */; };
-		1D9C7B611782EDF500F18521 /* NavBarLandscape@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9C7B271782B62800F18521 /* NavBarLandscape@2x1.png */; };
 		1DE0E8591769F61300CE81EF /* DummyLibFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8DC7B165B549B004D99D2 /* DummyLibFile.m */; };
 		1DE0E85E1769F61300CE81EF /* libBuffer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 949BCB8C172A993000D706D4 /* libBuffer.a */; };
 		1DE0E8621769F61300CE81EF /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6C09F316122ED90023EE48 /* libfacebook_ios_sdk.a */; };
@@ -1024,6 +1025,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1D74696517C4F60F008344EB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = usr/local/resources;
+			dstSubfolderSpec = 16;
+			files = (
+				1D74696717C4F650008344EB /* DEFacebookAttachmentFrame.png in CopyFiles */,
+				1D74696817C4F650008344EB /* DEFacebookAttachmentFrame@2x.png in CopyFiles */,
+				1D74696917C4F650008344EB /* DEFacebookCancelButtonLandscape.png in CopyFiles */,
+				1D74696A17C4F650008344EB /* DEFacebookCancelButtonLandscape@2x.png in CopyFiles */,
+				1D74696B17C4F650008344EB /* DEFacebookCancelButtonPortrait.png in CopyFiles */,
+				1D74696C17C4F650008344EB /* DEFacebookCancelButtonPortrait@2x.png in CopyFiles */,
+				1D74696D17C4F650008344EB /* DEFacebookCardAccountLine.png in CopyFiles */,
+				1D74696E17C4F650008344EB /* DEFacebookCardAccountLine@2x.png in CopyFiles */,
+				1D74696F17C4F650008344EB /* DEFacebookCardBackground.png in CopyFiles */,
+				1D74697017C4F650008344EB /* DEFacebookCardBackground@2x.png in CopyFiles */,
+				1D74697117C4F650008344EB /* DEFacebookCardHeaderLine.png in CopyFiles */,
+				1D74697217C4F650008344EB /* DEFacebookCardHeaderLine@2x.png in CopyFiles */,
+				1D74697317C4F650008344EB /* DEFacebookPaperClip.png in CopyFiles */,
+				1D74697417C4F650008344EB /* DEFacebookPaperClip@2x.png in CopyFiles */,
+				1D74697517C4F650008344EB /* DEFacebookSendButtonLandscape.png in CopyFiles */,
+				1D74697617C4F650008344EB /* DEFacebookSendButtonLandscape@2x.png in CopyFiles */,
+				1D74697717C4F650008344EB /* DEFacebookSendButtonPortrait.png in CopyFiles */,
+				1D74697817C4F650008344EB /* DEFacebookSendButtonPortrait@2x.png in CopyFiles */,
+				1D74697917C4F650008344EB /* DEFacebookURLAttachment.png in CopyFiles */,
+				1D74697A17C4F650008344EB /* DEFacebookURLAttachment@2x.png in CopyFiles */,
+				1D74697B17C4F650008344EB /* NavBarLandscape.png in CopyFiles */,
+				1D74697C17C4F650008344EB /* NavBarLandscape1.png in CopyFiles */,
+				1D74697D17C4F650008344EB /* NavBarLandscape@2x.png in CopyFiles */,
+				1D74697E17C4F650008344EB /* NavBarLandscape@2x1.png in CopyFiles */,
+				1D74696617C4F649008344EB /* DEFacebookComposeView.xib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE334C1F16F3339300FF692B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3834,6 +3869,7 @@
 				1DE0E8581769F61300CE81EF /* Sources */,
 				1DE0E85A1769F61300CE81EF /* Frameworks */,
 				1DE0E8861769F61300CE81EF /* Headers */,
+				1D74696517C4F60F008344EB /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -4784,30 +4820,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D9C7B4A1782EDF400F18521 /* DEFacebookAttachmentFrame.png in Resources */,
-				1D9C7B4B1782EDF400F18521 /* DEFacebookAttachmentFrame@2x.png in Resources */,
-				1D9C7B4C1782EDF400F18521 /* DEFacebookCancelButtonLandscape.png in Resources */,
-				1D9C7B4D1782EDF400F18521 /* DEFacebookCancelButtonLandscape@2x.png in Resources */,
-				1D9C7B4E1782EDF400F18521 /* DEFacebookCancelButtonPortrait.png in Resources */,
-				1D9C7B4F1782EDF400F18521 /* DEFacebookCancelButtonPortrait@2x.png in Resources */,
-				1D9C7B501782EDF400F18521 /* DEFacebookCardAccountLine.png in Resources */,
-				1D9C7B511782EDF400F18521 /* DEFacebookCardAccountLine@2x.png in Resources */,
-				1D9C7B521782EDF400F18521 /* DEFacebookCardBackground.png in Resources */,
-				1D9C7B531782EDF400F18521 /* DEFacebookCardBackground@2x.png in Resources */,
-				1D9C7B541782EDF400F18521 /* DEFacebookCardHeaderLine.png in Resources */,
-				1D9C7B551782EDF400F18521 /* DEFacebookCardHeaderLine@2x.png in Resources */,
-				1D9C7B561782EDF400F18521 /* DEFacebookPaperClip.png in Resources */,
-				1D9C7B571782EDF400F18521 /* DEFacebookPaperClip@2x.png in Resources */,
-				1D9C7B581782EDF500F18521 /* DEFacebookSendButtonLandscape.png in Resources */,
-				1D9C7B591782EDF500F18521 /* DEFacebookSendButtonLandscape@2x.png in Resources */,
-				1D9C7B5A1782EDF500F18521 /* DEFacebookSendButtonPortrait.png in Resources */,
-				1D9C7B5B1782EDF500F18521 /* DEFacebookSendButtonPortrait@2x.png in Resources */,
-				1D9C7B5C1782EDF500F18521 /* DEFacebookURLAttachment.png in Resources */,
-				1D9C7B5D1782EDF500F18521 /* DEFacebookURLAttachment@2x.png in Resources */,
-				1D9C7B5E1782EDF500F18521 /* NavBarLandscape.png in Resources */,
-				1D9C7B5F1782EDF500F18521 /* NavBarLandscape1.png in Resources */,
-				1D9C7B601782EDF500F18521 /* NavBarLandscape@2x.png in Resources */,
-				1D9C7B611782EDF500F18521 /* NavBarLandscape@2x1.png in Resources */,
 				7A2882491553CC61007DC379 /* ShareKit.bundle in Resources */,
 				7A2882571553D7E1007DC379 /* SHKSharers.plist in Resources */,
 				94CC29071745399800C31CD8 /* BufferSDKResources.bundle in Resources */,

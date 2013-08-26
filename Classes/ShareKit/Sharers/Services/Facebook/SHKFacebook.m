@@ -115,17 +115,32 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 	
     BOOL result = NO;
     FBSession *session =
-	[[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
-						 permissions:SHKCONFIG(facebookReadPermissions)	// FB only wants read or publish so use default read, request publish when we need it
-					 urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
-				  tokenCacheStrategy:nil] autorelease];
+    
+    //CONDUIT
+    //*******************************************
+//	[[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
+//						 permissions:SHKCONFIG(facebookReadPermissions)	// FB only wants read or publish so use default read, request publish when we need it
+//					 urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
+//				  tokenCacheStrategy:nil] autorelease];
+    //*****************************
+    [[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
+                          permissions:SHKCONFIG(facebookReadPermissions)	// FB only wants read or publish so use default read, request publish when we need it
+                      defaultAudience:FBSessionDefaultAudienceEveryone
+                      urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
+                   tokenCacheStrategy:nil] autorelease];
+    //*****************************
     
     if (allowLoginUI || (session.state == FBSessionStateCreatedTokenLoaded)) {
         
 		if (allowLoginUI) [[SHKActivityIndicator currentIndicator] displayActivity:SHKLocalizedString(@"Logging In...")];
         
         [FBSession setActiveSession:session];
-        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
+        
+        //CONDUIT
+        //*******************************************
+//        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
+        //*****************************
+        [session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView
 				completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
 					if (allowLoginUI) [[SHKActivityIndicator currentIndicator] hide];
 					[self sessionStateChanged:session state:state error:error];
@@ -282,12 +297,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 
 - (BOOL)isAuthorized
 {
-    //CONDUIT **************start*
-//	return [self openSessionWithAllowLoginUI:YES];
-    //**********************end***
-
-    return [self openSessionWithAllowLoginUI:NO];
-
+	return [self openSessionWithAllowLoginUI:YES];
 }
 
 - (void)promptAuthorization
