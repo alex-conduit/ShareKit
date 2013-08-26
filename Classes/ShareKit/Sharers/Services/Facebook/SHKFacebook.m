@@ -140,7 +140,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
         //*******************************************
 //        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
         //*****************************
-        [session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView
+        [session openWithBehavior:FBSessionLoginBehaviorWithNoFallbackToWebView
 				completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
 					if (allowLoginUI) [[SHKActivityIndicator currentIndicator] hide];
 					[self sessionStateChanged:session state:state error:error];
@@ -297,7 +297,11 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 
 - (BOOL)isAuthorized
 {
-	return [self openSessionWithAllowLoginUI:YES];
+    //CONDUIT **************start*
+    //	return [self openSessionWithAllowLoginUI:YES];
+    //**********************end***
+    
+    return [self openSessionWithAllowLoginUI:NO];
 }
 
 - (void)promptAuthorization
