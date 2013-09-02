@@ -23,14 +23,14 @@
 //
 
 #import "SHKInstagram.h"
-#import "SHKConfiguration.h"
+#import "SharersCommonHeaders.h"
 
 #define MAX_RESOLUTION_IPHONE_3GS 1536.0f
 #define MAX_RESOLUTION_IPHONE_4 1936.0f
 
 @interface SHKInstagram()
 
-@property (nonatomic, retain) UIDocumentInteractionController* dic;
+@property (nonatomic, strong) UIDocumentInteractionController* dic;
 @property BOOL didSend;
 
 @end
@@ -40,9 +40,7 @@
 - (void)dealloc {
     
 	_dic.delegate = nil;
-	[_dic release];
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -138,7 +136,7 @@
 			}
 		}
 		if(bestView.window != nil){
-			[self retain];	// retain ourselves until the menu has done it's job or we'll nuke the popup (see documentInteractionControllerDidDismissOpenInMenu)
+			[[SHK currentHelper] keepSharerReference:self];	// retain ourselves until the menu has done it's job or we'll nuke the popup (see documentInteractionControllerDidDismissOpenInMenu)
 			[self.dic presentOpenInMenuFromRect:self.item.popOverSourceRect inView:bestView animated:YES];
 		}
 		return YES;
@@ -231,7 +229,7 @@
 	} else {
 		[self sendDidCancel];
     }
-	[self autorelease];
+	[[SHK currentHelper] removeSharerReference:self];
 }
 - (void) documentInteractionController: (UIDocumentInteractionController *) controller willBeginSendingToApplication: (NSString *) application{
 	self.didSend = true;

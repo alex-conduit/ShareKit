@@ -162,47 +162,6 @@ enum {
     _urls = [[NSMutableArray alloc] init];
 }
 
-
-- (void)dealloc
-{
-        // IBOutlets
-    [_cardView release], _cardView = nil;
-    [_titleLabel release], _titleLabel = nil;
-    [_cancelButton release], _cancelButton = nil;
-    [_sendButton release], _sendButton = nil;
-    [_cardHeaderLineView release], _cardHeaderLineView = nil;
-    [_textView release], _textView = nil;
-    [_textViewContainer release], _textViewContainer = nil;
-    [_paperClipView release], _paperClipView = nil;
-    [_attachment1FrameView release], _attachment1FrameView = nil;
-    [_attachment2FrameView release], _attachment2FrameView = nil;
-    [_attachment3FrameView release], _attachment3FrameView = nil;
-    [_attachment1ImageView release], _attachment1ImageView = nil;
-    [_attachment2ImageView release], _attachment2ImageView = nil;
-    [_attachment3ImageView release], _attachment3ImageView = nil;
-    [_characterCountLabel release], _characterCountLabel = nil;
-    
-        // Public
-    [_completionHandler release], _completionHandler = nil;
-    [_customParameters release], _customParameters = nil;
-    
-        // Private
-    [_text release], _text = nil;
-    [_images release], _images = nil;
-    [_urls release], _urls = nil;
-    [_attachmentFrameViews release], _attachmentFrameViews = nil;
-    [_attachmentImageViews release], _attachmentImageViews = nil;
-    [_backgroundImageView release], _backgroundImageView = nil;
-    [_gradientView release], _gradientView = nil;
-    [_accountPickerView release], _accountPickerView = nil;
-    [_accountPickerPopoverController release], _accountPickerPopoverController = nil;
-    
-//    NSLog(@"DEALLOC DEFacebookComposeViewController");
-    
-    [super dealloc];
-}
-
-
 #pragma mark - Superclass Overrides
 
 - (void)viewDidLoad
@@ -274,7 +233,7 @@ enum {
 
     
         // Now let's fade in a gradient view over the presenting view.
-    self.gradientView = [[[DEFacebookGradientView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds] autorelease];
+    self.gradientView = [[DEFacebookGradientView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
     self.gradientView.autoresizingMask = UIViewAutoresizingNone;
     self.gradientView.transform = self.fromViewController.view.transform;
     self.gradientView.alpha = 0.0f;

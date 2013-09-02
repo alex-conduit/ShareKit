@@ -23,23 +23,18 @@
 //  THE SOFTWARE.
 
 #import "SHKFormFieldCellSwitch.h"
+#import "SHKFormFieldSettings.h"
 
 @implementation SHKFormFieldCellSwitch
 
 @synthesize mySwitch;
 
-- (void)dealloc {
-    
-    [mySwitch release];
-    [super dealloc];
-}
 
 - (void)setupLayout {
     
     UISwitch *aSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
     [aSwitch addTarget:self action: @selector(switchChange:) forControlEvents:UIControlEventValueChanged];
     self.mySwitch = aSwitch;
-    [aSwitch release];
     self.accessoryView = self.mySwitch;     
     
     [super setupLayout];    

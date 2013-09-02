@@ -45,17 +45,12 @@
 
 "Enter your message:" = "Kirjoita viestisi:";
 
-"Invalid email or password." = "Väärä sähköposti tai salasana.";
 "The service encountered an error. Please try again later." = "Tapahtui virhe. Yritä myöhemmin uudelleen.";
-
-"There was an error saving to Pinboard" = "Virhe tallennettaessa Pinboard";
 
 "Sorry, %@ did not accept your credentials. Please try again." = "Väärä käyttäjätunnus tai salasana.";
 "Sorry, %@ encountered an error. Please try again." = "Virhe %@. Yritä myöhemmin uudelleen.";
 "There was a problem saving to %@." = "Ongelma tallennettaessa %@.";
 
-"Incorrect username and password" = "Väärä käyttäjätunnus tai salasana";
-"There was an error logging into Google Reader" = "Virhe kirjauduttaessa Google Readeriin";
 "There was a problem saving your note." = "Muistiinpanoa ei voitu tallentaa virheen takia.";
 
 "Open in Safari" = "Avaa Safarissa";

@@ -49,17 +49,12 @@
 
 "Enter your message:" = "Ваше сообщение:";
 
-"Invalid email or password." = "Неверный email или пароль.";
 "The service encountered an error. Please try again later." = "У сервиса произошла ошибка. Попробуйте, пожалуйста, позже.";
-
-"There was an error saving to Pinboard" = "Произошла ошибка при oтправке на Pinboard";
 
 "Sorry, %@ did not accept your credentials. Please try again." = "Извините, но %@ не принял ваши данные. Попробуйте, пожалуйста, еще раз.";
 "Sorry, %@ encountered an error. Please try again." = "Извините, у %@ возникла ошибка. Попробуйте, пожалуйста, еще раз.";
 "There was a problem saving to %@." = "Произошла ошибка при oтправке на %@.";
 
-"Incorrect username and password" = "Неверные имя и пароль";
-"There was an error logging into Google Reader" = "Ошибка входа в Google Reader";
 "There was a problem authenticating your account." = "Произошла ошибка авторизации Вашего аккаунта.";
 "There was a problem saving your note." = "Произошла ошибка при oтправке Вашей заметки.";
 

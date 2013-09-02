@@ -16,6 +16,7 @@
 
 "Private" = "Private";
 
+/* Belonged to removed Google Reader, currently unused. Left undeleted, since this is a common word which might be of use elsewhere */
 "Public" = "Public";
 
 "Caption" = "Caption";
@@ -26,6 +27,7 @@
 
 "Notes" = "Notes";
 
+/* Belonged to removed Google Reader, currently unused. Left undeleted, since this is a common word which might be of use elsewhere */
 "Note" = "Note";
 
 "Shared" = "Shared";
@@ -80,19 +82,12 @@
 
 "Enter your message:" = "Enter your message:";
 
-"Invalid email or password." = "Invalid email or password.";
-
 "The service encountered an error. Please try again later." = "The service encountered an error. Please try again later.";
-
-"There was an error saving to Pinboard" = "There was an error saving to Pinboard";
 
 "Sorry, %@ did not accept your credentials. Please try again." = "Sorry, %@ did not accept your credentials. Please try again.";
 "Sorry, %@ encountered an error. Please try again." = "Sorry, %@ encountered an error. Please try again.";
 "There was a problem saving to %@." = "There was a problem saving to %@.";
 
-"Incorrect username and password" = "Incorrect username and password";
-
-"There was an error logging into Google Reader" = "There was an error logging into Google Reader";
 "There was a problem saving your note." = "There was a problem saving your note.";
 
 "Open in Safari" = "Open in Safari";
@@ -221,7 +216,6 @@
 "Flickr" = "Flickr";
 "Foursquare" = "Foursquare";
 "Google+" = "Google+";
-"Google Reader" = "Google Reader";
 "Hatena" = "Hatena";
 "Instapaper" = "Instapaper";
 "Kippt" = "Kippt";
@@ -266,3 +260,19 @@
  *  Show tips for user how to rename file or enter another remote directory while upload a file
  */
 "Tips: you could enter /folder_name/file_name to save the file in other folder or/with new name" = "Tips: you could enter /folder_name/file_name to save the file in other folder or/with new name";
+
+//youtube option picker
+"Privacy" = "Privacy";
+"Unlisted" = "Unlisted";
+
+//kippt option picker
+"List" = "List";
+
+//linkedin text field placeholder
+"Comment" = "Comment";
+
+//twitter text filed placeholder
+"Tweet" = "Tweet"
+
+//universal
+"Message" = "Message"

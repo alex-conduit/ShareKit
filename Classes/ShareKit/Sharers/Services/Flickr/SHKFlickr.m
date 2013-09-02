@@ -26,7 +26,8 @@
 
 
 #import "SHKFlickr.h"
-#import "SHKConfiguration.h"
+
+#import "SharersCommonHeaders.h"
 #import "NSHTTPCookieStorage+DeleteForURL.h"
 
 NSString *kFlickrAuthenticationURL = @"http://flickr.com/services/auth/";
@@ -46,8 +47,8 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 -(void) optionsEnumerationFailed:(NSError*)error;
 -(void) postToNextGroup;
 
-@property (nonatomic, retain) NSArray* fullOptionsData;
-@property (nonatomic, retain) NSString *postedPhotoID;
+@property (nonatomic, strong) NSArray* fullOptionsData;
+@property (nonatomic, strong) NSString *postedPhotoID;
 @end
 
 
@@ -99,7 +100,7 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 	if (!flickrRequest) {
 		flickrRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:self.flickrContext];
 		flickrRequest.delegate = self;	
-        [self retain]; //released in request delegate methods, OFFFlickrAPIRequest does not retain its delegate
+        [[SHK currentHelper] keepSharerReference:self]; //released in request delegate methods, OFFFlickrAPIRequest does not retain its delegate
 		flickrRequest.requestTimeoutInterval = 60.0;	
 	}
 	
@@ -117,11 +118,12 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 	NSURL *loginURL = [self.flickrContext loginURLFromFrobDictionary:nil requestedPermission:OFFlickrWritePermission];
 	SHKOAuthView *auth = [[SHKOAuthView alloc] initWithURL:loginURL delegate:self];
 	[[SHK currentHelper] showViewController:auth];	
-	[auth release];
 }
 
-- (NSArray *)shareFormFieldsForType:(SHKShareType)type{
-    if([self.item shareType] == SHKShareTypeImage){
+- (NSArray *)shareFormFieldsForType:(SHKShareType)type {
+    
+    if([self.item shareType] == SHKShareTypeImage) {
+        
 		NSMutableArray *baseArray = [NSMutableArray arrayWithObjects:
 									 [SHKFormFieldSettings label:SHKLocalizedString(@"Title")
 															 key:@"title"
@@ -147,26 +149,23 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 															 key:@"is_family"
 															type:SHKFormFieldTypeSwitch
 														   start:SHKFormFieldSwitchOn],
-									 [SHKFormFieldSettings label:SHKLocalizedString(@"Post To Groups")
-															 key:@"postgroup"
-															type:SHKFormFieldTypeOptionPicker
-														   start:nil
-												optionPickerInfo:[NSMutableDictionary dictionaryWithObjectsAndKeys:SHKLocalizedString(@"Flickr Groups"), @"title",
-																  @"-1", @"curIndexes",
-																  [NSArray array],@"itemsList",
-																  [NSNumber numberWithBool:NO], @"static",
-																  [NSNumber numberWithBool:YES], @"allowMultiple",
-																  self, @"SHKFormOptionControllerOptionProvider",
-																  nil]
-                                        optionDetailLabelDefault:SHKLocalizedString(@"Select Group")],
-									 nil
-									 ];
-		
+                                     [SHKFormFieldOptionPickerSettings label:SHKLocalizedString(@"Post To Groups")
+                                                                         key:@"postgroup"
+                                                                        type:SHKFormFieldTypeOptionPicker
+                                                                       start:SHKLocalizedString(@"Select Group")
+                                                                 pickerTitle:SHKLocalizedString(@"Flickr Groups")
+                                                             selectedIndexes:nil
+                                                               displayValues:nil
+                                                                  saveValues:nil
+                                                               allowMultiple:YES
+                                                                fetchFromWeb:YES
+                                                                    provider:self],
+                                     nil];
 		return baseArray;
-	}else {
+        
+	} else {
 		return [super shareFormFieldsForType:type];
 	}
-	
 }
 
 - (BOOL)send
@@ -224,11 +223,11 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 	
 	if (!success)
 	{
-		[[[[UIAlertView alloc] initWithTitle:SHKLocalizedString(@"Authorize Error")
+		[[[UIAlertView alloc] initWithTitle:SHKLocalizedString(@"Authorize Error")
 									 message:error!=nil?[error localizedDescription]:SHKLocalizedString(@"There was an error while authorizing")
 									delegate:nil
 						   cancelButtonTitle:SHKLocalizedString(@"Close")
-						   otherButtonTitles:nil] autorelease] show];
+						   otherButtonTitles:nil] show];
 	}
 	else 
 	{
@@ -335,7 +334,7 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
         
         [self sendDidFailWithError:inError shouldRelogin:NO];
     }
-    [self autorelease]; //see [self flickrRequest]
+    [[SHK currentHelper] removeSharerReference:self]; //see [self flickrRequest]
 }
 
 -(void) postToNextGroup
@@ -365,25 +364,14 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 	}
 }
 
-- (void)dealloc
-{
-    [flickrContext release];
-	[flickrRequest release];
-	[flickrUserName release];
-	[fullOptionsData release];
-	[postedPhotoID release];
-    [super dealloc];
-}
 
 -(void) optionsEnumerated:(NSArray*)options{
 	NSAssert(self.curOptionController != nil, @"Any pending requests should have been canceled in SHKFormOptionControllerCancelEnumerateOptions");
-	[self.curOptionController optionsEnumerated:options];
-	self.curOptionController = nil;
+	[self.curOptionController optionsEnumeratedDisplay:options save:nil];
 }
 -(void) optionsEnumerationFailed:(NSError*)error{
 	NSAssert(self.curOptionController != nil, @"Any pending requests should have been canceled in SHKFormOptionControllerCancelEnumerateOptions");
 	[self.curOptionController optionsEnumerationFailedWithError:error];
-	self.curOptionController = nil;
 }
 
 -(void) SHKFormOptionControllerEnumerateOptions:(SHKFormOptionController*) optionController
@@ -396,7 +384,6 @@ NSString *kPutInGroupsStep = @"kPutInGroupsStep";
 -(void) SHKFormOptionControllerCancelEnumerateOptions:(SHKFormOptionController*) optionController
 {
 	NSAssert(self.curOptionController == optionController, @"there should never be more than one picker open.");
-	self.curOptionController = nil;
 	NSAssert(self.flickrRequest.sessionInfo == kGetGroupsStep, @"The active request should be kGetGroupsStep");
 	[self.flickrRequest cancel];
 }

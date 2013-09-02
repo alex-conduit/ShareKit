@@ -80,21 +80,13 @@
 
 "Enter your message:" = "Zadejte Vaši zprávu:";
 
-"Invalid email or password." = "Neplatný email nebo heslo.";
-
 "The service encountered an error. Please try again later." = "Na službě se vyskytla chyba. Zkuste později, prosím.";
-
-"There was an error saving to Pinboard" = "Během odesílání na Pinboard nastala chyba";
 
 "Sorry, %@ did not accept your credentials. Please try again." = "Je mi líto, %@ neakceptoval Vaše přihlašovací údaje. Zkuste znovu, prosím.";
 
 "Sorry, %@ encountered an error. Please try again." = "Je mi líto, na službě %@ se vyskytla chyba. Zkuste znovu, prosím.";
 
 "There was a problem saving to %@." = "Během odesílání na %@ nastala chyba.";
-
-"Incorrect username and password" = "Nesprávné jméno nebo heslo";
-
-"There was an error logging into Google Reader" = "Během přihlašování na Google Reader nastala chyba";
 
 "There was a problem authenticating your account." = "Během autorizace Vašeho konta nastal problém.";
 

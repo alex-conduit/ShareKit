@@ -23,6 +23,7 @@
 
 #import "SHKFormFieldCellText.h"
 #import "SHKConfiguration.h"
+#import "SHKFormFieldSettings.h"
 
 #define SHK_FORM_CELL_TEXTFIELD_HEIGHT 25
 
@@ -30,11 +31,6 @@
 
 @synthesize textField;
 
-- (void)dealloc {
-    
-    [textField release];
-    [super dealloc];
-}
 
 - (void)setupLayout {
     
@@ -45,13 +41,12 @@
     
     UITextField *aTextField = [[UITextField alloc] initWithFrame:frame];
     self.textField = aTextField;
-    [aTextField release];
     
     self.textField.clearsOnBeginEditing = NO;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.font = [UIFont systemFontOfSize:17];
     self.textField.textColor = [UIColor darkGrayColor];
-    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textField.delegate = self;
     [self.contentView addSubview:self.textField];
     

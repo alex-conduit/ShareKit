@@ -321,12 +321,25 @@
 - (NSString *) dropboxAppSecret {
     return @"";
 }
+/*
+ This setting should correspond with permission type set during your app registration with Dropbox. You can choose from these two values:
+ @"sandbox" (set if you chose permission type "App folder" == kDBRootAppFolder. You will have access only to the app folder you set in  https://www.dropbox.com/developers/apps)
+ @"dropbox" (set if you chose permission type "Full dropbox" == kDBRootDropbox)
+ */
+- (NSString *) dropboxRootFolder {
+    return @"sandbox";
+}
 
+// if you set NO, a dialogue will appear where user can choose different filename, otherwise the file is silently overwritten.
+- (NSNumber *)dropboxShouldOverwriteExistedFile {
+    return [NSNumber numberWithBool:YES];
+}
 
 // Buffer
 /*
  1 - Set up an app at https://bufferapp.com/developers/apps/create
  2 - Once the app is set up this requires a URL Scheme to be set up within your apps info.plist. bufferXXXX where XXXX is your client ID, this will enable Buffer authentication.
+ 3 - Set bufferShouldShortenURLS. NO will use ShareKit's shortening (if available). YES will use Buffer's shortener once the sheet is autheorised and presented.
 */
 
 - (NSString*)bufferClientID
@@ -339,20 +352,9 @@
 	return @"";
 }
 
-/* 
- This setting should correspond with permission type set during your app registration with Dropbox. You can choose from these two values:
-    @"sandbox" (set if you chose permission type "App folder" == kDBRootAppFolder. You will have access only to the app folder you set in  https://www.dropbox.com/developers/apps)
-    @"dropbox" (set if you chose permission type "Full dropbox" == kDBRootDropbox)
-*/
-- (NSString *) dropboxRootFolder {
-    return @"sandbox";
+- (NSNumber *)bufferShouldShortenURLS {
+    return [NSNumber numberWithBool:YES];
 }
-
-// if you set NO, a dialogue will appear where user can choose different filename, otherwise the file is silently overwritten.
--(BOOL)dropboxShouldOverwriteExistedFile {
-    return YES;
-}
-
 
 /*
  UI Configuration : Basic
@@ -451,10 +453,6 @@
  check out http://getsharekit.com/customize. To use a subclass, you can create your own, and let ShareKit know about it in your configurator, overriding one (or more) of these methods.
  */
 
-- (Class)SHKActionSheetSubclass {    
-    return NSClassFromString(@"SHKActionSheet");
-}
-
 - (Class)SHKShareMenuSubclass {    
     return NSClassFromString(@"SHKShareMenu");
 }
@@ -502,7 +500,7 @@
 /* 
  Debugging settings
  ------------------
- see DefaultSHKConfigurator.h
+ see Debug.h
  */
 
 /*

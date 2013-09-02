@@ -26,17 +26,15 @@
 //
 
 #import "SHKFoursquareV2.h"
+
+#import "SharersCommonHeaders.h"
 #import "SHKFoursquareV2OAuthView.h"
 #import "SHKFoursquareV2VenuesForm.h"
-#import "SHKFoursquareV2CheckInForm.h"
-#import "SHKConfiguration.h"
-
 #import "NSString+URLEncoding.h"
 #import "NSHTTPCookieStorage+DeleteForURL.h"
 
 static NSString *authorizeURL = @"https://foursquare.com/oauth2/authenticate";
 static NSString *accessTokenKey = @"accessToken";
-
 
 @interface SHKFoursquareV2 ()
 
@@ -48,22 +46,6 @@ static NSString *accessTokenKey = @"accessToken";
 
 @implementation SHKFoursquareV2
 
-@synthesize clientId = _clientId;
-@synthesize authorizeCallbackURL = _authorizeCallbackURL;
-@synthesize accessToken = _accessToken;
-@synthesize location = _location;
-@synthesize venue = _venue;
-
-- (void)dealloc
-{
-    self.clientId = nil;
-    self.authorizeCallbackURL = nil;
-    self.accessToken = nil;
-    self.location = nil;
-    self.venue = nil;
-    
-    [super dealloc];
-}
 
 - (id)init
 {
@@ -93,19 +75,9 @@ static NSString *accessTokenKey = @"accessToken";
              [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined));
 }
 
-+ (BOOL)canShareURL
-{
-	return NO;
-}
-
 + (BOOL)canShareText
 {
 	return YES;
-}
-
-+ (BOOL)canShareImage
-{
-	return NO;
 }
 
 + (BOOL)canShareOffline
@@ -136,7 +108,6 @@ static NSString *accessTokenKey = @"accessToken";
 	
 	SHKFoursquareV2OAuthView *auth = [[SHKFoursquareV2OAuthView alloc] initWithURL:url delegate:self];
 	[[SHK currentHelper] showViewController:auth];	
-	[auth release];
 }
 
 
@@ -150,11 +121,11 @@ static NSString *accessTokenKey = @"accessToken";
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:SHKLocalizedString(@"Access Error")
+        [[[UIAlertView alloc] initWithTitle:SHKLocalizedString(@"Access Error")
                                      message:error!=nil?[error localizedDescription]:SHKLocalizedString(@"There was an error while sharing")
                                     delegate:nil
                            cancelButtonTitle:SHKLocalizedString(@"Close")
-                           otherButtonTitles:nil] autorelease] show];
+                           otherButtonTitles:nil] show];
     }
     [self authDidFinish:success];
 }
@@ -198,6 +169,24 @@ static NSString *accessTokenKey = @"accessToken";
 
 #pragma mark -
 #pragma mark UI
+
+- (NSArray *)shareFormFieldsForType:(SHKShareType)type {
+    
+    NSString *label = [SHKLocalizedString(@"Check In") stringByAppendingFormat:@" %@", SHKLocalizedString(@"Message")];
+    NSArray *result = @[[SHKFormFieldLargeTextSettings label:label
+                                                         key:@"text"
+                                                        type:SHKFormFieldTypeTextLarge
+                                                       start:self.item.text
+                                               maxTextLength:140
+                                                       image:nil
+                                             imageTextLength:0
+                                                        link:nil
+                                                        file:nil
+                                              allowEmptySend:YES
+                                                      select:YES]];
+    return result;
+}
+
 - (void)show
 {
 	if (self.item.shareType == SHKShareTypeText)
@@ -214,51 +203,48 @@ static NSString *accessTokenKey = @"accessToken";
 	
 	[[SHK currentHelper] showViewController:self];	
     
-    [venuesForm release];
 }
 
 - (void)showFoursquareV2CheckInForm;
-{
-    SHKFoursquareV2CheckInForm *checkInForm = [[SHKFoursquareV2CheckInForm alloc] initWithNibName:nil bundle:nil delegate:self];	
-    checkInForm.text = self.item.text;       
-    checkInForm.maxTextLength = 140;  
-    self.navigationBar.tintColor = SHKCONFIG_WITH_ARGUMENT(barTintForView:,self);
-	
-	[self pushViewController:checkInForm animated:YES];	
-    [checkInForm release];
+{    
+    NSArray *shareFormFields = [self shareFormFieldsForType:self.item.shareType];
+    if (!shareFormFields) [self tryToSend];
+    
+    SHKFormController *rootView = [[SHKCONFIG(SHKFormControllerSubclass) alloc] initWithStyle:UITableViewStyleGrouped
+                                                                                        title:nil
+                                                                             rightButtonTitle:SHKLocalizedString(@"Check In")];
+    rootView.navigationItem.leftBarButtonItem = nil;
+    [self setupFormController:rootView withFields:shareFormFields];
+    
+    [self pushViewController:rootView animated:YES];
 }
 
-- (void)sendForm:(SHKCustomFormControllerLargeTextField *)form
-{  
- 	self.item.text = form.textView.text;
- 	[self startCheckInRequest];
-}
-
-- (void)startCheckInRequest
+- (BOOL)send
 {
+    if (![self validateItem]) return NO;
+    
     [self sendDidStart];
     
-    self.request = [SHKFoursquareV2Request requestCheckinLocation:self.location venue:self.venue message:self.item.text delegate:self isFinishedSelector:@selector(finishCheckInRequest:) accessToken:self.accessToken autostart:YES];
+    [SHKFoursquareV2Request startRequestCheckinLocation:self.location
+                                                  venue:self.venue
+                                                message:self.item.text
+                                            accessToken:self.accessToken
+                                             completion:^ (SHKRequest *request) {
+                                                 
+                                                 [[SHK currentHelper] hideCurrentViewControllerAnimated:YES];
+                                                 
+                                                 if (request.success)
+                                                 {
+                                                     [self sendDidFinish];
+                                                 }
+                                                 else
+                                                 {
+                                                     SHKFoursquareV2Request *FSRequest = (SHKFoursquareV2Request *)request;
+                                                     NSError *error = FSRequest.foursquareError;
+                                                     [self sendDidFailWithError:error shouldRelogin:error.foursquareRelogin];
+                                                 }
+                                             }];
+    return YES;
 }
-
-- (void)finishCheckInRequest:(SHKFoursquareV2Request*)sender
-{
-    [[SHK currentHelper] hideCurrentViewControllerAnimated:YES];
-    
-    if (sender.success)
-    {
-        [self sendDidFinish];
-    }
-    else
-    {
-        NSError *error = sender.foursquareError;
-        
-        [self sendDidFailWithError:error shouldRelogin:error.foursquareRelogin];
-    }
-    
-    self.request = nil;
-}
-
-
 
 @end

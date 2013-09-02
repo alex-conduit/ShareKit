@@ -65,17 +65,8 @@
     
     _rowHeight = 20.0f;
     _lineWidth = 1.0f;
-    _lineColor = [[UIColor colorWithWhite:0.5f alpha:0.15f] retain];
+    _lineColor = [UIColor colorWithWhite:0.5f alpha:0.15f];
 }
-
-
-- (void)dealloc
-{
-    [_lineColor release], _lineColor = nil;
-    
-    [super dealloc];
-}
-
 
 #pragma mark - Superclass Overrides
 

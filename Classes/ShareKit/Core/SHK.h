@@ -28,13 +28,10 @@
 #define SHK_VERSION @"0.2.1"
 
 #import <Foundation/Foundation.h>
-#import "DefaultSHKConfigurator.h"
-#import "SHKItem.h"
-#import "SHKActionSheet.h"
-#import "SHKRequest.h"
-#import "SHKActivityIndicator.h"
-#import "SHKFormFieldSettings.h"
-#import "UIWebView+SHK.h"
+
+@class SHKActionSheet;
+@class SHKItem;
+@class SHKSharer;
 
 extern NSString * const SHKSendDidStartNotification;
 extern NSString * const SHKSendDidFinishNotification;
@@ -42,21 +39,26 @@ extern NSString * const SHKSendDidFailWithErrorNotification;
 extern NSString * const SHKSendDidCancelNotification;
 extern NSString * const SHKAuthDidFinishNotification;
 
-@class SHKActionSheet;
-
 @interface SHK : NSObject 
 
-@property (nonatomic, retain) UIViewController *currentView;
-@property (nonatomic, retain) UIViewController *pendingView;
+@property (nonatomic, strong) UIViewController *currentView;
+@property (nonatomic, strong) UIViewController *pendingView;
 @property BOOL isDismissingView;
 
-@property (nonatomic, retain) NSOperationQueue *offlineQueue;
+@property (nonatomic, strong) NSOperationQueue *offlineQueue;
 
 #pragma mark -
 
 + (SHK *)currentHelper;
 
 + (NSDictionary *)sharersDictionary;
+
+#pragma mark -
+#pragma mark Sharer Management
+
+//some sharers need to be retained until callback from UI or web service, otherwise they would be prematurely deallocated. Each sharer is responsible for removing itself on callback.
+- (void)keepSharerReference:(SHKSharer *)sharer;
+- (void)removeSharerReference:(SHKSharer *)sharer;
 
 #pragma mark -
 #pragma mark View Management
@@ -115,7 +117,6 @@ extern NSString * const SHKAuthDidFinishNotification;
 
 @end
 
-NSString * SHKStringOrBlank(NSString * value);
 NSString * SHKEncode(NSString * value);
 NSString * SHKEncodeURL(NSURL * value);
 NSString * SHKFlattenHTML(NSString * value, BOOL preserveLineBreaks);

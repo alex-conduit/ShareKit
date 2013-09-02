@@ -24,6 +24,7 @@
 
 #import "SHKFormFieldCellOptionPicker.h"
 #import "SHKConfiguration.h"
+#import "SHKFormFieldSettings.h"
 
 @implementation SHKFormFieldCellOptionPicker
 
@@ -38,7 +39,7 @@
   
     self.textLabel.text = settings.label;    
     
-    self.detailTextLabel.text = settings.displayValue ? settings.displayValue : settings.optionDetailLabelDefault;
+    self.detailTextLabel.text = settings.displayValue ? settings.displayValue : settings.start;
     
     [super setupWithSettings:settings];  
 }

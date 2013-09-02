@@ -27,16 +27,12 @@
 
 #import "SHKConfiguration.h"
 #import "SHKFormFieldCell_PrivateProperties.h"
+#import "SHKFormFieldSettings.h"
 
 @implementation SHKFormFieldCell
 
 @synthesize delegate, settings;
 
-- (void)dealloc {
-    
-    [settings release];
-    [super dealloc];    
-}
 
 - (void)setupLayout {
     

@@ -26,16 +26,17 @@
 //
 
 #import "SHKItem.h"
-#import "SHK.h"
+
 #import "SHKConfiguration.h"
 #import "NSData+SaveItemAttachment.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "SHKFormFieldSettings.h"
 
 NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 
 @interface SHKItem()
 
-@property (nonatomic, retain) NSMutableDictionary *custom;
+@property (nonatomic, strong) NSMutableDictionary *custom;
 
 - (NSString *)shareTypeToString:(SHKShareType)shareType;
 
@@ -84,30 +85,6 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 
 @implementation SHKItem
 
-- (void)dealloc
-{
-	[_URL release];
-	
-	[_image release];
-	
-	[_title release];
-	[_text release];
-	[_tags release];
-    [_emailBody release];
-
-    [_file release];
-	
-	[_custom release];
-
-	[_mailToRecipients release];
-	[_facebookURLSharePictureURI release];
-	[_facebookURLShareDescription release];
-  
-	[_textMessageToRecipients release];
-  
-	[super dealloc];
-}
-
 - (id)init {
     
     self = [super init];
@@ -123,15 +100,15 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     
     _printOutputType = [SHKCONFIG(printOutputType) intValue];
     
-    _mailToRecipients = [SHKCONFIG(mailToRecipients) retain];
+    _mailToRecipients = SHKCONFIG(mailToRecipients);
     _mailJPGQuality = [SHKCONFIG(mailJPGQuality) floatValue];
     _isMailHTML = [SHKCONFIG(isMailHTML) boolValue];
     _mailShareWithAppSignature = [SHKCONFIG(sharedWithSignature) boolValue];
     
-    _facebookURLShareDescription = [SHKCONFIG(facebookURLShareDescription) retain];
-    _facebookURLSharePictureURI = [SHKCONFIG(facebookURLSharePictureURI) retain];
+    _facebookURLShareDescription = SHKCONFIG(facebookURLShareDescription);
+    _facebookURLSharePictureURI = SHKCONFIG(facebookURLSharePictureURI);
     
-    _textMessageToRecipients = [SHKCONFIG(textMessageToRecipients) retain];
+    _textMessageToRecipients = SHKCONFIG(textMessageToRecipients);
 	_popOverSourceRect = CGRectFromString(SHKCONFIG(popOverSourceRect));
 }
 
@@ -161,7 +138,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     item.emailBody = shareInfo.emailBody;
     item.facebookURLShareDescription = shareInfo.fbDesc;
     //item.facebookURLSharePictureURI = shareInfo.picture;
-	return [item autorelease];
+	return item;
 }
 //**********************end***
 
@@ -183,7 +160,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 	item.title = title;
     item.URLContentType = type;
 	
-	return [item autorelease];
+	return item;
     
 }
 
@@ -199,7 +176,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 	item.image = image;
 	item.title = title;
 	
-	return [item autorelease];
+	return item;
 }
 
 + (id)text:(NSString *)text
@@ -208,7 +185,7 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 	item.shareType = SHKShareTypeText;
 	item.text = text;
 	
-	return [item autorelease];
+	return item;
 }
 
 + (id)filePath:(NSString *)path title:(NSString *)title;
@@ -216,11 +193,11 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 	SHKItem *item = [[self alloc] init];
 	item.shareType = SHKShareTypeFile;
     
-    SHKFile *file = [[[SHKFile alloc] initWithFilePath:path] autorelease];
+    SHKFile *file = [[SHKFile alloc] initWithFilePath:path];
     item.file = file;
 	item.title = title;
 	
-	return [item autorelease];
+	return item;
 }
 
 + (id)fileData:(NSData *)data filename:(NSString *)filename title:(NSString *)title
@@ -230,11 +207,11 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     
     if (!filename) filename = title;
     
-    SHKFile *file = [[[SHKFile alloc] initWithFileData:data filename:filename] autorelease];
+    SHKFile *file = [[SHKFile alloc] initWithFileData:data filename:filename];
     item.file = file;
 	item.title = title;
 	
-	return [item autorelease];
+	return item;
 }
 
 + (id)file:(NSData *)data filename:(NSString *)filename mimeType:(NSString *)mimeType title:(NSString *)title {
@@ -274,7 +251,6 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     NSString *filename = [NSString stringWithFormat:@"%@.%@", rawFileName, extension];
     SHKFile *aFile = [[SHKFile alloc] initWithFileData:imageData filename:filename];
     self.file = aFile;
-    [aFile release];
     
     self.image = nil;
 }
@@ -337,23 +313,23 @@ static NSString *kSHKPopOverSourceRect = @"kSHKPopOverSourceRect";
         
         _shareType = [decoder decodeIntForKey:kSHKShareType];
         _URLContentType = [decoder decodeIntForKey:kSHKURLContentType];
-        _URL = [[decoder decodeObjectForKey:kSHKURL] retain];
-        _title = [[decoder decodeObjectForKey:kSHKTitle] retain];
-        _text = [[decoder decodeObjectForKey:kSHKText] retain];
-        _emailBody = [[decoder decodeObjectForKey:kSHKEmailBody] retain];
 
-        _tags = [[decoder decodeObjectForKey:kSHKTags] retain];
-        _custom = [[decoder decodeObjectForKey:kSHKCustom] retain];
-        _file = [[decoder decodeObjectForKey:kSHKFile] retain];
-        _image = [[decoder decodeObjectForKey:kSHKImage] retain];
+        _URL = [decoder decodeObjectForKey:kSHKURL];
+        _title = [decoder decodeObjectForKey:kSHKTitle];
+        _text = [decoder decodeObjectForKey:kSHKText];
+        _emailBody = [decoder decodeObjectForKey:kSHKEmailBody];
+        _tags = [decoder decodeObjectForKey:kSHKTags];
+        _custom = [decoder decodeObjectForKey:kSHKCustom];
+        _file = [decoder decodeObjectForKey:kSHKFile];
+        _image = [decoder decodeObjectForKey:kSHKImage];
         _printOutputType = [decoder decodeIntForKey:kSHKPrintOutputType];
-        _mailToRecipients = [[decoder decodeObjectForKey:kSHKMailToRecipients] retain];
+        _mailToRecipients = [decoder decodeObjectForKey:kSHKMailToRecipients];
         _isMailHTML = [decoder decodeBoolForKey:kSHKIsMailHTML];
         _mailJPGQuality = [decoder decodeFloatForKey:kSHKMailJPGQuality];
         _mailShareWithAppSignature = [decoder decodeBoolForKey:kSHKMailShareWithAppSignature];
-        _facebookURLShareDescription = [[decoder decodeObjectForKey:kSHKFacebookURLShareDescription] retain];
-        _facebookURLSharePictureURI = [[decoder decodeObjectForKey:kSHKFacebookURLSharePictureURI] retain];
-        _textMessageToRecipients = [[decoder decodeObjectForKey:kSHKTextMessageToRecipients] retain];
+        _facebookURLShareDescription = [decoder decodeObjectForKey:kSHKFacebookURLShareDescription];
+        _facebookURLSharePictureURI = [decoder decodeObjectForKey:kSHKFacebookURLSharePictureURI];
+        _textMessageToRecipients = [decoder decodeObjectForKey:kSHKTextMessageToRecipients];
         _popOverSourceRect = CGRectFromString([decoder decodeObjectForKey:kSHKPopOverSourceRect]);
     }
     return self;

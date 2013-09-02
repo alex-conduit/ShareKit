@@ -45,18 +45,13 @@
 
 "Enter your message:" = "輸入訊息：";
 
-"Invalid email or password." = "電子郵件或密碼無效。";
 "The service encountered an error. Please try again later." = "服務遇到錯誤，請稍候再試。";
 "There was an error sending your post to Tumblr." = "發表文章到 Tumblr 時發生錯誤。";
-
-"There was an error saving to Pinboard" = "儲存到 Pinboard 時發生錯誤";
 
 "Sorry, %@ did not accept your credentials. Please try again." = "抱歉，你的 %@ 帳號密碼錯誤，請再試一次。";
 "Sorry, %@ encountered an error. Please try again." = "抱歉，%@ 發生錯誤，請稍候再試。";
 "There was a problem saving to %@." = "儲存到 %@ 時發生錯誤。";
 
-"Incorrect username and password" = "帳號和密碼錯誤";
-"There was an error logging into Google Reader" = "登入 Google Reader 時發生錯誤";
 "There was a problem authenticating your account." = "帳號授權時發生錯誤。";
 "There was a problem saving your note." = "儲存筆記時發生錯誤。";
 

@@ -71,7 +71,7 @@
         // Add the background image.
         // We can't put the image on the root view because we need to clip the
         // edges, which we can't do if we want the shadow.
-    self.backgroundView = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
+    self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     self.backgroundView.layer.masksToBounds = YES;
     self.backgroundView.layer.cornerRadius = self.layer.cornerRadius + 1.0f;
     self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"DEFacebookCardBackground"]];
@@ -82,9 +82,7 @@
 
 - (void)dealloc
 {
-    [_backgroundView release], _backgroundView = nil;
-    
-    [super dealloc];
+    _backgroundView = nil;
 }
 
 

@@ -1,9 +1,8 @@
 //
-//  SHKFoursquareV2CheckInForm.m
+//  SHKFormFieldCellTextLarge.h
 //  ShareKit
 //
-//  Created by Robin Hos (Everdune) on 9/26/11.
-//  Sponsored by Twoppy
+//  Created by Vilem Kurz on 30/07/2013.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,21 +21,13 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-//
-//
 
-#import "SHKFoursquareV2CheckInForm.h"
-#import "SHK.h"
 
-@implementation SHKFoursquareV2CheckInForm
+#import "SHKFormFieldCell.h"
 
-- (void)setupBarButtonItems {
+@interface SHKFormFieldCellTextLarge : SHKFormFieldCell <UITextViewDelegate>
 
-    //self.title = SHKLocalizedString(@"Foursquare");
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:SHKLocalizedString(@"Check In")
-                                                                           style:UIBarButtonItemStyleDone
-                                                                          target:self
-                                                                          action:@selector(save)] autorelease];
-}
+//so that subclasses can override
+- (CGRect)frameForTextview;
 
 @end

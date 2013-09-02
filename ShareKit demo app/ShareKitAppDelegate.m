@@ -15,8 +15,10 @@
 #import "EvernoteSDK.h"
 #import "SHKBuffer.h"
 #import "PocketAPI.h"
+
 #import "SHKConfiguration.h"
 #import "ShareKitDemoConfigurator.h"
+#import "SHK.h"
 
 @implementation ShareKitAppDelegate
 
@@ -75,7 +77,7 @@
 
     if ([scheme hasPrefix:[NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)]]) {
         return [SHKFacebook handleOpenURL:url];
-    } else if ([scheme isEqualToString:@"com.yourcompany.sharekitdemo"]) {
+    } else if ([scheme isEqualToString:@"com.cocoaminers.ShareKit-demo-app"]) {
         return [SHKGooglePlus handleURL:url sourceApplication:sourceApplication annotation:annotation];
     } else if ([scheme hasPrefix:[NSString stringWithFormat:@"db-%@", SHKCONFIG(dropboxAppKey)]]) {
         return [SHKDropbox handleOpenURL:url];
@@ -91,11 +93,4 @@
     return YES;
 }
 
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc {
-}
-
 @end
-

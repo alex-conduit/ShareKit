@@ -84,21 +84,6 @@
 }
 
 
-- (void)dealloc
-{
-        // Public
-    [_accountName release], _accountName = nil;
-    
-        // Private
-    [_ruledView release], _ruledView = nil;
-    [_fromButton release], _fromButton = nil;
-    [_accountButton release], _accountButton = nil;
-    [_accountLine release], _accountLine = nil;
-    
-    [super dealloc];
-}
-
-
 #pragma mark - Superclass Overrides
 
 - (void)layoutSubviews
@@ -181,7 +166,7 @@
             self.accountButton.titleLabel.font = [UIFont systemFontOfSize:17.0f];
             [self addSubview:self.accountButton];
             
-            self.accountLine = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DEFacebookCardAccountLine"]] autorelease];
+            self.accountLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DEFacebookCardAccountLine"]];
             [self addSubview:self.accountLine];
         }
         [self.accountButton setTitle:self.accountName forState:UIControlStateNormal];
@@ -213,7 +198,6 @@
 - (void)setAccountName:(NSString *)name
 {
     if ([_accountName isEqualToString:name] == NO) {
-        [_accountName release];
         _accountName = [name copy];
         [self updateAccountsView];
     }
