@@ -430,7 +430,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 			[self doNativeShow];
 		}
 	}else{
-		[super show];
+		[self doSHKShow];
 	}
 }
 
@@ -821,7 +821,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
     }
  	else
     {
-        [super show];
+        [super tryToSend];
     }
 }
 
