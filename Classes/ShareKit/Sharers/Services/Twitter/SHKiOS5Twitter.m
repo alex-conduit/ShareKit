@@ -56,6 +56,11 @@
     
     NSString *tweetBody = [NSString stringWithString:(self.item.shareType == SHKShareTypeText ? self.item.text : self.item.title)];
     
+    //CONDUIT **************start*
+    if ([self.item customValueForKey:@"string_TwitterTitle"])
+        tweetBody = [self.item customValueForKey:@"string_TwitterTitle"];
+    //**********************end***
+    
     NSString *tagString = [self tagStringJoinedBy:@" " allowedCharacters:[NSCharacterSet alphanumericCharacterSet] tagPrefix:@"#" tagSuffix:nil];
     if ([tagString length] > 0) tweetBody = [tweetBody stringByAppendingFormat:@" %@",tagString];
     

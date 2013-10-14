@@ -129,6 +129,7 @@
 		1D2D790517F8199800427E51 /* NavBarLandscape1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D777217F80BCE00427E51 /* NavBarLandscape1.png */; };
 		1D2D790617F8199800427E51 /* NavBarLandscape@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D777317F80BCE00427E51 /* NavBarLandscape@2x.png */; };
 		1D2D790717F8199800427E51 /* NavBarLandscape@2x1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D777417F80BCE00427E51 /* NavBarLandscape@2x1.png */; };
+		1D2D7E3F17F8554800427E51 /* DEFacebookComposeView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D775117F80BCE00427E51 /* DEFacebookComposeView.xib */; };
 		456BADAB169107D1005B3077 /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; };
 		456BADAC169107D1005B3077 /* SHKGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BADAA169107D1005B3077 /* SHKGooglePlus.m */; };
 		456BADAD1691095B005B3077 /* libGoogle Plus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4503EBC0169104470057294C /* libGoogle Plus.a */; };
@@ -898,6 +899,7 @@
 				1D2D78A217F816F900427E51 /* SHKShareItemDelegate.h in CopyFiles */,
 				1D2D78A317F816F900427E51 /* SHKReachability.h in CopyFiles */,
 				1D2D782317F8160F00427E51 /* ShareKitLite.h in CopyFiles */,
+				1D2D7E3F17F8554800427E51 /* DEFacebookComposeView.xib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7149,6 +7151,7 @@
 				1D2D783B17F8161000427E51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4503EBBD169104470057294C /* Build configuration list for PBXNativeTarget "Google Plus" */ = {
 			isa = XCConfigurationList;

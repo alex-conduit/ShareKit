@@ -138,6 +138,9 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     item.emailBody = shareInfo.emailBody;
     item.facebookURLShareDescription = shareInfo.fbDesc;
     //item.facebookURLSharePictureURI = shareInfo.picture;
+    if (shareInfo.twitterTitle)
+        [item setCustomValue:shareInfo.twitterTitle forKey:@"string_TwitterTitle"];
+
 	return item;
 }
 //**********************end***
