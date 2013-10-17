@@ -807,9 +807,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
         }
         //*******************************************
 		[self sendDidFinish];
-		[FBSession.activeSession close];	// unhook us
 	}
-
 }
 
 #pragma mark - UI Implementation
