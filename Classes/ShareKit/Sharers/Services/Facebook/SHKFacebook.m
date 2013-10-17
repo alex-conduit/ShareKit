@@ -118,6 +118,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 
 	[[FBSession alloc] initWithAppID:SHKCONFIG(facebookAppId)
 						 permissions:SHKCONFIG(facebookReadPermissions)	// FB only wants read or publish so use default read, request publish when we need it
+                    defaultAudience:FBSessionDefaultAudienceEveryone
 					 urlSchemeSuffix:SHKCONFIG(facebookLocalAppId)
 				  tokenCacheStrategy:nil];
     

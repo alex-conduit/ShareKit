@@ -49,6 +49,10 @@
 
 - (void)share {
     
+    //CONDUIT **************start*
+    if ([self.item customValueForKey:@"string_TwitterTitle"])
+        self.item.title = [self.item customValueForKey:@"string_TwitterTitle"];
+    //**********************end***
     [self shareWithServiceType:SLServiceTypeTwitter];
 }
 
