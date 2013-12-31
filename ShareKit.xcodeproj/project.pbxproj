@@ -130,6 +130,8 @@
 		1D2D790617F8199800427E51 /* NavBarLandscape@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D777317F80BCE00427E51 /* NavBarLandscape@2x.png */; };
 		1D2D790717F8199800427E51 /* NavBarLandscape@2x1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D777417F80BCE00427E51 /* NavBarLandscape@2x1.png */; };
 		1D2D7E3F17F8554800427E51 /* DEFacebookComposeView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2D775117F80BCE00427E51 /* DEFacebookComposeView.xib */; };
+		1DC98B0D1832266B00267321 /* libText Message.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBECF6162F080F009D46E4 /* libText Message.a */; };
+		1DC98B0E1832272400267321 /* SHKTextMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4379F3B01291C45700D2A41E /* SHKTextMessage.h */; };
 		456BADAB169107D1005B3077 /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; };
 		456BADAC169107D1005B3077 /* SHKGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BADAA169107D1005B3077 /* SHKGooglePlus.m */; };
 		456BADAD1691095B005B3077 /* libGoogle Plus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4503EBC0169104470057294C /* libGoogle Plus.a */; };
@@ -486,6 +488,13 @@
 			remoteGlobalIDString = 7AB5360E1552E26800171BCE;
 			remoteInfo = "Resource Bundle";
 		};
+		1DC98B081832266100267321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBECEE162F080F009D46E4;
+			remoteInfo = "Text Message";
+		};
 		456BADAE16910966005B3077 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -803,6 +812,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				1DC98B0E1832272400267321 /* SHKTextMessage.h in CopyFiles */,
 				1D2D78F017F8199800427E51 /* DEFacebookAttachmentFrame.png in CopyFiles */,
 				1D2D78F117F8199800427E51 /* DEFacebookAttachmentFrame@2x.png in CopyFiles */,
 				1D2D78F217F8199800427E51 /* DEFacebookCancelButtonLandscape.png in CopyFiles */,
@@ -1450,6 +1460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC98B0D1832266B00267321 /* libText Message.a in Frameworks */,
 				1D2D785C17F8166E00427E51 /* libLogout.a in Frameworks */,
 				1D2D785317F8165800427E51 /* libEmail.a in Frameworks */,
 				1D2D785417F8165800427E51 /* libFacebook.a in Frameworks */,
@@ -3379,6 +3390,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1DC98B091832266100267321 /* PBXTargetDependency */,
 				1D2D784017F8163800427E51 /* PBXTargetDependency */,
 				1D2D784217F8163800427E51 /* PBXTargetDependency */,
 				1D2D784417F8163800427E51 /* PBXTargetDependency */,
@@ -4761,6 +4773,11 @@
 			isa = PBXTargetDependency;
 			target = 7AB5360E1552E26800171BCE /* Resource Bundle */;
 			targetProxy = 1D2D78A417F8176000427E51 /* PBXContainerItemProxy */;
+		};
+		1DC98B091832266100267321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AABBECEE162F080F009D46E4 /* Text Message */;
+			targetProxy = 1DC98B081832266100267321 /* PBXContainerItemProxy */;
 		};
 		456BADAF16910966005B3077 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

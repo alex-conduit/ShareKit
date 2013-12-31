@@ -181,13 +181,29 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
     
     if (error) {
 		[FBSession.activeSession closeAndClearTokenInformation];
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
+        
+        //CONDUIT
+        //*******************************************
+        if (state != FBSessionStateClosedLoginFailed)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"Error"
+                                      message:error.localizedDescription
+                                      delegate:nil
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"Error"
+//                                  message:error.localizedDescription
+//                                  delegate:nil
+//                                  cancelButtonTitle:@"OK"
+//                                  otherButtonTitles:nil];
+//        [alertView show];
+        //*******************************************
+
     }
 	if (authingSHKFacebook == self) {
 		authingSHKFacebook = nil;

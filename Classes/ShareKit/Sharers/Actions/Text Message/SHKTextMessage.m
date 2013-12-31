@@ -96,7 +96,7 @@
 {	
 	MFMessageComposeViewController *composeView = [[MFMessageComposeViewController alloc] init];
 	composeView.messageComposeDelegate = self;
-  
+
 	NSString *body = self.item.text;
 	
 	if (!body) {

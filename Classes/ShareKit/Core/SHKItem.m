@@ -141,6 +141,9 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     if (shareInfo.twitterTitle)
         [item setCustomValue:shareInfo.twitterTitle forKey:@"string_TwitterTitle"];
 
+    if (item.shareType == SHKShareTypeURL && !item.URL && item.text)
+        item.shareType = SHKShareTypeText;
+    
 	return item;
 }
 //**********************end***

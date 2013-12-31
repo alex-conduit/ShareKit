@@ -120,7 +120,6 @@
 	
     [[SHK currentHelper] keepSharerReference:self]; //must retain, because mailController does not retain its delegates. Released in callback.
 	mailController.mailComposeDelegate = self;
-	mailController.navigationBar.tintColor = SHKCONFIG_WITH_ARGUMENT(barTintForView:,mailController);
 	
 	NSString *body = (self.item.emailBody) ? self.item.emailBody : ((self.item.text) ? self.item.text : @"");
 	BOOL isHTML = self.item.isMailHTML;

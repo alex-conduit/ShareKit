@@ -983,6 +983,14 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
                 }
                 break;
             }
+            case SHKShareTypeURL:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@TRUE forKey:@"result"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:[[self.item.URL absoluteString] md5] object:nil userInfo:dict];
+                break;
+            }
+
             default:
                 break;
         }
