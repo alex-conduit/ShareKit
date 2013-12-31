@@ -194,6 +194,10 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
                                       otherButtonTitles:nil];
             [alertView show];
         }
+        else
+        {
+            NSLog(@"FB: LoginFailed, error: %@", error.localizedDescription);
+        }
 
 //        UIAlertView *alertView = [[UIAlertView alloc]
 //                                  initWithTitle:@"Error"
