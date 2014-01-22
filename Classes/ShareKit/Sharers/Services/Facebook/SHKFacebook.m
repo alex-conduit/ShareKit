@@ -863,10 +863,11 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
                             self.item.text = [dictResult objectForKey:@"textView.text"];
                             break;
                         case SHKShareTypeFile:
-                        case SHKShareTypeImage:
                         case SHKShareTypeURL:
                             self.item.text = [dictResult objectForKey:@"textView.text"];
-                            
+                            break;
+                        case SHKShareTypeImage:
+                            self.item.title = [dictResult objectForKey:@"textView.text"];
                             break;
                         case SHKFacebookComment:
                             self.item.title = [dictResult objectForKey:@"sCustomParam1"];
