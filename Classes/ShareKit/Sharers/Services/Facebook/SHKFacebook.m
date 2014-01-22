@@ -891,7 +891,6 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
     [facebookViewComposer setSCustomParam1: [self.item customValueForKey:@"string_CustomParam1"]];
     [facebookViewComposer setSTitle: [self.item customValueForKey:@"string_Title"]];
     
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
     switch (self.item.shareType) {
         case SHKShareTypeText:
             [facebookViewComposer setInitialText:self.item.text];
@@ -911,7 +910,7 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
             break;
     }
     facebookViewComposer.completionHandler = completionHandler;
-    
+
     [[SHK currentHelper].rootViewForUIDisplay presentViewController:facebookViewComposer animated:YES completion:^{ }];
 }
 

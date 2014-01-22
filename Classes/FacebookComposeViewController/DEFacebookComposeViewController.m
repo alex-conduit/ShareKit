@@ -217,10 +217,6 @@ enum {
     self.textView.text = self.text;
     [self.textView becomeFirstResponder];
     
-    
-
-    
-    
     [self updateAttachments];
     
     [self.navImage setNeedsDisplay];
@@ -231,10 +227,9 @@ enum {
 {
     [super viewWillAppear:animated];
 
-    
-        // Now let's fade in a gradient view over the presenting view.
+    // Now let's fade in a gradient view over the presenting view.
     self.gradientView = [[DEFacebookGradientView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-    self.gradientView.autoresizingMask = UIViewAutoresizingNone;
+    self.gradientView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.gradientView.transform = self.fromViewController.view.transform;
     self.gradientView.alpha = 0.0f;
     self.gradientView.center = [UIApplication sharedApplication].keyWindow.center;
