@@ -23,6 +23,31 @@
 		1D3DE16D18A91B0C00B7F39F /* UIApplication+DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE15F18A91B0C00B7F39F /* UIApplication+DEFacebookComposeViewController.m */; };
 		1D3DE16E18A91B0C00B7F39F /* UIDevice+DEFacebookComposeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D3DE16018A91B0C00B7F39F /* UIDevice+DEFacebookComposeViewController.h */; };
 		1D3DE16F18A91B0C00B7F39F /* UIDevice+DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE16118A91B0C00B7F39F /* UIDevice+DEFacebookComposeViewController.m */; };
+		1D3DE17218A91C8300B7F39F /* SHK.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A611DBE3B9004A1712 /* SHK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17318A91C8F00B7F39F /* DefaultSHKConfigurator.h in Headers */ = {isa = PBXBuildFile; fileRef = AAACE01513CCB1F500A2118F /* DefaultSHKConfigurator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17418A91C9900B7F39F /* SHKActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536EE11DBE3B9004A1712 /* SHKActionSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17518A91CAA00B7F39F /* SHKFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536DC11DBE3B9004A1712 /* SHKFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17618A91CBC00B7F39F /* SHKItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A811DBE3B9004A1712 /* SHKItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17718A91CC900B7F39F /* SHKLinkedIn.h in Headers */ = {isa = PBXBuildFile; fileRef = C0AD00F2142B7B6D000862D9 /* SHKLinkedIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17818A91CDB00B7F39F /* SHKMail.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536BB11DBE3B9004A1712 /* SHKMail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE17918A91CF300B7F39F /* SHKTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536E811DBE3B9004A1712 /* SHKTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18318A91D4F00B7F39F /* SHKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = AAACE01913CCB1F500A2118F /* SHKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18618A91DCC00B7F39F /* SHKSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5367611DBE3B9004A1712 /* SHKSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18818A91DF700B7F39F /* SHKOAuthSharer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5367411DBE3B9004A1712 /* SHKOAuthSharer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18C18A91EA800B7F39F /* OAuthConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A311DBE3B9004A1712 /* OAuthConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18D18A91EB400B7F39F /* OAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A111DBE3B9004A1712 /* OAToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE18F18A91EE600B7F39F /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369011DBE3B9004A1712 /* OAConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19118A91F3900B7F39F /* OAAsynchronousDataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368E11DBE3B9004A1712 /* OAAsynchronousDataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19218A91F3900B7F39F /* OADataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369211DBE3B9004A1712 /* OADataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19318A91F3900B7F39F /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19418A91F3900B7F39F /* OAMutableURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369611DBE3B9004A1712 /* OAMutableURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19518A91F3900B7F39F /* OAPlaintextSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369811DBE3B9004A1712 /* OAPlaintextSignatureProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19618A91F3900B7F39F /* OARequestParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369C11DBE3B9004A1712 /* OARequestParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19718A91F3900B7F39F /* OAServiceTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5369E11DBE3B9004A1712 /* OAServiceTicket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19818A91F3900B7F39F /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A536A011DBE3B9004A1712 /* OASignatureProviding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19918A91F4E00B7F39F /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368111DBE3B9004A1712 /* NSMutableURLRequest+Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE19A18A91F5C00B7F39F /* NSString+URLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368311DBE3B9004A1712 /* NSString+URLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3DE1B418A91FBC00B7F39F /* NSURL+Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A5368511DBE3B9004A1712 /* NSURL+Base.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456BADAB169107D1005B3077 /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; };
 		456BADAC169107D1005B3077 /* SHKGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BADAA169107D1005B3077 /* SHKGooglePlus.m */; };
 		456BADAD1691095B005B3077 /* libGoogle Plus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4503EBC0169104470057294C /* libGoogle Plus.a */; };
@@ -111,7 +136,7 @@
 		7A367319184CCCB100D63F4F /* testXMLAttributes2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7A367318184CCCB100D63F4F /* testXMLAttributes2.xml */; };
 		7A380C8F1891400600F7F054 /* SHKUploadsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A380C8D1891400600F7F054 /* SHKUploadsViewController.h */; };
 		7A380C901891400600F7F054 /* SHKUploadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A380C8E1891400600F7F054 /* SHKUploadsViewController.m */; };
-		7A3A0D83170CBDD300A0B717 /* SHKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3A0D81170CBDD300A0B717 /* SHKFile.h */; };
+		7A3A0D83170CBDD300A0B717 /* SHKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3A0D81170CBDD300A0B717 /* SHKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A3A0D84170CBDD300A0B717 /* SHKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A0D82170CBDD300A0B717 /* SHKFile.m */; };
 		7A49DBBD16BC193E004B7E78 /* SHKReadability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB495A31520349A00505A99 /* SHKReadability.m */; };
 		7A49DBC716BC19BD004B7E78 /* libReadability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A49DBC316BC193E004B7E78 /* libReadability.a */; };
@@ -130,7 +155,7 @@
 		7A72AD07189FD9490039D762 /* SHKAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A72AD05189FD9490039D762 /* SHKAccountsViewController.m */; };
 		7A74C18716E8A64400CFDFC3 /* Singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A74C18616E8A64400CFDFC3 /* Singleton.h */; };
 		7A8397431782CC9500E1F8B9 /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8397421782CC9500E1F8B9 /* Debug.h */; };
-		7A83974B1782FBFD00E1F8B9 /* ShareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A83974A1782FBFB00E1F8B9 /* ShareKit.h */; };
+		7A83974B1782FBFD00E1F8B9 /* ShareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A83974A1782FBFB00E1F8B9 /* ShareKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A85B52017FA1E6F00C86E77 /* ENEncryptedContentInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A85B51117FA1E6F00C86E77 /* ENEncryptedContentInfo.h */; };
 		7A85B52117FA1E6F00C86E77 /* ENEncryptedContentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B51217FA1E6F00C86E77 /* ENEncryptedContentInfo.m */; };
 		7A85B52217FA1E6F00C86E77 /* ENMIMEUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A85B51317FA1E6F00C86E77 /* ENMIMEUtils.h */; };
@@ -2652,16 +2677,27 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3DE17218A91C8300B7F39F /* SHK.h in Headers */,
+				1D3DE17318A91C8F00B7F39F /* DefaultSHKConfigurator.h in Headers */,
+				1D3DE17418A91C9900B7F39F /* SHKActionSheet.h in Headers */,
+				1D3DE17518A91CAA00B7F39F /* SHKFacebook.h in Headers */,
+				1D3DE17618A91CBC00B7F39F /* SHKItem.h in Headers */,
+				1D3DE17718A91CC900B7F39F /* SHKLinkedIn.h in Headers */,
+				1D3DE17818A91CDB00B7F39F /* SHKMail.h in Headers */,
+				1D3DE17918A91CF300B7F39F /* SHKTwitter.h in Headers */,
+				1D3DE18318A91D4F00B7F39F /* SHKConfiguration.h in Headers */,
+				7A3A0D83170CBDD300A0B717 /* SHKFile.h in Headers */,
+				1D3DE18618A91DCC00B7F39F /* SHKSharer.h in Headers */,
+				1D3DE18818A91DF700B7F39F /* SHKOAuthSharer.h in Headers */,
+				7A83974B1782FBFD00E1F8B9 /* ShareKit.h in Headers */,
 				7AD9861D16E78D730052A5B8 /* NSData+SaveItemAttachment.h in Headers */,
 				7A5C28D51896C23D00E47E62 /* SHKUploadInfo.h in Headers */,
 				7A74C18716E8A64400CFDFC3 /* Singleton.h in Headers */,
-				7A3A0D83170CBDD300A0B717 /* SHKFile.h in Headers */,
 				7A5C28D11894555C00E47E62 /* SHKUploadsViewCell.h in Headers */,
 				7A8397431782CC9500E1F8B9 /* Debug.h in Headers */,
 				7ACD3B09184DF0C40096CEA5 /* NSDictionary+Recursive.h in Headers */,
 				7ACABC78188FDD6B00EBFDB1 /* SHKSharer_protected.h in Headers */,
 				7A5C28DF189BA57100E47E62 /* SHKMBRoundProgressView.h in Headers */,
-				7A83974B1782FBFD00E1F8B9 /* ShareKit.h in Headers */,
 				7A0FB85F17A5A3A000B88C87 /* SHKFormFieldOptionPickerSettings.h in Headers */,
 				7A0FB86817A644AF00B88C87 /* NSArray+JoinValues.h in Headers */,
 				7A380C8F1891400600F7F054 /* SHKUploadsViewController.h in Headers */,
@@ -2678,6 +2714,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3DE18D18A91EB400B7F39F /* OAToken.h in Headers */,
+				1D3DE18C18A91EA800B7F39F /* OAuthConsumer.h in Headers */,
+				1D3DE18F18A91EE600B7F39F /* OAConsumer.h in Headers */,
+				1D3DE19A18A91F5C00B7F39F /* NSString+URLEncoding.h in Headers */,
+				1D3DE19918A91F4E00B7F39F /* NSMutableURLRequest+Parameters.h in Headers */,
+				1D3DE19118A91F3900B7F39F /* OAAsynchronousDataFetcher.h in Headers */,
+				1D3DE19218A91F3900B7F39F /* OADataFetcher.h in Headers */,
+				1D3DE19318A91F3900B7F39F /* OAHMAC_SHA1SignatureProvider.h in Headers */,
+				1D3DE19418A91F3900B7F39F /* OAMutableURLRequest.h in Headers */,
+				1D3DE19518A91F3900B7F39F /* OAPlaintextSignatureProvider.h in Headers */,
+				1D3DE19618A91F3900B7F39F /* OARequestParameter.h in Headers */,
+				1D3DE19718A91F3900B7F39F /* OAServiceTicket.h in Headers */,
+				1D3DE19818A91F3900B7F39F /* OASignatureProviding.h in Headers */,
+				1D3DE1B418A91FBC00B7F39F /* NSURL+Base.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

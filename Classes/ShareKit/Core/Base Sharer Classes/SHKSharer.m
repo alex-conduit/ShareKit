@@ -1103,7 +1103,6 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
 	if ([self.shareDelegate respondsToSelector:@selector(sharer:failedWithError:shouldRelogin:)])
 		[self.shareDelegate sharer:self failedWithError:error shouldRelogin:shouldRelogin];
     
-<<<<<<< HEAD
     if (shouldRelogin) {
         [self promptAuthorization];
 	}
