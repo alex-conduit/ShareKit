@@ -29,6 +29,7 @@
 #import <Foundation/Foundation.h>
 #import "SHKSharer.h"
 
+
 @interface SHKFacebook : SHKSharer
 
 @property (readonly,strong) NSMutableSet* pendingConnections; // sub classes can use the set. use a set so that connections can only be added once
@@ -42,4 +43,5 @@
 // keep in mind of you add requests as a subclass, you need to cancel them yourself and remove
 // them from the pending set. The base version will cancel anything that responds to the cancel selector
 - (void)cancelPendingRequests;
+
 @end

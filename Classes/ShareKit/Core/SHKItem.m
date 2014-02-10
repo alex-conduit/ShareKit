@@ -42,8 +42,48 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
 
 @end
 
-@implementation SHKItem
+//CONDUIT **************start*
+@implementation SHKItem_ShareInfo
 
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_comment forKey:@"comment"];
+    [encoder encodeObject:_emailBody forKey:@"emailBody"];
+    [encoder encodeObject:_emailSubject forKey:@"emailSubject"];
+    [encoder encodeObject:_fbDesc forKey:@"fbDesc"];
+    [encoder encodeObject:_shortDesc forKey:@"shortDesc"];
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_twitterFrom forKey:@"twitterFrom"];
+    [encoder encodeObject:_twitterTitle forKey:@"twitterTitle"];
+    [encoder encodeObject:_url forKey:@"url"];
+    [encoder encodeObject:_userImageUrl forKey:@"userImageUrl"];
+    [encoder encodeObject:_picture forKey:@"picture"];
+    [encoder encodeObject:_image forKey:@"image"];
+
+}
+
+- (id) initWithCoder: (NSCoder *) decoder {
+    if (self = [super init]) {
+        self.comment = [decoder decodeObjectForKey: @"comment"];
+        self.emailBody = [decoder decodeObjectForKey: @"emailBody"];
+        self.emailSubject = [decoder decodeObjectForKey: @"emailSubject"];
+        self.fbDesc = [decoder decodeObjectForKey: @"fbDesc"];
+        self.shortDesc = [decoder decodeObjectForKey: @"shortDesc"];
+        self.title = [decoder decodeObjectForKey: @"title"];
+        self.twitterFrom = [decoder decodeObjectForKey: @"twitterFrom"];
+        self.twitterTitle = [decoder decodeObjectForKey: @"twitterTitle"];
+        self.url = [decoder decodeObjectForKey: @"url"];
+        self.userImageUrl = [decoder decodeObjectForKey: @"userImageUrl"];
+        self.picture = [decoder decodeObjectForKey: @"picture"];
+        self.image = [decoder decodeObjectForKey: @"image"];
+
+    }
+    return (self);
+}
+
+@end
+//**********************end***
+
+@implementation SHKItem
 
 - (id)init {
     
@@ -73,6 +113,42 @@ NSString * const SHKAttachmentSaveDir = @"SHKAttachmentSaveDir";
     
     _dropboxDestinationDirectory = SHKCONFIG(dropboxDestinationDirectory);
 }
+
+//CONDUIT **************start*
++ (id)shareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type {
+    SHKItem *item = [[self alloc] init];
+	item.shareType = SHKShareTypeURL;
+    if (type == SHKURLFacebookLike)
+        item.shareType = SHKFacebookLike;
+    else if (type == SHKURLFacebookUnLike)
+        item.shareType = SHKFacebookUnLike;
+    else if (type == SHKURLFacebookComment)
+        item.shareType = SHKFacebookComment;
+    else if (type == SHKURLFacebookDialogWithHtml)
+        item.shareType = SHKFacebookDialogWithHtml;
+    else if (type == SHKURLContentTypeImage)
+    {
+        item.shareType = SHKShareTypeImage;
+        item.image = shareInfo.image;
+    }
+
+    item.URLContentType = type;
+	item.shareInfo = shareInfo;
+    item.title = shareInfo.title;
+    item.URL = [NSURL URLWithString: shareInfo.url];
+    item.text = shareInfo.fbDesc;
+    item.emailBody = shareInfo.emailBody;
+    item.facebookURLShareDescription = shareInfo.fbDesc;
+    //item.facebookURLSharePictureURI = shareInfo.picture;
+    if (shareInfo.twitterTitle)
+        [item setCustomValue:shareInfo.twitterTitle forKey:@"string_TwitterTitle"];
+
+    if (item.shareType == SHKShareTypeURL && !item.URL && item.text)
+        item.shareType = SHKShareTypeText;
+    
+	return item;
+}
+//**********************end***
 
 + (id)URL:(NSURL *)url
 {
@@ -220,6 +296,7 @@ static NSString *kSHKURLPictureURI = @"kSHKURLPictureURI";
 static NSString *kSHKURLDescription = @"kSHKURLDescription";
 static NSString *kSHKTitle = @"kSHKTitle";
 static NSString *kSHKText = @"kSHKText";
+static NSString *kSHKEmailBody = @"kSHKEmailBody";
 static NSString *kSHKTags = @"kSHKTags";
 static NSString *kSHKCustom = @"kSHKCustom";
 static NSString *kSHKFile = @"kSHKFile";
@@ -243,11 +320,13 @@ static NSString *kSHKDropboxDestinationDir = @"kSHKDropboxDestinationDir";
         
         _shareType = [decoder decodeIntForKey:kSHKShareType];
         _URLContentType = [decoder decodeIntForKey:kSHKURLContentType];
+
         _URL = [decoder decodeObjectForKey:kSHKURL];
         _URLPictureURI = [decoder decodeObjectForKey:kSHKURLPictureURI];
         _URLDescription = [decoder decodeObjectForKey:kSHKURLDescription];
         _title = [decoder decodeObjectForKey:kSHKTitle];
         _text = [decoder decodeObjectForKey:kSHKText];
+        _emailBody = [decoder decodeObjectForKey:kSHKEmailBody];
         _tags = [decoder decodeObjectForKey:kSHKTags];
         _custom = [decoder decodeObjectForKey:kSHKCustom];
         _file = [decoder decodeObjectForKey:kSHKFile];
@@ -275,6 +354,7 @@ static NSString *kSHKDropboxDestinationDir = @"kSHKDropboxDestinationDir";
     [encoder encodeObject:self.URLDescription forKey:kSHKURLDescription];
     [encoder encodeObject:self.title forKey:kSHKTitle];
     [encoder encodeObject:self.text forKey:kSHKText];
+    [encoder encodeObject:self.emailBody forKey:kSHKEmailBody];
     [encoder encodeObject:self.tags forKey:kSHKTags];
     [encoder encodeObject:self.custom forKey:kSHKCustom];
     [encoder encodeObject:self.file forKey:kSHKFile];
@@ -305,6 +385,7 @@ static NSString *kSHKDropboxDestinationDir = @"kSHKDropboxDestinationDir";
                                                     Image:%@\n\
                                                     Title: %@\n\
                                                     Text: %@\n\
+                                                    EmailBody: %@\n\
                                                     Tags:%@\n\
                                                     Custom fields:%@\n\n\
                                                     Sharer specific\n\n\
@@ -324,7 +405,7 @@ static NSString *kSHKDropboxDestinationDir = @"kSHKDropboxDestinationDir";
                                                     [self.URLPictureURI absoluteString],
                                                     self.URLDescription,
                                                     [self.image description], 
-                                                    self.title, self.text, 
+                                                    self.title, self.text, self.emailBody,
                                                     self.tags, 
                                                     [self.custom description],
                                                     (long)self.printOutputType,

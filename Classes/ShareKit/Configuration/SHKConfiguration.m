@@ -56,6 +56,55 @@ static SHKConfiguration *sharedInstance = nil;
         } else {
             SuppressPerformSelectorLeakWarning(value = [self.configurator performSelector:sel]);
         }
+        
+        //CONDUIT **************start*
+        if ([selector isEqualToString:@"facebookAppId"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getFBAppID)])
+                return [delegate performSelector:@selector(share_getFBAppID)];
+        }
+        
+        if ([selector isEqualToString:@"facebookLocalAppId"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getFBAppSuffix)])
+                return [delegate performSelector:@selector(share_getFBAppSuffix)];
+        }
+        
+        if ([selector isEqualToString:@"facebookReadPermissions"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getFBPermissions)])
+                return [delegate performSelector:@selector(share_getFBPermissions)];
+        }
+        
+        if ([selector isEqualToString:@"barTintForView:"])
+        {
+            id delegate = [[UIApplication sharedApplication] delegate];
+            if ([delegate respondsToSelector:@selector(share_getBarTintForView:)])
+                return [delegate performSelector:@selector(share_getBarTintForView:) withObject:object];
+        }
+        
+        //**********************end***
+
+        
+        SEL sel = NSSelectorFromString(selector);
+        if ([self.configurator respondsToSelector:sel]) {
+            id value;
+            if (object) {
+                value = [self.configurator performSelector:sel withObject:object];
+            } else {
+                value = [self.configurator performSelector:sel];
+            }
+            
+            if (value) {
+                //SHKLog(@"Found configuration value for %@: %@", selector, [value description]);
+                return value;
+            }
+        }
+
+        
 
 		if (value) {
 			//SHKLog(@"Found configuration value for %@: %@", selector, [value description]);

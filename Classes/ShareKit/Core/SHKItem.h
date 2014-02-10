@@ -30,16 +30,7 @@
 
 extern NSString * const SHKAttachmentSaveDir;
 
-/*!
- @typedef SHKShareType
- @abstract This is a hint for ShareKit about what type of data do you want to share.
- @constant SHKShareTypeUserInfo There are two ways services interact with ShareKit - some store credentials in user's keychain, some do not. If they do not, you have to fetch available user info using this share type. The user info is then fetched and stored in kSHK<sharerName>UserInfo> key in NSUserDefaults. You might want to wait for SHKSendDidFinishNotification and then update your UI. User info is fetched automatically after successful login. If you only need username, you can call username method on sharer's class.
- @constant SHKShareTypeUndefined placeholder
- @constant SHKShareTypeURL placeholder
- @constant SHKShareTypeText placeholder
- @constant SHKShareTypeImage placeholder
- @constant SHKShareTypeFile placeholder
- */
+
 typedef enum
 {
 	SHKShareTypeUndefined,
@@ -47,17 +38,33 @@ typedef enum
 	SHKShareTypeText,
 	SHKShareTypeImage,
 	SHKShareTypeFile,
-    SHKShareTypeUserInfo
+    SHKShareTypeUserInfo,
+    
+    //CONDUIT **************start*
+    SHKFacebookLike,
+    SHKFacebookUnLike,
+    SHKFacebookComment,
+    SHKFacebookDialogWithHtml,
+    SHKFacebookGraphAPIRequest
+    //**********************end***
     
 } SHKShareType;
 
-typedef enum 
-{
+typedef enum
+{   
     SHKURLContentTypeUndefined,
     SHKURLContentTypeWebpage,
     SHKURLContentTypeAudio,
     SHKURLContentTypeVideo,
-    SHKURLContentTypeImage
+    SHKURLContentTypeImage,
+    
+    //CONDUIT **************start*
+    SHKURLFacebookLike,
+    SHKURLFacebookUnLike,
+    SHKURLFacebookComment,
+    SHKURLFacebookDialogWithHtml,
+    SHKURLFacebookLogin
+    //**********************end***
     
 } SHKURLContentType;
 
@@ -68,12 +75,21 @@ typedef enum
     
 } SHKImageConversionType;
 
+//CONDUIT **************start*
+@interface SHKItem_ShareInfo : NSObject <NSCoding> {
+    
+}
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) NSString *comment, *emailBody, *emailSubject, *fbDesc, *shortDesc, *title, *twitterFrom, *twitterTitle, *url, *userImageUrl, *picture;
+@end
+//**********************end***
+
 @interface SHKItem : NSObject <NSCoding>
 
 @property (nonatomic) SHKShareType shareType;
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *text, *emailBody;
 @property (nonatomic, strong) NSArray *tags;
 
 @property (nonatomic, strong) NSURL *URL;
@@ -81,6 +97,7 @@ typedef enum
 @property (nonatomic, strong) NSURL *URLPictureURI;
 /// Optional. Some services (Facebook, LinkedIn, ...) might use this to enhance the URL share. This parameter is omitted if you use ios native share sheet.
 @property (nonatomic, strong) NSString *URLDescription;
+
 @property (nonatomic) SHKURLContentType URLContentType;
 
 @property (nonatomic, strong) UIImage *image;
@@ -88,6 +105,11 @@ typedef enum
 @property (nonatomic, strong) SHKFile *file;
 
 /*** creation methods ***/
+
+//CONDUIT **************start*
++ (id)shareInfo:(SHKItem_ShareInfo *)shareInfo contentType:(SHKURLContentType)type;
+@property (nonatomic, retain) SHKItem_ShareInfo *shareInfo;
+//**********************end***
 
 /* always use these for SHKItem object creation, as they implicitly set appropriate SHKShareType. Items without SHKShareType will not be shared! */
 
@@ -118,9 +140,9 @@ typedef enum
 
 /*** sharer specific extension properties ***/
 
-/* sharers might be instructed to share the item in specific ways, e.g. SHKPrint's print quality, SHKMail's send to specified recipients etc. 
- Generally, YOU DO NOT NEED TO SET THESE, as sharers perfectly work with automatic default values. You can change default values in your app's 
- configurator, or individually during SHKItem creation. Example is in the demo app - ExampleShareLink.m - share method. More info about 
+/* sharers might be instructed to share the item in specific ways, e.g. SHKPrint's print quality, SHKMail's send to specified recipients etc.
+ Generally, YOU DO NOT NEED TO SET THESE, as sharers perfectly work with automatic default values. You can change default values in your app's
+ configurator, or individually during SHKItem creation. Example is in the demo app - ExampleShareLink.m - share method. More info about
  particular setting is in DefaultSHKConfigurator.m
  */
 
@@ -130,7 +152,7 @@ typedef enum
 /* SHKMail */
 @property (nonatomic, strong) NSArray *mailToRecipients;
 @property BOOL isMailHTML;
-@property CGFloat mailJPGQuality; 
+@property CGFloat mailJPGQuality;
 @property BOOL mailShareWithAppSignature; //default NO. Appends "Sent from <appName>"
 
 /* SHKFacebook */

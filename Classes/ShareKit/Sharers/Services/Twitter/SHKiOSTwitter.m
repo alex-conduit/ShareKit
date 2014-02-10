@@ -346,6 +346,11 @@
 
 - (NSString *)authorizationYFrogHeader {
     
+    //CONDUIT **************start*
+    if ([self.item customValueForKey:@"string_TwitterTitle"])
+        self.item.title = [self.item customValueForKey:@"string_TwitterTitle"];
+    //**********************end***
+    
     SLRequest *twitterRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                    requestMethod:SLRequestMethodPOST
                                                              URL:[[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/account/verify_credentials.xml"]
