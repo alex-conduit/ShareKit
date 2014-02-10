@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3DE12318A9147500B7F39F /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D3DE12118A9147500B7F39F /* SSKeychain.h */; };
+		1D3DE12418A9147500B7F39F /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DE12218A9147500B7F39F /* SSKeychain.m */; };
 		456BADAB169107D1005B3077 /* SHKGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 456BADA9169107D1005B3077 /* SHKGooglePlus.h */; };
 		456BADAC169107D1005B3077 /* SHKGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BADAA169107D1005B3077 /* SHKGooglePlus.m */; };
 		456BADAD1691095B005B3077 /* libGoogle Plus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4503EBC0169104470057294C /* libGoogle Plus.a */; };
@@ -171,10 +173,6 @@
 		7AAE8CA616EB961700429C51 /* SHKPlurk.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE8C9C16EB950800429C51 /* SHKPlurk.m */; };
 		7AAE8CA916EB965200429C51 /* libPlurk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAE8CA516EB960500429C51 /* libPlurk.a */; };
 		7AB8051115AC7BCC004FB430 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 427FBAEE15934A0D0024F825 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7AB99E6F17FD9C850050DD98 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB99E6B17FD9C850050DD98 /* SSKeychain.h */; };
-		7AB99E7017FD9C850050DD98 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB99E6C17FD9C850050DD98 /* SSKeychain.m */; };
-		7AB99E7117FD9C850050DD98 /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB99E6D17FD9C850050DD98 /* SSKeychainQuery.h */; };
-		7AB99E7217FD9C850050DD98 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB99E6E17FD9C850050DD98 /* SSKeychainQuery.m */; };
 		7ABCDBAC1577528B003BBFFD /* SHKFormFieldCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCDBA81577528B003BBFFD /* SHKFormFieldCellSwitch.m */; };
 		7ABCDBB3157757D1003BBFFD /* SHKFormFieldCellOptionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCDBAF157757D1003BBFFD /* SHKFormFieldCellOptionPicker.m */; };
 		7ABDD99817A7FF6D00E4B014 /* SHKFormFieldLargeTextSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABDD99617A7FF6D00E4B014 /* SHKFormFieldLargeTextSettings.h */; };
@@ -595,6 +593,8 @@
 		1A52EDF415CB032B00A737D8 /* SHKKippt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKKippt.h; sourceTree = "<group>"; };
 		1A52EDF515CB032B00A737D8 /* SHKKippt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKKippt.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3DE12118A9147500B7F39F /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = Submodules/sskeychain/SSKeychain.h; sourceTree = SOURCE_ROOT; };
+		1D3DE12218A9147500B7F39F /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = Submodules/sskeychain/SSKeychain.m; sourceTree = SOURCE_ROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		427FBAB11592F7C90024F825 /* ENOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENOAuthViewController.h; sourceTree = "<group>"; };
@@ -898,11 +898,6 @@
 		7AB536131552E26800171BCE /* ShareKitLibraryResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ShareKitLibraryResources-Info.plist"; path = "ShareKitLibraryResources/ShareKitLibraryResources-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7AB5FAB314D30AC700795BA9 /* SHKXMLResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKXMLResponseParser.h; sourceTree = "<group>"; };
 		7AB5FAB414D30AC700795BA9 /* SHKXMLResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKXMLResponseParser.m; sourceTree = "<group>"; };
-		7AB99E6A17FD9C850050DD98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
-		7AB99E6B17FD9C850050DD98 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		7AB99E6C17FD9C850050DD98 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		7AB99E6D17FD9C850050DD98 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		7AB99E6E17FD9C850050DD98 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		7ABCDBA71577528B003BBFFD /* SHKFormFieldCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKFormFieldCellSwitch.h; sourceTree = "<group>"; };
 		7ABCDBA81577528B003BBFFD /* SHKFormFieldCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKFormFieldCellSwitch.m; sourceTree = "<group>"; };
 		7ABCDBAE157757D1003BBFFD /* SHKFormFieldCellOptionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKFormFieldCellOptionPicker.h; sourceTree = "<group>"; };
@@ -2242,11 +2237,8 @@
 		7AB99E6817FD9C850050DD98 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				7AB99E6917FD9C850050DD98 /* SSKeychain.strings */,
-				7AB99E6B17FD9C850050DD98 /* SSKeychain.h */,
-				7AB99E6C17FD9C850050DD98 /* SSKeychain.m */,
-				7AB99E6D17FD9C850050DD98 /* SSKeychainQuery.h */,
-				7AB99E6E17FD9C850050DD98 /* SSKeychainQuery.m */,
+				1D3DE12118A9147500B7F39F /* SSKeychain.h */,
+				1D3DE12218A9147500B7F39F /* SSKeychain.m */,
 			);
 			name = SSKeychain;
 			path = Submodules/sskeychain/SSKeychain;
@@ -2592,8 +2584,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AB99E6F17FD9C850050DD98 /* SSKeychain.h in Headers */,
-				7AB99E7117FD9C850050DD98 /* SSKeychainQuery.h in Headers */,
+				1D3DE12318A9147500B7F39F /* SSKeychain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3840,8 +3831,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AB99E7217FD9C850050DD98 /* SSKeychainQuery.m in Sources */,
-				7AB99E7017FD9C850050DD98 /* SSKeychain.m in Sources */,
+				1D3DE12418A9147500B7F39F /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4403,14 +4393,6 @@
 				7A9FEF34180403520053CB40 /* zh_TW */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		7AB99E6917FD9C850050DD98 /* SSKeychain.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7AB99E6A17FD9C850050DD98 /* en */,
-			);
-			name = SSKeychain.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -5155,6 +5137,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/ShareKitLibrary.dst;
@@ -5187,6 +5170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/ShareKitLibrary.dst;
@@ -6403,7 +6387,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -6420,7 +6404,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = c99;
