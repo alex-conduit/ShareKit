@@ -165,20 +165,7 @@ BOOL SHKinit;
     
     //CONDUIT
     //*******************************************
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
-    {
-        [[(UINavigationController *)vc navigationBar] setBarTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
-
-        [[(UINavigationController *)vc navigationBar] setTitleTextAttributes:
-         [NSDictionary dictionaryWithObjectsAndKeys:
-          [UIColor blackColor] , UITextAttributeTextColor,
-          [UIColor clearColor], UITextAttributeTextShadowColor,
-          [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
-          [UIFont boldSystemFontOfSize: 20], UITextAttributeFont,
-          nil]];
-    }
-    else
-        [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
+    [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
     //*******************************************
 
     [self presentVC:vc];

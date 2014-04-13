@@ -1007,6 +1007,13 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
                 break;
             }
             default:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@(!self.quiet) forKey:@"result"];
+                [dict setObject:@"sendDidFinish" forKey:@"function"];
+                NSString *sNotificationName = [NSString stringWithFormat:@"%@-%@", NSStringFromClass([self class]), self.item.title];
+                [[NSNotificationCenter defaultCenter] postNotificationName:sNotificationName object:nil userInfo:dict];
+            }
                 break;
         }
     }
@@ -1087,6 +1094,13 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
                 break;
             }
             default:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@(!self.quiet) forKey:@"result"];
+                [dict setObject:@"sendDidFailWithError" forKey:@"function"];
+                NSString *sNotificationName = [NSString stringWithFormat:@"%@-%@", NSStringFromClass([self class]), self.item.title];
+                [[NSNotificationCenter defaultCenter] postNotificationName:sNotificationName object:nil userInfo:dict];
+            }
                 break;
         }
     }
@@ -1140,6 +1154,13 @@ static NSString *const kSHKStoredShareInfoKey=@"kSHKStoredShareInfo";
                 break;
             }
             default:
+            {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                [dict setObject:@(!self.quiet) forKey:@"result"];
+                [dict setObject:@"sendDidCancel" forKey:@"function"];
+                NSString *sNotificationName = [NSString stringWithFormat:@"%@-%@", NSStringFromClass([self class]), self.item.title];
+                [[NSNotificationCenter defaultCenter] postNotificationName:sNotificationName object:nil userInfo:dict];
+            }
                 break;
         }
     }
