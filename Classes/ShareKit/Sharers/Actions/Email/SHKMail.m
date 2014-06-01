@@ -109,8 +109,7 @@
 	return [self sendMail]; // Put the actual sending action in another method to make subclassing SHKMail easier
 }
 
-- (BOOL)sendMail
-{	
+- (BOOL)sendMail {
 	MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
 	if (!mailController) {
 		// e.g. no mail account registered (will show alert)
@@ -179,8 +178,7 @@
 	return YES;
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {    
 	[[SHK currentHelper] hideCurrentViewControllerAnimated:YES];
 	
 	switch (result) 

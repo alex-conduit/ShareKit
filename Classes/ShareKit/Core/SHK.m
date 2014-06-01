@@ -160,13 +160,15 @@ BOOL SHKinit;
     
 	if (![vc isKindOfClass:[UINavigationController class]]) vc = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    [(UINavigationController *)vc navigationBar].barStyle = [SHK barStyle];
-    [(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
-    
-    //CONDUIT
-    //*******************************************
-    [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
-    //*******************************************
+//    if (![vc isKindOfClass:[MFMailComposeViewController class]]) {
+        [(UINavigationController *)vc navigationBar].barStyle = [SHK barStyle];
+        [(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
+        
+        //CONDUIT
+        //*******************************************
+//        [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
+        //*******************************************
+//    }
 
     [self presentVC:vc];
 }
