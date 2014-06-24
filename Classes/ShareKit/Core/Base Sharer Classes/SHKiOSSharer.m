@@ -25,7 +25,8 @@
     
     SLComposeViewController *sharerUIController = [SLComposeViewController composeViewControllerForServiceType:serviceType];
     
-    [sharerUIController addImage:self.item.image];
+    if (self.item.image)
+        [sharerUIController addImage:self.item.image];
     [sharerUIController addURL:self.item.URL];
     
     NSString *initialText = (self.item.shareType == SHKShareTypeText ? self.item.text : self.item.title);

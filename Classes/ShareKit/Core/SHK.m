@@ -163,10 +163,10 @@ BOOL SHKinit;
     [(UINavigationController *)vc navigationBar].barStyle = [SHK barStyle];
     [(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
     
-    //CONDUIT
-    //*******************************************
-    [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
-    //*******************************************
+//    //CONDUIT
+//    //*******************************************
+//    [[(UINavigationController *)vc navigationBar] setTintColor: SHKCONFIG_WITH_ARGUMENT(barTintForView:,vc)];
+//    //*******************************************
 
     [self presentVC:vc];
 }

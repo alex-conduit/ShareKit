@@ -849,10 +849,12 @@ static SHKFacebook *requestingPermisSHKFacebook=nil;
 - (void)showFacebookForm
 {
     DEFacebookComposeViewControllerCompletionHandler completionHandler = ^(DEFacebookComposeViewControllerResult result , NSMutableDictionary *dictResult) {
+        
         switch (result) {
             case DEFacebookComposeViewControllerResultCancelled:
                 [[SHK currentHelper].rootViewForUIDisplay dismissViewControllerAnimated:YES completion:^{ }];
                 NSLog(@"Facebook Result: Cancelled");
+                [super sendDidCancel];
                 break;
             case DEFacebookComposeViewControllerResultDone:
                 [[SHK currentHelper].rootViewForUIDisplay dismissViewControllerAnimated:YES completion:^{ }];
